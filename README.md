@@ -86,9 +86,9 @@ If you're hiring or want to trade notes on AI product strategy or vibe coding �
 
 This portfolio was built using vibe coding — no traditional dev environment, no framework, no build step. Just a single `index.html` file prototyped iteratively with AI assistance.
 
-It's a working demonstration of the methodology I've been evangelizing internally at Employ Inc. since Q4 2025.
+It's a working demonstration of the methodology I've been evangelizing internally at Employ Inc. since Q2 2025.
 
-*The footer says "Built with vibe coding — because of course it was." That line writes itself.*
+"Built with vibe coding — because of course it was."
 
 ---
 
