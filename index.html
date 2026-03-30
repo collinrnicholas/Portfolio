@@ -38,24 +38,7 @@ body {
 }
 
 /* ── Cursor — desktop only ── */
-@media (hover: hover) and (pointer: fine) {
-  * { cursor: none !important; }
-  #cursor { display: block; }
-}
-@media (hover: none), (pointer: coarse) {
-  #cursor { display: none !important; }
-  * { cursor: auto !important; }
-  a, button { cursor: pointer !important; }
-}
-#cursor {
-  position: fixed; width: 10px; height: 10px;
-  background: var(--accent); border-radius: 50%;
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%,-50%);
-  transition: transform 0.08s, background 0.2s, width 0.2s, height 0.2s;
-  mix-blend-mode: multiply;
-}
-#cursor.hover { width: 28px; height: 28px; background: var(--gold); opacity: 0.7; }
+#cursor { display: none; }
 
 /* ── Noise overlay ── */
 body::before {
@@ -998,17 +981,6 @@ document.addEventListener('click', e => {
   if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
     menu.classList.remove('open');
   }
-});
-
-// Custom cursor
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
-document.querySelectorAll('a, button, .proj-btn, .stat-card, .cs-card, .chip').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
 });
 
 // Scroll reveal — with immediate fallback
