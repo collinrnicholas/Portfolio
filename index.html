@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collin Nicholas — AI Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #0A0A0F;
+  --ink2: #1C1C26;
+  --paper: #F5F3EE;
+  --paper2: #EDEAE3;
+  --accent: #1A3C6E;
+  --accent2: #2D5FA8;
+  --gold: #C8922A;
+  --gold2: #E8B84B;
+  --muted: #6B6B7A;
+  --border: rgba(10,10,15,0.10);
+  --border2: rgba(10,10,15,0.18);
+  --ff-display: 'Syne', sans-serif;
+  --ff-body: 'DM Sans', sans-serif;
+  --ff-mono: 'DM Mono', monospace;
+  --r: 6px;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--ff-body);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── Cursor ── */
+* { cursor: none !important; }
+#cursor {
+  position: fixed; width: 10px; height: 10px;
+  background: var(--accent); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.08s, background 0.2s, width 0.2s, height 0.2s;
+  mix-blend-mode: multiply;
+}
+#cursor.hover { width: 28px; height: 28px; background: var(--gold); opacity: 0.7; }
+
+/* ── Noise overlay ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  opacity: 0.6;
+}
+
+/* ── Nav ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(245,243,238,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--ff-display);
+  font-weight: 700; font-size: 17px;
+  color: var(--ink); letter-spacing: -0.02em;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  font-family: var(--ff-body); font-size: 13px; font-weight: 500;
+  color: var(--muted); text-decoration: none; letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  font-family: var(--ff-mono); font-size: 12px; font-weight: 500;
+  color: var(--accent); text-decoration: none;
+  border: 1.5px solid var(--accent);
+  padding: 8px 18px; border-radius: var(--r);
+  transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--accent); color: var(--paper); }
+
+/* ── Hero ── */
+#hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 120px 48px 80px;
+  position: relative; z-index: 1;
+  gap: 60px;
+}
+.hero-left { max-width: 580px; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--ff-mono); font-size: 12px; font-weight: 500;
+  color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero-tag::before {
+  content: ''; display: block; width: 24px; height: 1.5px;
+  background: var(--gold);
+}
+.hero-name {
+  font-family: var(--ff-display);
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 800; line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.hero-name .line2 { color: var(--accent2); }
+.hero-role {
+  font-family: var(--ff-display);
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 500; color: var(--muted);
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+  line-height: 1.3;
+}
+.hero-desc {
+  font-size: 16px; color: var(--muted); line-height: 1.75;
+  max-width: 480px; margin-bottom: 44px;
+}
+.hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.btn-primary {
+  font-family: var(--ff-display); font-size: 14px; font-weight: 700;
+  background: var(--accent); color: var(--paper);
+  padding: 14px 28px; border-radius: var(--r);
+  text-decoration: none; letter-spacing: -0.01em;
+  transition: all 0.2s; border: none;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+.btn-secondary {
+  font-family: var(--ff-body); font-size: 14px; font-weight: 500;
+  color: var(--ink); text-decoration: none;
+  border: 1.5px solid var(--border2);
+  padding: 13px 24px; border-radius: var(--r);
+  transition: all 0.2s; display: inline-block;
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Hero right — stats */
+.hero-right {
+  display: flex; flex-direction: column; gap: 20px;
+  align-items: flex-end;
+}
+.stat-stack {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  width: 100%; max-width: 400px;
+}
+.stat-card {
+  background: var(--paper2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 22px 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(10,10,15,0.08); }
+.stat-card.accent { background: var(--accent); border-color: var(--accent); }
+.stat-card.accent .stat-num, .stat-card.accent .stat-label { color: var(--paper); }
+.stat-num {
+  font-family: var(--ff-display); font-size: 36px; font-weight: 800;
+  color: var(--ink); letter-spacing: -0.03em; line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-num span { font-size: 20px; color: var(--gold); }
+.stat-label { font-size: 12px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.hero-links {
+  display: flex; gap: 16px; align-items: center;
+  font-family: var(--ff-mono); font-size: 12px;
+}
+.hero-links a {
+  color: var(--muted); text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+  transition: color 0.2s;
+}
+.hero-links a:hover { color: var(--accent); }
+.hero-links .divider { color: var(--border2); }
+
+/* ── Section wrapper ── */
+section { position: relative; z-index: 1; }
+.section-inner { max-width: 1140px; margin: 0 auto; padding: 100px 48px; }
+.section-label {
+  font-family: var(--ff-mono); font-size: 11px; font-weight: 500;
+  color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+}
+.section-label::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--gold); }
+.section-title {
+  font-family: var(--ff-display); font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800; letter-spacing: -0.03em; color: var(--ink);
+  line-height: 1.0; margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 16px; color: var(--muted); max-width: 560px; line-height: 1.7;
+  margin-bottom: 56px;
+}
+
+/* ── Philosophy ── */
+#philosophy { background: var(--ink2); }
+#philosophy .section-title, #philosophy .section-label { color: var(--paper); }
+#philosophy .section-label::after { background: var(--gold); }
+#philosophy .section-label { color: var(--gold); }
+#philosophy .section-sub { color: rgba(245,243,238,0.6); }
+.philosophy-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  background: rgba(245,243,238,0.08);
+  border-radius: 12px; overflow: hidden;
+}
+.philosophy-card {
+  background: var(--ink2); padding: 40px 32px;
+  transition: background 0.2s;
+}
+.philosophy-card:hover { background: rgba(245,243,238,0.04); }
+.phil-num {
+  font-family: var(--ff-mono); font-size: 11px; color: var(--gold);
+  letter-spacing: 0.1em; margin-bottom: 20px;
+}
+.phil-title {
+  font-family: var(--ff-display); font-size: 20px; font-weight: 700;
+  color: var(--paper); letter-spacing: -0.02em; margin-bottom: 12px;
+  line-height: 1.2;
+}
+.phil-body { font-size: 14px; color: rgba(245,243,238,0.55); line-height: 1.7; }
+
+/* ── Projects ── */
+#projects { background: var(--paper); }
+.projects-grid { display: flex; flex-direction: column; gap: 24px; }
+.project-card {
+  background: var(--paper2); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+  display: grid; grid-template-columns: 1fr 360px;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.project-card:hover { box-shadow: 0 12px 40px rgba(10,10,15,0.10); transform: translateY(-2px); }
+.project-card.featured { border-color: var(--accent); }
+.project-body { padding: 40px; }
+.project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.tag {
+  font-family: var(--ff-mono); font-size: 11px; font-weight: 500;
+  padding: 4px 10px; border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+.tag-blue { background: rgba(26,60,110,0.10); color: var(--accent); }
+.tag-gold { background: rgba(200,146,42,0.12); color: var(--gold); }
+.tag-green { background: rgba(34,90,60,0.10); color: #225A3C; }
+.tag-gray { background: var(--paper); color: var(--muted); }
+.project-title {
+  font-family: var(--ff-display); font-size: 24px; font-weight: 700;
+  letter-spacing: -0.02em; color: var(--ink); margin-bottom: 12px; line-height: 1.2;
+}
+.project-desc { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+.project-metrics { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; }
+.metric { }
+.metric-val {
+  font-family: var(--ff-display); font-size: 22px; font-weight: 800;
+  color: var(--ink); letter-spacing: -0.02em; line-height: 1;
+}
+.metric-val .unit { font-size: 14px; color: var(--gold); }
+.metric-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+.project-links { display: flex; gap: 12px; }
+.proj-btn {
+  font-family: var(--ff-mono); font-size: 12px; font-weight: 500;
+  padding: 9px 18px; border-radius: var(--r);
+  text-decoration: none; transition: all 0.18s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.proj-btn-primary { background: var(--accent); color: var(--paper); }
+.proj-btn-primary:hover { background: var(--accent2); }
+.proj-btn-secondary { border: 1.5px solid var(--border2); color: var(--ink); }
+.proj-btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Video panel */
+.project-video {
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; min-height: 280px;
+}
+.video-placeholder {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 16px; padding: 40px;
+  text-align: center;
+}
+.play-btn {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(245,243,238,0.10);
+  border: 2px solid rgba(245,243,238,0.25);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.play-btn:hover { background: var(--gold); border-color: var(--gold); transform: scale(1.08); }
+.play-btn svg { margin-left: 4px; }
+.video-title { font-family: var(--ff-display); font-size: 14px; font-weight: 600; color: rgba(245,243,238,0.7); line-height: 1.3; }
+.video-duration { font-family: var(--ff-mono); font-size: 11px; color: rgba(245,243,238,0.35); }
+
+/* ── Case Studies ── */
+#casestudies { background: var(--paper2); }
+.cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.cs-card {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: 10px; padding: 32px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none; display: block;
+}
+.cs-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(10,10,15,0.08); }
+.cs-eyebrow {
+  font-family: var(--ff-mono); font-size: 11px; color: var(--gold);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px;
+}
+.cs-title {
+  font-family: var(--ff-display); font-size: 20px; font-weight: 700;
+  color: var(--ink); letter-spacing: -0.02em; margin-bottom: 10px; line-height: 1.25;
+}
+.cs-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
+.cs-arrow {
+  font-family: var(--ff-mono); font-size: 12px; color: var(--accent);
+  display: flex; align-items: center; gap: 6px;
+  transition: gap 0.2s;
+}
+.cs-card:hover .cs-arrow { gap: 10px; }
+
+/* ── About / Philosophy ── */
+#about { background: var(--paper); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.about-text p { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
+.about-text p strong { color: var(--ink); font-weight: 500; }
+.about-skills { }
+.skill-group { margin-bottom: 28px; }
+.skill-group-label {
+  font-family: var(--ff-mono); font-size: 11px; font-weight: 500;
+  color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-size: 13px; font-weight: 400; color: var(--ink2);
+  background: var(--paper2); border: 1px solid var(--border);
+  padding: 5px 12px; border-radius: 100px;
+  transition: all 0.15s;
+}
+.chip:hover { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+
+/* ── Contact ── */
+#contact { background: var(--ink); }
+#contact .section-title { color: var(--paper); }
+#contact .section-label { color: var(--gold); }
+#contact .section-label::after { background: var(--gold); }
+#contact .section-sub { color: rgba(245,243,238,0.5); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label {
+  font-family: var(--ff-mono); font-size: 11px; color: rgba(245,243,238,0.4);
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.form-field input, .form-field textarea, .form-field select {
+  background: rgba(245,243,238,0.06); border: 1px solid rgba(245,243,238,0.12);
+  border-radius: var(--r); padding: 12px 14px;
+  font-family: var(--ff-body); font-size: 14px; color: var(--paper);
+  outline: none; transition: border-color 0.2s;
+  cursor: text;
+}
+.form-field input::placeholder, .form-field textarea::placeholder { color: rgba(245,243,238,0.25); }
+.form-field input:focus, .form-field textarea:focus { border-color: rgba(245,243,238,0.35); }
+.form-field textarea { resize: vertical; min-height: 120px; }
+.form-submit {
+  font-family: var(--ff-display); font-size: 15px; font-weight: 700;
+  background: var(--gold); color: var(--ink);
+  border: none; padding: 15px 32px; border-radius: var(--r);
+  letter-spacing: -0.01em; transition: all 0.2s;
+  align-self: flex-start; cursor: pointer;
+}
+.form-submit:hover { background: var(--gold2); transform: translateY(-1px); }
+.contact-info { display: flex; flex-direction: column; gap: 28px; }
+.contact-item { display: flex; flex-direction: column; gap: 4px; }
+.contact-item-label {
+  font-family: var(--ff-mono); font-size: 11px;
+  color: rgba(245,243,238,0.35); letter-spacing: 0.08em; text-transform: uppercase;
+}
+.contact-item-val {
+  font-family: var(--ff-display); font-size: 18px; font-weight: 600;
+  color: var(--paper); letter-spacing: -0.01em;
+}
+.contact-item-val a { color: inherit; text-decoration: none; }
+.contact-item-val a:hover { color: var(--gold); }
+.social-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; }
+.social-btn {
+  font-family: var(--ff-mono); font-size: 12px; font-weight: 500;
+  padding: 9px 18px; border-radius: var(--r);
+  text-decoration: none; display: flex; align-items: center; gap: 7px;
+  border: 1.5px solid rgba(245,243,238,0.15);
+  color: rgba(245,243,238,0.7);
+  transition: all 0.18s;
+}
+.social-btn:hover { border-color: var(--gold); color: var(--gold); }
+.cal-btn {
+  font-family: var(--ff-display); font-size: 14px; font-weight: 700;
+  background: transparent; border: 1.5px solid rgba(245,243,238,0.2);
+  color: var(--paper); padding: 14px 24px; border-radius: var(--r);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.2s; margin-top: 8px;
+}
+.cal-btn:hover { background: rgba(245,243,238,0.06); border-color: rgba(245,243,238,0.4); }
+
+/* ── Footer ── */
+footer {
+  background: var(--ink); border-top: 1px solid rgba(245,243,238,0.08);
+  padding: 32px 48px; position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-copy { font-family: var(--ff-mono); font-size: 12px; color: rgba(245,243,238,0.25); }
+.footer-made { font-family: var(--ff-mono); font-size: 11px; color: rgba(245,243,238,0.2); }
+.footer-made span { color: var(--gold); }
+
+/* ── Scroll reveal ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  #hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 40px; }
+  .hero-right { align-items: flex-start; }
+  .section-inner { padding: 70px 24px; }
+  .philosophy-grid { grid-template-columns: 1fr; }
+  .project-card { grid-template-columns: 1fr; }
+  .project-video { min-height: 200px; }
+  .cs-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">CN<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#casestudies">Case Studies</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="./Collin_Nicholas_Resume.pdf" class="nav-cta" download>Download Resume</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-left reveal">
+    <div class="hero-tag">AI Product Manager</div>
+    <h1 class="hero-name">
+      Collin<br>
+      <span class="line2">Nicholas</span>
+    </h1>
+    <p class="hero-role">Building AI products that ship,<br>scale, and generate revenue.</p>
+    <p class="hero-desc">Senior PM leading AI strategy across 27,800+ customers at Employ Inc. I prototype with AI, train teams to build with AI, and turn ambiguous 0→1 initiatives into measurable ARR.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">See My Work</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right reveal" style="transition-delay: 0.15s">
+    <div class="stat-stack">
+      <div class="stat-card accent">
+        <div class="stat-num">9<span>+</span></div>
+        <div class="stat-label">AI Products Shipped</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">$2<span>M+</span></div>
+        <div class="stat-label">ARR Generated</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">27<span>k+</span></div>
+        <div class="stat-label">Customers Served</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">12<span>yr</span></div>
+        <div class="stat-label">PM Experience</div>
+      </div>
+    </div>
+    <div class="hero-links">
+      <a href="https://linkedin.com/in/collin-nicholas-71103792" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <span class="divider">·</span>
+      <a href="https://github.com" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <span class="divider">·</span>
+      <a href="mailto:Collin.R.Nicholas@gmail.com">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        Email
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHILOSOPHY ── -->
+<section id="philosophy">
+  <div class="section-inner">
+    <div class="section-label reveal">How I Work</div>
+    <h2 class="section-title reveal" style="color:var(--paper)">My PM Philosophy</h2>
+    <p class="section-sub reveal">Three principles that guide every product decision I make.</p>
+    <div class="philosophy-grid reveal">
+      <div class="philosophy-card">
+        <div class="phil-num">01</div>
+        <div class="phil-title">Build first, debate second</div>
+        <div class="phil-body">A working prototype reveals more in one demo than three weeks of PRD debate. I use vibe coding to get something real in front of stakeholders fast — then iterate on signal, not assumptions.</div>
+      </div>
+      <div class="philosophy-card">
+        <div class="phil-num">02</div>
+        <div class="phil-title">AI is a multiplier, not a feature</div>
+        <div class="phil-body">The best AI products solve a real problem that AI happens to unlock. I evaluate every AI solution through three lenses: does it save the user time, reduce uncertainty, or surface something they couldn't see before?</div>
+      </div>
+      <div class="philosophy-card">
+        <div class="phil-num">03</div>
+        <div class="phil-title">Revenue is the proof</div>
+        <div class="phil-body">Strategy without ARR is a hypothesis. I architect AI solutions with pricing and monetization baked in from day one — not bolted on after. Every initiative I lead has a clear path from feature to dollar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label reveal">Portfolio</div>
+    <h2 class="section-title reveal">Projects & Prototypes</h2>
+    <p class="section-sub reveal">A mix of production products, AI prototypes, and personal builds. Each video walks through the problem, my approach, and what I learned.</p>
+    <div class="projects-grid">
+
+      <!-- Project 1 — Personal SaaS -->
+      <div class="project-card featured reveal">
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag tag-gold">Personal SaaS</span>
+            <span class="tag tag-blue">In Production</span>
+            <span class="tag tag-green">Real Users</span>
+          </div>
+          <h3 class="project-title">[Your Personal SaaS Name]</h3>
+          <p class="project-desc">Add a 2–3 sentence description of your personal SaaS product here. What problem does it solve? Who are the users? What makes it interesting from a product and technical standpoint?</p>
+          <div class="project-metrics">
+            <div class="metric">
+              <div class="metric-val">[X]<span class="unit"> users</span></div>
+              <div class="metric-label">Active Users</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">Vibe<span class="unit"> coded</span></div>
+              <div class="metric-label">Built with AI</div>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="#" class="proj-btn proj-btn-primary">▶ Watch Walkthrough</a>
+            <a href="#" class="proj-btn proj-btn-secondary">Live Demo →</a>
+          </div>
+        </div>
+        <div class="project-video">
+          <div class="video-placeholder">
+            <div class="play-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <div class="video-title">Personal SaaS<br>Full Walkthrough</div>
+            <div class="video-duration">~5 min · Face + Screen</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 — Candidate Fraud Signals -->
+      <div class="project-card reveal">
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag tag-blue">0→1 Launch</span>
+            <span class="tag tag-gold">AI Product</span>
+            <span class="tag tag-gray">HR Tech</span>
+          </div>
+          <h3 class="project-title">Candidate Fraud Signals</h3>
+          <p class="project-desc">The first AI-powered fraud detection initiative at Employ Inc. — built from competitive research to a vibe-coded MVP to a full customer launch in weeks. Covers problem framing, build approach, and launch results.</p>
+          <div class="project-metrics">
+            <div class="metric">
+              <div class="metric-val">330<span class="unit">+</span></div>
+              <div class="metric-label">Webinar Registrants</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">20<span class="unit">–40</span></div>
+              <div class="metric-label">Demo Requests</div>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="#" class="proj-btn proj-btn-primary">▶ Watch Walkthrough</a>
+            <a href="#casestudies" class="proj-btn proj-btn-secondary">Case Study →</a>
+          </div>
+        </div>
+        <div class="project-video">
+          <div class="video-placeholder">
+            <div class="play-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <div class="video-title">Fraud Signals<br>MVP Walkthrough</div>
+            <div class="video-duration">~4 min · Screen + Voiceover</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 — Vibe Coding Prototype -->
+      <div class="project-card reveal">
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag tag-blue">Prototype</span>
+            <span class="tag tag-gold">Vibe Coded</span>
+            <span class="tag tag-gray">Internal Tool</span>
+          </div>
+          <h3 class="project-title">AI Screening Prototype</h3>
+          <p class="project-desc">A rapid prototype built to validate the AI screening concept before engineering investment. Shows how vibe coding compressed a 6-week discovery cycle into days — and how real customer feedback from the demo shaped the final product.</p>
+          <div class="project-metrics">
+            <div class="metric">
+              <div class="metric-val">Days<span class="unit"> not weeks</span></div>
+              <div class="metric-label">Discovery Timeline</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">→ Live<span class="unit"> product</span></div>
+              <div class="metric-label">Outcome</div>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="#" class="proj-btn proj-btn-primary">▶ Watch Walkthrough</a>
+          </div>
+        </div>
+        <div class="project-video">
+          <div class="video-placeholder">
+            <div class="play-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <div class="video-title">Prototype to Product<br>Process Walkthrough</div>
+            <div class="video-duration">~6 min · Face + Screen</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 — Personal Projects -->
+      <div class="project-card reveal">
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag tag-gold">Personal Projects</span>
+            <span class="tag tag-blue">Vibe Coded</span>
+          </div>
+          <h3 class="project-title">Personal Vibe Coding Projects</h3>
+          <p class="project-desc">A collection of personal tools and experiments built entirely with vibe coding — exploring ideas across [add your domains]. These projects demonstrate the range of what's possible when a PM builds without engineering dependencies.</p>
+          <div class="project-metrics">
+            <div class="metric">
+              <div class="metric-val">5<span class="unit"> projects</span></div>
+              <div class="metric-label">Built Personally</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">1<span class="unit"> in prod</span></div>
+              <div class="metric-label">Live with Users</div>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="#" class="proj-btn proj-btn-primary">▶ Watch Walkthrough</a>
+          </div>
+        </div>
+        <div class="project-video">
+          <div class="video-placeholder">
+            <div class="play-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <div class="video-title">Personal Projects<br>Showcase</div>
+            <div class="video-duration">~8 min · Face + Screen</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CASE STUDIES ── -->
+<section id="casestudies">
+  <div class="section-inner">
+    <div class="section-label reveal">Deep Dives</div>
+    <h2 class="section-title reveal">Case Studies</h2>
+    <p class="section-sub reveal">The full story behind the biggest initiatives — problem, decision-making, tradeoffs, and results.</p>
+    <div class="cs-grid">
+
+      <a href="#" class="cs-card reveal">
+        <div class="cs-eyebrow">Platform Architecture · 2025</div>
+        <h3 class="cs-title">Employ's First Shared Service: $1.76M ARR in Year One</h3>
+        <p class="cs-desc">How I designed a modular lego-block architecture that let one integration serve three separate ATSs — and why the pricing model made all the difference.</p>
+        <div class="cs-arrow">Read case study <span>→</span></div>
+      </a>
+
+      <a href="#" class="cs-card reveal">
+        <div class="cs-eyebrow">Enterprise Retention · 2025</div>
+        <h3 class="cs-title">Saving a $330K PepsiCo Renewal After a Broken Acquisition</h3>
+        <p class="cs-desc">Six months of daily engagement, broken integrations, and an unhappy enterprise customer. How I turned a potential churn into a multi-year renewal.</p>
+        <div class="cs-arrow">Read case study <span>→</span></div>
+      </a>
+
+      <a href="#" class="cs-card reveal">
+        <div class="cs-eyebrow">AI Strategy · 2025</div>
+        <h3 class="cs-title">Screening Companion: Bundling 5 AI Features Into One New SKU</h3>
+        <p class="cs-desc">The strategy behind packaging Talent Loss Risk, generative emails, an agentic assistant, and two more features into a single revenue-generating product line.</p>
+        <div class="cs-arrow">Read case study <span>→</span></div>
+      </a>
+
+      <a href="#" class="cs-card reveal">
+        <div class="cs-eyebrow">Product-Led Growth · 2025–2026</div>
+        <h3 class="cs-title">AI Marketplace: Solving Low Adoption with In-App Discovery</h3>
+        <p class="cs-desc">When AI adoption lagged, I partnered with GTM and Revenue to build an in-app marketplace that became one of the most successful internal and customer-facing enablement launches.</p>
+        <div class="cs-arrow">Read case study <span>→</span></div>
+      </a>
+
+      <a href="#" class="cs-card reveal">
+        <div class="cs-eyebrow">Vibe Coding · 2025–2026</div>
+        <h3 class="cs-title">Teaching a Product Team to Build: Vibe Coding at Employ</h3>
+        <p class="cs-desc">How I introduced vibe coding to 15 Product and Design team members — the training approach, the tools, the resistance, and the roadmap changes that resulted.</p>
+        <div class="cs-arrow">Read case study <span>→</span></div>
+      </a>
+
+      <a href="#" class="cs-card reveal">
+        <div class="cs-eyebrow">Enterprise UX · 2024</div>
+        <h3 class="cs-title">Jobvite NextGen: Overhauling a UI Across 1,500 Enterprise Customers</h3>
+        <p class="cs-desc">A 9-month initiative, a 3-wave rollout, Progressive Insurance, and weekly C-suite check-ins. The full story of the biggest UI transformation in Jobvite's history.</p>
+        <div class="cs-arrow">Read case study <span>→</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label reveal">Background</div>
+    <h2 class="section-title reveal">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a Senior Product Manager based in <strong>Annandale, VA</strong>, specializing in AI/ML product strategy across enterprise SaaS platforms. At Employ Inc., I lead AI product direction across three applicant tracking systems serving <strong>27,800+ customers</strong>.</p>
+        <p>What sets me apart: I don't just manage AI products — I <strong>build with AI</strong>. I was the first at Employ to adopt vibe coding as a prototyping methodology, trained 15 product and design team members, and independently shipped a full SaaS product in production on my own time.</p>
+        <p>Before Employ, I spent six years at <strong>MicroStrategy</strong> progressing from product support through Principal TPM to Product Owner — generating $31M in pipeline, training 500+ consultants worldwide, and owning the HyperIntelligence mobile product.</p>
+        <p>I'm currently exploring <strong>Senior and Principal PM roles at FAANG+</strong> companies focused on AI/ML products, platform strategy, and developer tools.</p>
+        <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="./Collin_Nicholas_Resume.pdf" class="btn-primary" download>Download Resume</a>
+          <a href="#contact" class="btn-secondary">Let's Talk</a>
+        </div>
+      </div>
+      <div class="about-skills reveal" style="transition-delay:0.15s">
+        <div class="skill-group">
+          <div class="skill-group-label">AI / ML Product</div>
+          <div class="skill-chips">
+            <span class="chip">LLM/GenAI</span>
+            <span class="chip">Agentic AI</span>
+            <span class="chip">Human-in-the-loop</span>
+            <span class="chip">Prompt engineering</span>
+            <span class="chip">Responsible AI</span>
+            <span class="chip">AI governance</span>
+            <span class="chip">Model evaluation</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Product</div>
+          <div class="skill-chips">
+            <span class="chip">0→1 launches</span>
+            <span class="chip">Platform architecture</span>
+            <span class="chip">Pricing strategy</span>
+            <span class="chip">SKU bundling</span>
+            <span class="chip">Product-led growth</span>
+            <span class="chip">A/B experimentation</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Build</div>
+          <div class="skill-chips">
+            <span class="chip">Vibe coding</span>
+            <span class="chip">Rapid prototyping</span>
+            <span class="chip">SQL</span>
+            <span class="chip">API integrations</span>
+            <span class="chip">Mobile (iOS/Android)</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Tools</div>
+          <div class="skill-chips">
+            <span class="chip">IBM WatsonX.Gov</span>
+            <span class="chip">VONQ</span>
+            <span class="chip">Jira</span>
+            <span class="chip">Salesforce</span>
+            <span class="chip">Pendo</span>
+            <span class="chip">Figma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label reveal">Get in Touch</div>
+    <h2 class="section-title reveal">Let's Talk</h2>
+    <p class="section-sub reveal">Open to conversations about senior AI PM roles, collaboration, or just trading notes on vibe coding and product strategy.</p>
+    <div class="contact-grid">
+      <div class="contact-form reveal">
+        <div class="form-row">
+          <div class="form-field">
+            <label>Name</label>
+            <input type="text" placeholder="Your name">
+          </div>
+          <div class="form-field">
+            <label>Company</label>
+            <input type="text" placeholder="Where you work">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-field">
+          <label>What's this about?</label>
+          <select>
+            <option value="">Select a topic</option>
+            <option>Job opportunity</option>
+            <option>PM collaboration</option>
+            <option>Vibe coding / AI prototyping</option>
+            <option>Speaking / advisory</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Message</label>
+          <textarea placeholder="Tell me what's on your mind..."></textarea>
+        </div>
+        <button class="form-submit">Send Message →</button>
+      </div>
+      <div class="contact-info reveal" style="transition-delay:0.15s">
+        <div class="contact-item">
+          <div class="contact-item-label">Email</div>
+          <div class="contact-item-val"><a href="mailto:Collin.R.Nicholas@gmail.com">Collin.R.Nicholas@gmail.com</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">Location</div>
+          <div class="contact-item-val">Annandale, VA</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">Currently</div>
+          <div class="contact-item-val" style="font-size:15px; color: rgba(245,243,238,0.6)">Senior PM at Employ Inc.<br>Exploring AI PM roles at FAANG+</div>
+        </div>
+        <div class="social-row">
+          <a href="https://linkedin.com/in/collin-nicholas-71103792" target="_blank" class="social-btn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com" target="_blank" class="social-btn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <a href="https://calendly.com" target="_blank" class="cal-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book a 30-min call
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-copy">© 2026 Collin Nicholas. All rights reserved.</div>
+  <div class="footer-made">Built with <span>vibe coding</span> · because of course it was</div>
+</footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a, button, .proj-btn, .stat-card, .cs-card, .chip').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Form submit
+document.querySelector('.form-submit').addEventListener('click', () => {
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = 'Message Sent ✓';
+  btn.style.background = '#2D5FA8';
+  setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 3000);
+});
+
+// Smooth nav
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
