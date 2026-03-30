@@ -1,4 +1,4 @@
-# portfolio
+# Portfolio
 # Collin Nicholas — AI Product Manager
 
 > Senior PM specializing in AI/ML product strategy across enterprise SaaS platforms.  
