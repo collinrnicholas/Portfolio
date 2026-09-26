@@ -3,530 +3,684 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Collin Nicholas — AI Product Manager</title>
+<title>Collin Nicholas — Product Leader, AI Platforms &amp; 0→1 Revenue</title>
+<meta name="description" content="Product leader owning AI strategy, platform architecture, and monetization across 27,800+ enterprise customers. Nine AI products shipped, $2M+ ARR generated, and a live independent portfolio.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://collinnicholas.com/">
+<meta property="og:title" content="Collin Nicholas — Product Leader, AI Platforms &amp; 0→1 Revenue">
+<meta property="og:description" content="Product leader owning AI strategy, platform architecture, and monetization across 27,800+ enterprise customers. Nine AI products shipped, $2M+ ARR generated.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Collin Nicholas — Product Leader, AI Platforms &amp; 0→1 Revenue">
+<meta name="twitter:description" content="Product leader owning AI strategy, platform architecture, and monetization across 27,800+ enterprise customers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --ink: #111118; --ink2: #1E1E28;
-  --paper: #FAFAF8; --paper2: #F2F1EC; --paper3: #E8E6DF;
-  --accent: #1A3C6E; --accent2: #2557A7;
-  --gold: #B8841E;
-  --muted: #6B6B78; --muted2: #9B9BA8;
-  --border: rgba(17,17,24,0.08); --border2: rgba(17,17,24,0.15);
-  --ff-d: 'Plus Jakarta Sans','Trebuchet MS',sans-serif;
-  --ff-b: 'Open Sans','Segoe UI',system-ui,sans-serif;
-  --ff-m: 'DM Mono','Consolas',monospace;
-  --r: 8px; --max: 1100px;
-}
-html { scroll-behavior: smooth; }
-body { font-family: var(--ff-b); background: var(--paper); color: var(--ink); font-size: 16px; line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-
-/* NAV */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(250,250,248,0.93); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
-.nav-logo { font-family: var(--ff-d); font-weight: 800; font-size: 18px; color: var(--ink); text-decoration: none; letter-spacing: -0.03em; }
-.nav-logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 36px; list-style: none; }
-.nav-links a { font-family: var(--ff-b); font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.15s; }
-.nav-links a:hover { color: var(--ink); }
-.nav-right { display: flex; align-items: center; gap: 16px; }
-.nav-cta { font-family: var(--ff-m); font-size: 12px; font-weight: 500; color: var(--accent); text-decoration: none; border: 1.5px solid var(--accent); padding: 8px 18px; border-radius: var(--r); transition: all 0.15s; white-space: nowrap; }
-.nav-cta:hover { background: var(--accent); color: var(--paper); }
-.nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; cursor: pointer; }
-.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
-.nav-mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--paper); border-bottom: 1px solid var(--border); padding: 16px 24px; z-index: 99; flex-direction: column; }
-.nav-mobile-menu.open { display: flex; }
-.nav-mobile-menu a { font-family: var(--ff-b); font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border); }
-.nav-mobile-menu a:last-child { border-bottom: none; }
-
-/* HERO */
-#hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 80px; max-width: var(--max); margin: 0 auto; padding: 120px 48px 80px; }
-.hero-tag { font-family: var(--ff-m); font-size: 12px; font-weight: 500; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
-.hero-tag::before { content: ''; width: 28px; height: 1.5px; background: var(--gold); }
-.hero-name { font-family: var(--ff-d); font-weight: 800; font-size: clamp(52px,6.5vw,84px); line-height: 0.92; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 16px; }
-.hero-name .line2 { color: var(--accent); }
-.hero-role { font-family: var(--ff-d); font-size: clamp(17px,2vw,22px); font-weight: 500; color: var(--muted); letter-spacing: -0.01em; line-height: 1.4; margin-bottom: 28px; }
-.hero-desc { font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 460px; margin-bottom: 40px; }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-.btn-primary { font-family: var(--ff-d); font-size: 14px; font-weight: 700; background: var(--ink); color: var(--paper); padding: 13px 28px; border-radius: var(--r); text-decoration: none; transition: all 0.15s; display: inline-block; letter-spacing: -0.01em; }
-.btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
-.btn-secondary { font-family: var(--ff-b); font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1.5px solid var(--border2); padding: 12px 24px; border-radius: var(--r); transition: all 0.15s; display: inline-block; }
-.btn-secondary:hover { border-color: var(--ink); }
-.hero-right { display: flex; flex-direction: column; gap: 20px; }
-.stat-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.stat-card { background: var(--paper2); border: 1px solid var(--border); border-radius: 10px; padding: 24px 20px; transition: transform 0.15s, box-shadow 0.15s; }
-.stat-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(17,17,24,0.07); }
-.stat-card.accent { background: var(--ink); border-color: var(--ink); }
-.stat-card.accent .stat-num { color: var(--paper); }
-.stat-card.accent .stat-label { color: rgba(250,250,248,0.5); }
-.stat-num { font-family: var(--ff-d); font-size: 38px; font-weight: 800; color: var(--ink); letter-spacing: -0.04em; line-height: 1; margin-bottom: 6px; }
-.stat-num span { font-size: 20px; color: var(--gold); }
-.stat-label { font-size: 11px; font-weight: 600; color: var(--muted2); text-transform: uppercase; letter-spacing: 0.07em; }
-.hero-links { display: flex; gap: 20px; align-items: center; font-family: var(--ff-m); font-size: 12px; }
-.hero-links a { color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.15s; }
-.hero-links a:hover { color: var(--ink); }
-.hero-links .sep { color: var(--border2); }
-
-/* SECTIONS */
-.section-inner { max-width: var(--max); margin: 0 auto; padding: 100px 48px; }
-.section-label { font-family: var(--ff-m); font-size: 11px; font-weight: 500; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-.section-label::after { content: ''; width: 32px; height: 1px; background: var(--gold); }
-.section-title { font-family: var(--ff-d); font-size: clamp(30px,4vw,48px); font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1.0; margin-bottom: 14px; }
-.section-sub { font-size: 15px; color: var(--muted); max-width: 520px; line-height: 1.75; margin-bottom: 52px; }
-
-/* PHILOSOPHY */
-#philosophy { background: var(--ink2); }
-#philosophy .section-title { color: var(--paper); }
-#philosophy .section-sub { color: rgba(250,250,248,0.5); }
-.philosophy-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.06); border-radius: 12px; overflow: hidden; }
-.philosophy-card { background: var(--ink2); padding: 44px 36px; transition: background 0.15s; }
-.philosophy-card:hover { background: rgba(255,255,255,0.03); }
-.phil-num { font-family: var(--ff-m); font-size: 11px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 24px; }
-.phil-title { font-family: var(--ff-d); font-size: 19px; font-weight: 700; color: var(--paper); letter-spacing: -0.02em; margin-bottom: 14px; line-height: 1.25; }
-.phil-body { font-size: 14px; color: rgba(250,250,248,0.5); line-height: 1.75; }
-
-/* PROJECTS */
-#projects { background: var(--paper); }
-.projects-grid { display: flex; flex-direction: column; gap: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
-.project-card { background: var(--paper); display: grid; grid-template-columns: 1fr 340px; transition: background 0.15s; border-bottom: 1px solid var(--border); }
-.project-card:last-child { border-bottom: none; }
-.project-card:hover { background: var(--paper2); }
-.project-card.featured { background: var(--paper2); }
-.project-body { padding: 40px 44px; }
-.project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
-.tag { font-family: var(--ff-m); font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 4px; letter-spacing: 0.03em; }
-.tag-blue { background: rgba(26,60,110,0.08); color: var(--accent); }
-.tag-gold { background: rgba(184,132,30,0.10); color: var(--gold); }
-.tag-green { background: rgba(34,90,60,0.08); color: #1E6040; }
-.tag-gray { background: var(--paper3); color: var(--muted); }
-.project-title { font-family: var(--ff-d); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
-.project-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
-.project-metrics { display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
-.metric-val { font-family: var(--ff-d); font-size: 24px; font-weight: 800; color: var(--ink); letter-spacing: -0.03em; line-height: 1; }
-.metric-val .unit { font-size: 14px; color: var(--gold); }
-.metric-label { font-size: 11px; color: var(--muted2); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 3px; font-weight: 600; }
-.project-links { display: flex; gap: 12px; flex-wrap: wrap; }
-.proj-btn { font-family: var(--ff-m); font-size: 12px; font-weight: 500; padding: 9px 18px; border-radius: var(--r); text-decoration: none; transition: all 0.15s; display: inline-flex; align-items: center; gap: 6px; }
-.proj-btn-primary { background: var(--ink); color: var(--paper); }
-.proj-btn-primary:hover { background: var(--accent); }
-.proj-btn-secondary { border: 1.5px solid var(--border2); color: var(--ink); }
-.proj-btn-secondary:hover { border-color: var(--ink); }
-.project-video { background: var(--ink2); display: flex; align-items: center; justify-content: center; min-height: 260px; }
-.video-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 40px; text-align: center; }
-.play-btn { width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; transition: all 0.15s; cursor: pointer; }
-.play-btn:hover { background: var(--accent2); border-color: var(--accent2); transform: scale(1.06); }
-.play-btn svg { margin-left: 3px; }
-.video-title { font-family: var(--ff-d); font-size: 13px; font-weight: 600; color: rgba(250,250,248,0.6); line-height: 1.4; }
-.video-duration { font-family: var(--ff-m); font-size: 11px; color: rgba(250,250,248,0.3); }
-
-/* CASE STUDIES */
-#casestudies { background: var(--paper2); }
-.cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
-.cs-card { background: var(--paper); padding: 36px 40px; text-decoration: none; display: block; transition: background 0.15s; }
-.cs-card:hover { background: var(--paper2); }
-.cs-eyebrow { font-family: var(--ff-m); font-size: 11px; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
-.cs-title { font-family: var(--ff-d); font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 10px; line-height: 1.25; }
-.cs-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
-.cs-arrow { font-family: var(--ff-m); font-size: 12px; color: var(--accent); display: flex; align-items: center; gap: 6px; transition: gap 0.15s; }
-.cs-card:hover .cs-arrow { gap: 10px; }
-
-/* ABOUT */
-#about { background: var(--paper); }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-.about-text p { font-size: 15px; color: var(--muted); line-height: 1.85; margin-bottom: 18px; }
-.about-text p strong { color: var(--ink); font-weight: 600; }
-.btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
-.skill-group { margin-bottom: 28px; }
-.skill-group-label { font-family: var(--ff-m); font-size: 11px; font-weight: 500; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
-.skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { font-size: 13px; color: var(--ink); background: var(--paper2); border: 1px solid var(--border); padding: 5px 12px; border-radius: 100px; transition: all 0.15s; cursor: default; }
-.chip:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-
-/* CONTACT */
-#contact { background: var(--ink); }
-#contact .section-title { color: var(--paper); }
-#contact .section-sub { color: rgba(250,250,248,0.45); }
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-.contact-form { display: flex; flex-direction: column; gap: 14px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.form-field { display: flex; flex-direction: column; gap: 6px; }
-.form-field label { font-family: var(--ff-m); font-size: 11px; color: rgba(250,250,248,0.35); letter-spacing: 0.08em; text-transform: uppercase; }
-.form-field input, .form-field textarea, .form-field select { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: var(--r); padding: 12px 14px; font-family: var(--ff-b); font-size: 14px; color: var(--paper); outline: none; transition: border-color 0.15s; }
-.form-field input::placeholder, .form-field textarea::placeholder { color: rgba(250,250,248,0.2); }
-.form-field input:focus, .form-field textarea:focus, .form-field select:focus { border-color: rgba(255,255,255,0.3); }
-.form-field select option { background: var(--ink2); color: var(--paper); }
-.form-field textarea { resize: vertical; min-height: 110px; }
-.form-submit { font-family: var(--ff-d); font-size: 14px; font-weight: 700; background: var(--paper); color: var(--ink); border: none; padding: 14px 28px; border-radius: var(--r); cursor: pointer; transition: all 0.15s; align-self: flex-start; letter-spacing: -0.01em; }
-.form-submit:hover { background: var(--paper2); transform: translateY(-1px); }
-.contact-info { display: flex; flex-direction: column; gap: 32px; }
-.ci-label { font-family: var(--ff-m); font-size: 11px; color: rgba(250,250,248,0.3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
-.ci-val { font-family: var(--ff-d); font-size: 17px; font-weight: 600; color: var(--paper); letter-spacing: -0.01em; }
-.ci-val a { color: inherit; text-decoration: none; }
-.ci-val a:hover { color: rgba(250,250,248,0.7); }
-.social-row { display: flex; gap: 12px; flex-wrap: wrap; }
-.social-btn { font-family: var(--ff-m); font-size: 12px; padding: 9px 16px; border-radius: var(--r); text-decoration: none; display: flex; align-items: center; gap: 7px; border: 1px solid rgba(255,255,255,0.12); color: rgba(250,250,248,0.6); transition: all 0.15s; }
-.social-btn:hover { border-color: rgba(255,255,255,0.3); color: var(--paper); }
-.cal-btn { font-family: var(--ff-d); font-size: 14px; font-weight: 600; background: transparent; border: 1.5px solid rgba(255,255,255,0.18); color: var(--paper); padding: 13px 22px; border-radius: var(--r); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.15s; letter-spacing: -0.01em; }
-.cal-btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.35); }
-
-/* FOOTER */
-footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; }
-.footer-copy { font-family: var(--ff-m); font-size: 12px; color: rgba(250,250,248,0.2); }
-.footer-made { font-family: var(--ff-m); font-size: 11px; color: rgba(250,250,248,0.18); }
-.footer-made span { color: var(--gold); }
-
-/* REVEAL */
-.reveal { opacity: 1; transform: none; }
-
-/* TABLET */
-@media (max-width: 960px) {
-  nav { padding: 0 24px; }
-  .nav-links { display: none; }
-  .nav-hamburger { display: flex; }
-  #hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 44px; }
-  .stat-stack { max-width: 420px; }
-  .section-inner { padding: 72px 24px; }
-  .philosophy-grid { grid-template-columns: 1fr; }
-  .project-card { grid-template-columns: 1fr; }
-  .project-video { min-height: 220px; }
-  .cs-grid { grid-template-columns: 1fr; }
-  .about-grid { grid-template-columns: 1fr; gap: 48px; }
-  .contact-grid { grid-template-columns: 1fr; gap: 44px; }
-  .form-row { grid-template-columns: 1fr; }
-  footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-  nav { height: 56px; }
-  .nav-mobile-menu { top: 56px; }
-  .nav-cta { display: none; }
-  #hero { padding: 80px 20px 52px; gap: 36px; }
-  .hero-name { font-size: 46px; }
-  .hero-role { font-size: 16px; }
-  .hero-desc { font-size: 14px; margin-bottom: 28px; }
-  .hero-actions { flex-direction: column; }
-  .btn-primary, .btn-secondary { text-align: center; padding: 14px 20px; }
-  .stat-stack { grid-template-columns: 1fr 1fr; max-width: 100%; }
-  .stat-num { font-size: 30px; }
-  .hero-links { flex-wrap: wrap; gap: 14px; }
-  .hero-links .sep { display: none; }
-  .section-inner { padding: 56px 20px; }
-  .section-title { font-size: 28px; }
-  .section-sub { font-size: 14px; margin-bottom: 32px; }
-  .philosophy-card { padding: 32px 24px; }
-  .project-body { padding: 28px 24px; }
-  .project-title { font-size: 19px; }
-  .project-desc { font-size: 13px; }
-  .project-links { flex-direction: column; }
-  .proj-btn { text-align: center; justify-content: center; }
-  .project-video { min-height: 190px; }
-  .cs-card { padding: 28px 24px; }
-  .cs-title { font-size: 17px; }
-  .about-text p { font-size: 14px; }
-  .about-grid { gap: 40px; }
-  .form-submit { width: 100%; text-align: center; }
-  .cal-btn { width: 100%; justify-content: center; }
-  footer { padding: 20px; }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/grid.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">CN<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#casestudies">Case Studies</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <a href="./Collin_Nicholas_Resume.pdf" class="nav-cta" download>Download Resume</a>
-    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Collin Nicholas — Home">CN<span>.</span></a>
+
+    <div class="nav__links">
+      <a class="nav__link" href="work.html">Work</a>
+      <a class="nav__link" href="index.html#case-studies">Case Studies</a>
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="index.html#contact">Contact</a>
+    </div>
+
+    <div class="nav__actions">
+      <a class="nav__cta" href="Collin_Nicholas_Resume.pdf" download>Download Resume</a>
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
-<div class="nav-mobile-menu" id="mobileMenu">
-  <a href="#projects" onclick="closeMobileMenu()">Projects</a>
-  <a href="#casestudies" onclick="closeMobileMenu()">Case Studies</a>
-  <a href="#about" onclick="closeMobileMenu()">About</a>
-  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-  <a href="./Collin_Nicholas_Resume.pdf" download>Download Resume</a>
-</div>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-left">
-    <div class="hero-tag">AI Product Manager</div>
-    <h1 class="hero-name">Collin<br><span class="line2">Nicholas</span></h1>
-    <p class="hero-role">Building AI products that ship,<br>scale, and generate revenue.</p>
-    <p class="hero-desc">Senior PM leading AI strategy across 27,800+ customers at Employ Inc. I prototype with AI, train teams to build with AI, and turn ambiguous 0→1 initiatives into measurable ARR.</p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn-primary">See My Work</a>
-      <a href="#contact" class="btn-secondary">Get in Touch</a>
+<main id="main-content">
+
+<!-- ============================================================
+     HERO — pinned dark, carousel of headline outcomes
+     ============================================================ -->
+<section class="hero" data-theme-hero>
+
+  <div class="hero__panel-text">
+    <p class="hero__eyebrow">Product Leadership &middot; AI Platforms &middot; 0&rarr;1 Revenue</p>
+
+    <h1 class="hero__title">I build the platforms that build the business.</h1>
+
+    <p class="hero__subtitle">
+      Product leader owning AI strategy, platform architecture, and monetization
+      across 27,800+ enterprise customers. I take ambiguous 0&rarr;1 mandates to
+      measured ARR &mdash; and I build the working prototype myself before I ask
+      anyone to fund it.
+    </p>
+
+    <p class="hero__subtitle hero__subtitle--spaced">
+      Twelve years in technology. Nine AI products shipped. One live SaaS platform
+      I built alone.
+    </p>
+
+    <div class="hero__cta">
+      <a href="work.html" class="btn btn--primary btn--lg">View Work <span class="btn__arrow">&rarr;</span></a>
+      <a href="index.html#contact" class="btn btn--secondary btn--lg">Get in Touch</a>
+    </div>
+
+    <div class="hero__frame-nav">
+      <button type="button" class="hero__frame-nav-label" data-hero-back aria-label="Previous highlight">Back</button>
+      <button type="button" class="hero__frame-nav-label" data-hero-next aria-label="Next highlight">Next</button>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="stat-stack">
-      <div class="stat-card accent">
-        <div class="stat-num">9<span>+</span></div>
-        <div class="stat-label">AI Products Shipped</div>
+
+  <div class="hero__panel-visual hero__panel-visual--rule">
+    <div class="hero-carousel" data-hero-carousel>
+
+      <div class="hero-carousel__slide is-active">
+        <div class="impact-slide">
+          <div class="impact-slide__grid"></div>
+          <div class="impact-slide__top">
+            <span class="impact-slide__dot"></span>
+            <span class="impact-slide__eyebrow">AI Portfolio &middot; Alive</span>
+          </div>
+          <div class="impact-slide__body">
+            <div class="impact-slide__figure">$2<span>M+</span></div>
+            <div class="impact-slide__label">AI revenue built and owned</div>
+            <p class="impact-slide__desc">Nine AI products and capabilities shipped &mdash; from a first competitive scan to a priced, monetized product line.</p>
+          </div>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">$2<span>M+</span></div>
-        <div class="stat-label">ARR Generated</div>
+
+      <div class="hero-carousel__slide">
+        <div class="impact-slide">
+          <div class="impact-slide__grid"></div>
+          <div class="impact-slide__top">
+            <span class="impact-slide__dot"></span>
+            <span class="impact-slide__eyebrow">Platform Architecture</span>
+          </div>
+          <div class="impact-slide__body">
+            <div class="impact-slide__figure">$1.76<span>M</span></div>
+            <div class="impact-slide__label">First-year ARR, first shared service</div>
+            <p class="impact-slide__desc">A modular architecture that let one integration serve three separate applicant tracking systems &mdash; with the pricing model designed before the code.</p>
+          </div>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">27<span>k+</span></div>
-        <div class="stat-label">Customers Served</div>
+
+      <div class="hero-carousel__slide">
+        <div class="impact-slide">
+          <div class="impact-slide__grid"></div>
+          <div class="impact-slide__top">
+            <span class="impact-slide__dot"></span>
+            <span class="impact-slide__eyebrow">Enterprise Scale</span>
+          </div>
+          <div class="impact-slide__body">
+            <div class="impact-slide__figure">27.8<span>k+</span></div>
+            <div class="impact-slide__label">Enterprise customers served</div>
+            <p class="impact-slide__desc">AI product direction across three applicant tracking systems, plus the largest UI transformation in the platform's history.</p>
+          </div>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">6<span>yr</span></div>
-        <div class="stat-label">PM Experience</div>
+
+      <div class="hero-carousel__slide">
+        <div class="impact-slide">
+          <div class="impact-slide__grid"></div>
+          <div class="impact-slide__top">
+            <span class="impact-slide__dot"></span>
+            <span class="impact-slide__eyebrow">Org Capability</span>
+          </div>
+          <div class="impact-slide__body">
+            <div class="impact-slide__figure">15<span> people</span></div>
+            <div class="impact-slide__label">Product and design trained to build with AI</div>
+            <p class="impact-slide__desc">Introduced vibe coding as a prototyping methodology &mdash; the org ships working software in demos now, not slides.</p>
+          </div>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">12<span>yr</span></div>
-        <div class="stat-label">Years in Tech</div>
+
+      <div class="hero-carousel__slide">
+        <div class="impact-slide">
+          <div class="impact-slide__grid"></div>
+          <div class="impact-slide__top">
+            <span class="impact-slide__dot"></span>
+            <span class="impact-slide__eyebrow">Retention</span>
+          </div>
+          <div class="impact-slide__body">
+            <div class="impact-slide__figure">$330<span>K</span></div>
+            <div class="impact-slide__label">Enterprise renewal saved</div>
+            <p class="impact-slide__desc">Six months of daily engagement with an at-risk account after a broken acquisition, turned into a multi-year commitment.</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="hero-links">
-      <a href="https://linkedin.com/in/collin-nicholas-71103792" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
-      </a>
-      <span class="sep">·</span>
-      <a href="https://github.com/collinrnicholas" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-        GitHub
-      </a>
-      <span class="sep">·</span>
-      <a href="/cdn-cgi/l/email-protection#e5a68a89898c8bcbb7cbab8c868d8a898496a58288848c89cb868a88">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-        Email
-      </a>
+
     </div>
   </div>
+
 </section>
 
-<!-- PHILOSOPHY -->
-<section id="philosophy">
-  <div class="section-inner">
-    <div class="section-label">How I Work</div>
-    <h2 class="section-title" style="color:var(--paper)">My PM Philosophy</h2>
-    <p class="section-sub">Three principles that guide every product decision I make.</p>
-    <div class="philosophy-grid">
-      <div class="philosophy-card">
-        <div class="phil-num">01</div>
-        <div class="phil-title">Build first, debate second</div>
-        <div class="phil-body">A working prototype reveals more in one demo than three weeks of PRD debate. I use vibe coding to get something real in front of stakeholders fast — then iterate on signal, not assumptions.</div>
-      </div>
-      <div class="philosophy-card">
-        <div class="phil-num">02</div>
-        <div class="phil-title">AI is a multiplier, not a feature</div>
-        <div class="phil-body">The best AI products solve a real problem that AI happens to unlock. I evaluate every AI solution through three lenses: does it save the user time, reduce uncertainty, or surface something they couldn't see before?</div>
-      </div>
-      <div class="philosophy-card">
-        <div class="phil-num">03</div>
-        <div class="phil-title">Revenue is the proof</div>
-        <div class="phil-body">Strategy without ARR is a hypothesis. I architect AI solutions with pricing and monetization baked in from day one — not bolted on after. Every initiative I lead has a clear path from feature to dollar.</div>
-      </div>
+<!-- ============================================================
+     EXECUTIVE SNAPSHOT
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <p class="section__eyebrow">Track Record</p>
+      <h2 class="section__title">What the numbers say</h2>
+      <p class="section__subtitle">
+        Enterprise platform outcomes and independent builds. Every figure below is
+        something I owned end to end &mdash; scope, architecture, pricing, and the number.
+      </p>
     </div>
-  </div>
-</section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-inner">
-    <div class="section-label">Portfolio</div>
-    <h2 class="section-title">Projects & Prototypes</h2>
-    <p class="section-sub">A mix of production products, AI prototypes, and personal builds. Each video walks through the problem, my approach, and what I learned.</p>
-    <div class="projects-grid">
-      <div class="project-card featured">
-        <div class="project-body">
-          <div class="project-tags"><span class="tag tag-gold">Personal SaaS</span><span class="tag tag-blue">In Production</span><span class="tag tag-green">Real Users</span></div>
-          <h3 class="project-title">The PM Toolkit</h3>
-          <p class="project-desc">A production SaaS application built entirely with vibe coding — designed for product managers who want to move faster. Built and shipped independently without an engineering team, demonstrating end-to-end product ownership from idea to live users.</p>
-          <div class="project-metrics">
-            <div class="metric"><div class="metric-val">[X]<span class="unit"> users</span></div><div class="metric-label">Active Users</div></div>
-            <div class="metric"><div class="metric-val">Vibe<span class="unit"> coded</span></div><div class="metric-label">Built with AI</div></div>
-          </div>
-          <div class="project-links">
-            <a href="#" class="proj-btn proj-btn-primary">▶ Watch Walkthrough</a>
-            <a href="https://thepmtoolkit.app" target="_blank" class="proj-btn proj-btn-secondary">Live Demo →</a>
-          </div>
-        </div>
-        <div class="project-video"><div class="video-placeholder">
-          <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
-          <div class="video-title">The PM Toolkit<br>Full Walkthrough</div>
-          <div class="video-duration">~5 min · Face + Screen</div>
-        </div></div>
+    <div class="stat-band">
+      <div class="stat">
+        <div class="stat__number" data-count="2" data-prefix="$" data-suffix="M+">$2M+</div>
+        <div class="stat__label">AI ARR Generated</div>
       </div>
-      <div class="project-card">
-        <div class="project-body">
-          <div class="project-tags"><span class="tag tag-blue">0→1 Launch</span><span class="tag tag-gold">AI Product</span><span class="tag tag-gray">HR Tech</span></div>
-          <h3 class="project-title">AI Trust & Integrity Initiative</h3>
-          <p class="project-desc">The company's first AI-powered trust and integrity product — built from competitive research to a vibe-coded MVP to a full customer launch in weeks. Covers problem framing, build approach, and launch results.</p>
-          <div class="project-metrics">
-            <div class="metric"><div class="metric-val">330<span class="unit">+</span></div><div class="metric-label">Launch Registrants</div></div>
-            <div class="metric"><div class="metric-val">20<span class="unit">–40</span></div><div class="metric-label">Demo Requests</div></div>
-          </div>
-          <div class="project-links">
-            <a href="#" class="proj-btn proj-btn-primary">▶ Watch Walkthrough</a>
-            <a href="#casestudies" class="proj-btn proj-btn-secondary">Case Study →</a>
-          </div>
-        </div>
-        <div class="project-video"><div class="video-placeholder">
-          <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
-          <div class="video-title">0→1 AI Initiative<br>MVP Walkthrough</div>
-          <div class="video-duration">~4 min · Screen + Voiceover</div>
-        </div></div>
+      <div class="stat">
+        <div class="stat__number" data-count="9" data-suffix="+">9+</div>
+        <div class="stat__label">AI Products Shipped</div>
       </div>
-      <div class="project-card">
-        <div class="project-body">
-          <div class="project-tags"><span class="tag tag-blue">Prototype</span><span class="tag tag-gold">Vibe Coded</span><span class="tag tag-gray">Internal Tool</span></div>
-          <h3 class="project-title">AI Screening Prototype</h3>
-          <p class="project-desc">A rapid prototype built to validate the AI screening concept before engineering investment. Shows how vibe coding compressed a 6-week discovery cycle into days — and how real customer feedback from the demo shaped the final product.</p>
-          <div class="project-metrics">
-            <div class="metric"><div class="metric-val">Days<span class="unit"> not weeks</span></div><div class="metric-label">Discovery Timeline</div></div>
-            <div class="metric"><div class="metric-val">→ Live<span class="unit"> product</span></div><div class="metric-label">Outcome</div></div>
-          </div>
-          <div class="project-links"><a href="#" class="proj-btn proj-btn-primary">▶ Watch Walkthrough</a></div>
-        </div>
-        <div class="project-video"><div class="video-placeholder">
-          <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
-          <div class="video-title">Prototype to Product<br>Process Walkthrough</div>
-          <div class="video-duration">~6 min · Face + Screen</div>
-        </div></div>
+      <div class="stat">
+        <div class="stat__number" data-count="27.8" data-suffix="k+">27.8k+</div>
+        <div class="stat__label">Enterprise Customers</div>
       </div>
-      <div class="project-card">
-        <div class="project-body">
-          <div class="project-tags"><span class="tag tag-gold">Personal Projects</span><span class="tag tag-blue">Vibe Coded</span></div>
-          <h3 class="project-title">Personal Vibe Coding Projects</h3>
-          <p class="project-desc">A collection of personal tools and experiments built entirely with vibe coding. These projects demonstrate the range of what's possible when a PM builds without engineering dependencies.</p>
-          <div class="project-metrics">
-            <div class="metric"><div class="metric-val">5<span class="unit"> projects</span></div><div class="metric-label">Built Personally</div></div>
-            <div class="metric"><div class="metric-val">1<span class="unit"> in prod</span></div><div class="metric-label">Live with Users</div></div>
-          </div>
-          <div class="project-links"><a href="#" class="proj-btn proj-btn-primary">▶ Watch Walkthrough</a></div>
-        </div>
-        <div class="project-video"><div class="video-placeholder">
-          <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
-          <div class="video-title">Personal Projects<br>Showcase</div>
-          <div class="video-duration">~8 min · Face + Screen</div>
-        </div></div>
+      <div class="stat">
+        <div class="stat__number" data-count="1500" data-suffix="">1,500</div>
+        <div class="stat__label">Customers Through One UI Overhaul</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CASE STUDIES -->
-<section id="casestudies">
-  <div class="section-inner">
-    <div class="section-label">Deep Dives</div>
-    <h2 class="section-title">Case Studies</h2>
-    <p class="section-sub">The full story behind the biggest initiatives — problem, decision-making, tradeoffs, and results.</p>
+<!-- ============================================================
+     OPERATING PRINCIPLES
+     ============================================================ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <p class="section__eyebrow">How I Operate</p>
+      <h2 class="section__title">Three principles I run product on</h2>
+      <p class="section__subtitle">
+        These decide what gets funded, what gets killed, and what I am willing to put
+        my name on.
+      </p>
+    </div>
+
+    <div class="principles">
+      <div class="principle">
+        <div class="principle__num">01</div>
+        <h3 class="principle__title">Ship the artefact, not the deck</h3>
+        <p class="principle__body">
+          A working prototype settles in one demo what three weeks of PRD debate
+          cannot. I get something real in front of customers and executives fast,
+          then invest on observed signal instead of internal consensus.
+        </p>
+      </div>
+      <div class="principle">
+        <div class="principle__num">02</div>
+        <h3 class="principle__title">Platforms compound; features expire</h3>
+        <p class="principle__body">
+          The durable wins are structural: one integration serving three platforms,
+          one pricing model covering five capabilities, one design language across
+          1,500 customers. I hunt for the decision that makes the next ten cheaper.
+        </p>
+      </div>
+      <div class="principle">
+        <div class="principle__num">03</div>
+        <h3 class="principle__title">Revenue is the proof</h3>
+        <p class="principle__body">
+          Strategy without a number attached is a hypothesis. Every initiative I lead
+          has a pricing model, a monetization path, and an accountable owner defined
+          before build starts &mdash; not bolted on after launch.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CASE STUDIES — deep dives
+     ============================================================ -->
+<section class="section" id="case-studies">
+  <div class="container">
+    <div class="section__header">
+      <p class="section__eyebrow">Case Studies</p>
+      <h2 class="section__title">Three builds, in full</h2>
+      <p class="section__subtitle">
+        One enterprise platform architecture, one production SaaS product built
+        alone, and one agentic system designed end to end. Problem, decisions,
+        tradeoffs, and what shipped.
+      </p>
+    </div>
+
+    <div class="grid reveal-stagger">
+
+      <a class="col-4 project-card" href="projects/arclo-prospecting.html">
+        <div class="project-card__visual">
+          <div class="project-card__motif project-card__motif--grid"></div>
+          <span class="project-card__badge project-card__badge--live">Live</span>
+          <div class="project-card__wordmark">Arclo<em>Fully Agentic Pipeline</em></div>
+        </div>
+        <div class="project-card__content">
+          <div class="project-card__meta">Agentic System &middot; 2026</div>
+          <h3 class="project-card__title">Arclo Prospecting</h3>
+          <p class="project-card__desc">
+            A local-SEO prospecting system that discovers businesses, audits their
+            sites, scores them, and drafts grounded outreach &mdash; with deterministic
+            code producing the facts and a model producing only the prose.
+          </p>
+          <div class="project-card__metrics">
+            <div>
+              <div class="project-card__metric-val">6</div>
+              <div class="project-card__metric-label">Job Types</div>
+            </div>
+            <div>
+              <div class="project-card__metric-val">~600</div>
+              <div class="project-card__metric-label">Jobs per Campaign</div>
+            </div>
+            <div>
+              <div class="project-card__metric-val">100%</div>
+              <div class="project-card__metric-label">Human-Gated Sends</div>
+            </div>
+          </div>
+          <span class="project-card__cta">Read case study <span>&rarr;</span></span>
+        </div>
+      </a>
+
+      <a class="col-4 project-card" href="projects/the-pm-toolkit.html">
+        <div class="project-card__visual">
+          <div class="project-card__motif project-card__motif--grid"></div>
+          <span class="project-card__badge project-card__badge--live">In Production</span>
+          <div class="project-card__wordmark">The PM Toolkit<em>Independent SaaS</em></div>
+        </div>
+        <div class="project-card__content">
+          <div class="project-card__meta">Production SaaS &middot; 2025&ndash;2026</div>
+          <h3 class="project-card__title">The PM Toolkit</h3>
+          <p class="project-card__desc">
+            A grounded AI workspace that carries a product manager from market
+            research through PRDs, ROI models, and executive summaries. Designed,
+            built, and shipped solo &mdash; with live billing and real users.
+          </p>
+          <div class="project-card__metrics">
+            <div>
+              <div class="project-card__metric-val">Solo</div>
+              <div class="project-card__metric-label">Zero Engineering Team</div>
+            </div>
+            <div>
+              <div class="project-card__metric-val">Live</div>
+              <div class="project-card__metric-label">Billing + Users</div>
+            </div>
+            <div>
+              <div class="project-card__metric-val">1</div>
+              <div class="project-card__metric-label">Person, Idea to Prod</div>
+            </div>
+          </div>
+          <span class="project-card__cta">Read case study <span>&rarr;</span></span>
+        </div>
+      </a>
+
+      <a class="col-4 project-card" href="projects/bidpacket.html">
+        <div class="project-card__visual">
+          <div class="project-card__motif project-card__motif--grid"></div>
+          <span class="project-card__badge">In Build</span>
+          <div class="project-card__wordmark">BidPacket<em>0&rarr;1 Product</em></div>
+        </div>
+        <div class="project-card__content">
+          <div class="project-card__meta">0&rarr;1 Product &middot; 2026</div>
+          <h3 class="project-card__title">BidPacket</h3>
+          <p class="project-card__desc">
+            A pay-per-use tool that turns an architectural plan set or RFP into an
+            organized bid preparation packet. Priced per document, subscription-free,
+            with liability boundaries designed into the product copy.
+          </p>
+          <div class="project-card__metrics">
+            <div>
+              <div class="project-card__metric-val">Pay-per-use</div>
+              <div class="project-card__metric-label">Pricing Model</div>
+            </div>
+            <div>
+              <div class="project-card__metric-val">$0</div>
+              <div class="project-card__metric-label">Subscription</div>
+            </div>
+            <div>
+              <div class="project-card__metric-val">2</div>
+              <div class="project-card__metric-label">Verticals in Scope</div>
+            </div>
+          </div>
+          <span class="project-card__cta">Read case study <span>&rarr;</span></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SELECTED OUTCOMES — enterprise initiatives
+     ============================================================ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <p class="section__eyebrow">Selected Outcomes</p>
+      <h2 class="section__title">Enterprise initiatives I owned</h2>
+      <p class="section__subtitle">
+        Platform, pricing, retention, and enablement work across Employ Inc. and
+        MicroStrategy.
+      </p>
+    </div>
+
     <div class="cs-grid">
-      <a href="#" class="cs-card"><div class="cs-eyebrow">Platform Architecture · 2025</div><h3 class="cs-title">Employ's First Shared Service: $1.76M ARR in Year One</h3><p class="cs-desc">How I designed a modular lego-block architecture that let one integration serve three separate ATSs — and why the pricing model made all the difference.</p><div class="cs-arrow">Read case study <span>→</span></div></a>
-      <a href="#" class="cs-card"><div class="cs-eyebrow">Enterprise Retention · 2025</div><h3 class="cs-title">Saving a $330K Enterprise Renewal After a Broken Acquisition</h3><p class="cs-desc">Six months of daily engagement, broken integrations, and an unhappy enterprise customer. How I turned a potential churn into a multi-year renewal.</p><div class="cs-arrow">Read case study <span>→</span></div></a>
-      <a href="#" class="cs-card"><div class="cs-eyebrow">AI Strategy · 2025</div><h3 class="cs-title">Bundling 5 AI Features Into One New Revenue SKU</h3><p class="cs-desc">The strategy behind identifying, packaging, and pricing five distinct AI capabilities into a single new product line — covering vendor evaluation, feature design, and go-to-market approach.</p><div class="cs-arrow">Read case study <span>→</span></div></a>
-      <a href="#" class="cs-card"><div class="cs-eyebrow">Product-Led Growth · 2025–2026</div><h3 class="cs-title">AI Marketplace: Solving Low Adoption with In-App Discovery</h3><p class="cs-desc">When AI adoption lagged, I partnered with GTM and Revenue to build an in-app marketplace that became one of the most successful internal and customer-facing enablement launches.</p><div class="cs-arrow">Read case study <span>→</span></div></a>
-      <a href="#" class="cs-card"><div class="cs-eyebrow">Vibe Coding · 2025–2026</div><h3 class="cs-title">Teaching a Product Team to Build: Vibe Coding at Employ</h3><p class="cs-desc">How I introduced vibe coding to 15 Product and Design team members — the training approach, the tools, the resistance, and the roadmap changes that resulted.</p><div class="cs-arrow">Read case study <span>→</span></div></a>
-      <a href="#" class="cs-card"><div class="cs-eyebrow">Enterprise UX · 2024</div><h3 class="cs-title">Overhauling an Enterprise ATS UI Across 1,500 Customers</h3><p class="cs-desc">A 9-month initiative, a 3-wave rollout, flagship enterprise accounts, and weekly C-suite check-ins. The full story of the largest UI transformation in the platform's history.</p><div class="cs-arrow">Read case study <span>→</span></div></a>
+
+      <div class="cs-card">
+        <div class="cs-card__eyebrow">Platform Architecture &middot; 2025</div>
+        <h3 class="cs-card__title">Employ&rsquo;s First Shared Service: $1.76M ARR in Year One</h3>
+        <p class="cs-card__desc">
+          A modular, lego-block architecture that let one integration serve three
+          separate ATSs &mdash; and a pricing model that turned a cost centre into a
+          revenue line.
+        </p>
+        <span class="cs-card__result">$1.76M ARR &middot; 3 platforms</span>
+      </div>
+
+      <div class="cs-card">
+        <div class="cs-card__eyebrow">Enterprise Retention &middot; 2025</div>
+        <h3 class="cs-card__title">Saving a $330K Enterprise Renewal After a Broken Acquisition</h3>
+        <p class="cs-card__desc">
+          Six months of daily engagement, broken integrations, and an unhappy
+          enterprise customer &mdash; converted into a multi-year renewal.
+        </p>
+        <span class="cs-card__result">$330K retained &middot; multi-year term</span>
+      </div>
+
+      <div class="cs-card">
+        <div class="cs-card__eyebrow">AI Strategy &middot; 2025</div>
+        <h3 class="cs-card__title">Bundling Five AI Features Into One New Revenue SKU</h3>
+        <p class="cs-card__desc">
+          Identifying, packaging, and pricing five distinct AI capabilities into a
+          single product line &mdash; covering vendor evaluation, feature design, and
+          go-to-market.
+        </p>
+        <span class="cs-card__result">5 capabilities &middot; 1 SKU</span>
+      </div>
+
+      <div class="cs-card">
+        <div class="cs-card__eyebrow">Product-Led Growth &middot; 2025&ndash;2026</div>
+        <h3 class="cs-card__title">AI Marketplace: Solving Low Adoption With In-App Discovery</h3>
+        <p class="cs-card__desc">
+          When AI adoption lagged, I partnered with GTM and Revenue to build an
+          in-app marketplace that became one of the most successful enablement
+          launches on the platform.
+        </p>
+        <span class="cs-card__result">Most successful launch &middot; internal + customer-facing</span>
+      </div>
+
+      <div class="cs-card">
+        <div class="cs-card__eyebrow">Organisational Capability &middot; 2025&ndash;2026</div>
+        <h3 class="cs-card__title">Teaching a Product Team to Build With AI</h3>
+        <p class="cs-card__desc">
+          Introducing vibe coding to 15 Product and Design team members &mdash; the
+          training approach, the tooling, the resistance, and the roadmap changes
+          that followed.
+        </p>
+        <span class="cs-card__result">15 builders trained</span>
+      </div>
+
+      <div class="cs-card">
+        <div class="cs-card__eyebrow">Enterprise UX &middot; 2024</div>
+        <h3 class="cs-card__title">Overhauling an Enterprise ATS UI Across 1,500 Customers</h3>
+        <p class="cs-card__desc">
+          A nine-month initiative, a three-wave rollout, flagship enterprise
+          accounts, and weekly C-suite check-ins &mdash; the largest UI transformation
+          in the platform&rsquo;s history.
+        </p>
+        <span class="cs-card__result">1,500 customers &middot; 3 waves</span>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-inner">
-    <div class="section-label">Background</div>
-    <h2 class="section-title">About Me</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>I'm a Senior Product Manager based in <strong>Annandale, VA</strong>, specializing in AI/ML product strategy across B2B enterprise SaaS platforms. At Employ Inc., I lead AI product direction across three applicant tracking systems serving <strong>27,800+ customers</strong>.</p>
-        <p>What sets me apart: I don't just manage AI products — I <strong>build with AI</strong>. I was the first at Employ to adopt vibe coding as a prototyping methodology, trained 15 product and design team members, and independently shipped a full SaaS product in production on my own time.</p>
-        <p>Before Employ, I spent six years at <strong>MicroStrategy</strong> progressing from product support through Principal TPM to Product Owner — generating $31M in pipeline, training 500+ consultants worldwide, and owning the HyperIntelligence mobile product.</p>
-        <p>I'm currently exploring <strong>Senior and Principal PM roles</strong> focused on AI/ML products, platform strategy, and developer tools.</p>
-        <div class="btn-row">
-          <a href="./Collin_Nicholas_Resume.pdf" class="btn-primary" download>Download Resume</a>
-          <a href="#contact" class="btn-secondary">Let's Talk</a>
-        </div>
+<!-- ============================================================
+     INDEPENDENT BUILDS
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <p class="section__eyebrow">Independent Builds</p>
+      <h2 class="section__title">What I ship when nobody asks me to</h2>
+      <p class="section__subtitle">
+        Product judgment is easier to trust when you can point at software. These are
+        designed, built, and run by me &mdash; the fastest way I know to test a
+        hypothesis about how products should work.
+      </p>
+    </div>
+
+    <div class="build-list">
+      <div class="build-row">
+        <div class="build-row__name">Arclo Prospecting</div>
+        <div class="build-row__desc">Fully agentic local-SEO prospecting: discovery, audit, scoring, grounded outreach drafts, human approval gate.</div>
+        <div class="build-row__status build-row__status--live">Live</div>
       </div>
-      <div class="about-skills">
-        <div class="skill-group"><div class="skill-group-label">AI / ML Product</div><div class="skill-chips"><span class="chip">LLM/GenAI</span><span class="chip">Agentic AI</span><span class="chip">Human-in-the-loop</span><span class="chip">Prompt engineering</span><span class="chip">Responsible AI</span><span class="chip">AI governance</span><span class="chip">Model evaluation</span></div></div>
-        <div class="skill-group"><div class="skill-group-label">Product</div><div class="skill-chips"><span class="chip">0→1 launches</span><span class="chip">B2B SaaS</span><span class="chip">Platform architecture</span><span class="chip">Pricing strategy</span><span class="chip">SKU bundling</span><span class="chip">Product-led growth</span><span class="chip">A/B experimentation</span></div></div>
-        <div class="skill-group"><div class="skill-group-label">Build</div><div class="skill-chips"><span class="chip">Vibe coding</span><span class="chip">Rapid prototyping</span><span class="chip">SQL</span><span class="chip">API integrations</span><span class="chip">Mobile (iOS/Android)</span></div></div>
-        <div class="skill-group"><div class="skill-group-label">Tools</div><div class="skill-chips"><span class="chip">AI Governance Platforms</span><span class="chip">Partner Integrations</span><span class="chip">Jira</span><span class="chip">Salesforce</span><span class="chip">Pendo</span><span class="chip">Figma</span></div></div>
+      <div class="build-row">
+        <div class="build-row__name">The PM Toolkit</div>
+        <div class="build-row__desc">Grounded AI workspace for product managers &mdash; research, strategy, PRDs, ROI models, executive summaries.</div>
+        <div class="build-row__status build-row__status--live">Live &middot; Users</div>
+      </div>
+      <div class="build-row">
+        <div class="build-row__name">FitHub</div>
+        <div class="build-row__desc">Conversational coaching agent wired to wearable and nutrition data, with a guided onboarding state machine.</div>
+        <div class="build-row__status build-row__status--live">Live</div>
+      </div>
+      <div class="build-row">
+        <div class="build-row__name">BidPacket</div>
+        <div class="build-row__desc">Pay-per-use construction bid preparation &mdash; upload a plan set, receive an organized bid packet.</div>
+        <div class="build-row__status">In Build</div>
+      </div>
+      <div class="build-row">
+        <div class="build-row__name">Loupe</div>
+        <div class="build-row__desc">AI design engineering partner: records a live session, scores it, and emits implementation-ready briefs for coding agents.</div>
+        <div class="build-row__status">Prototype</div>
+      </div>
+      <div class="build-row">
+        <div class="build-row__name">Keydeck</div>
+        <div class="build-row__desc">Local-first secrets manager for AI coding agents &mdash; encrypted vault, biometric unlock, MCP delivery, rotation tracking.</div>
+        <div class="build-row__status">Local</div>
+      </div>
+      <div class="build-row">
+        <div class="build-row__name">AI Token Dashboard</div>
+        <div class="build-row__desc">Local-first tracker for AI coding spend across 30+ agent CLIs, with plan-limit and session-window visibility.</div>
+        <div class="build-row__status">Local</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-inner">
-    <div class="section-label">Get in Touch</div>
-    <h2 class="section-title">Let's Talk</h2>
-    <p class="section-sub">Open to conversations about senior AI PM roles, collaboration, or just trading notes on vibe coding and product strategy.</p>
-    <div class="contact-grid">
-      <div class="contact-form">
-        <div class="form-row">
-          <div class="form-field"><label>Name</label><input type="text" placeholder="Your name"></div>
-          <div class="form-field"><label>Company</label><input type="text" placeholder="Where you work"></div>
+<!-- ============================================================
+     TRACK RECORD
+     ============================================================ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <p class="section__eyebrow">Background</p>
+      <h2 class="section__title">Where I&rsquo;ve done it</h2>
+      <p class="section__subtitle">
+        Twelve years in technology, six of them owning enterprise product at scale.
+      </p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline__item">
+        <div class="timeline__period">2020 &mdash; Present</div>
+        <div>
+          <h3 class="timeline__role">Senior Product Manager, AI Platform</h3>
+          <div class="timeline__org">Employ Inc. &mdash; Jobvite &middot; Lever &middot; TalentFit</div>
+          <p class="timeline__desc">
+            Own AI product direction across three applicant tracking systems serving
+            27,800+ customers. Shipped nine AI products and capabilities and $2M+ in
+            ARR: the platform&rsquo;s first shared service, a five-capability AI SKU, an
+            in-app AI marketplace, and a fraud and integrity product that reached
+            launch in weeks. Led the largest UI transformation in the platform&rsquo;s
+            history across 1,500 customers, and trained 15 product and design leaders
+            to prototype with AI.
+          </p>
         </div>
-        <div class="form-field"><label>Email</label><input type="email" placeholder="your@email.com"></div>
-        <div class="form-field"><label>What's this about?</label>
-          <select><option value="">Select a topic</option><option>Job opportunity</option><option>PM collaboration</option><option>Vibe coding / AI prototyping</option><option>Speaking / advisory</option><option>Other</option></select>
-        </div>
-        <div class="form-field"><label>Message</label><textarea placeholder="Tell me what's on your mind..."></textarea></div>
-        <button class="form-submit">Send Message →</button>
       </div>
-      <div class="contact-info">
-        <div><div class="ci-label">Email</div><div class="ci-val"><a href="/cdn-cgi/l/email-protection#9bd8f4f7f7f2f5b5c9b5d5f2f8f3f4f7fae8dbfcf6faf2f7b5f8f4f6"><span class="__cf_email__" data-cfemail="eba88487878285c5b9c5a582888384878a98ab8c868a8287c5888486">[email&#160;protected]</span></a></div></div>
-        <div><div class="ci-label">Location</div><div class="ci-val">Annandale, VA</div></div>
-        <div><div class="ci-label">Currently</div><div class="ci-val" style="font-size:14px;color:rgba(250,250,248,0.5);font-family:var(--ff-b);font-weight:400;letter-spacing:0">Senior PM at Employ Inc.<br>AI/ML Product Strategy · B2B SaaS</div></div>
-        <div class="social-row">
-          <a href="https://linkedin.com/in/collin-nicholas-71103792" target="_blank" class="social-btn">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
-          </a>
-          <a href="https://github.com/collinrnicholas" target="_blank" class="social-btn">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            GitHub
-          </a>
+
+      <div class="timeline__item">
+        <div class="timeline__period">2014 &mdash; 2020</div>
+        <div>
+          <h3 class="timeline__role">Product Owner &middot; Principal Technical Product Manager</h3>
+          <div class="timeline__org">MicroStrategy</div>
+          <p class="timeline__desc">
+            Progressed from product support through Principal TPM to Product Owner.
+            Generated $31M in pipeline, trained 500+ consultants worldwide, and owned
+            the HyperIntelligence mobile product &mdash; six years learning how
+            enterprise software is actually sold, deployed, and supported.
+          </p>
         </div>
-        <a href="https://calendly.com" target="_blank" class="cal-btn">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Book a 30-min call
-        </a>
       </div>
+
+      <div class="timeline__item">
+        <div class="timeline__period">2025 &mdash; Present</div>
+        <div>
+          <h3 class="timeline__role">Founder &amp; Product Lead</h3>
+          <div class="timeline__org">Independent portfolio</div>
+          <p class="timeline__desc">
+            Design and ship production software without an engineering team &mdash; a
+            live subscription SaaS platform, a fully agentic prospecting system, and a
+            set of local-first developer tools. The point is not the side projects; it
+            is that the judgment behind them is tested on real users.
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-copy">© 2026 Collin Nicholas. All rights reserved.</div>
-  <div class="footer-made">Built with <span>vibe coding</span> · because of course it was</div>
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="grid">
+
+      <div class="col-5 tab-col-12">
+        <p class="section__eyebrow">Get in Touch</p>
+        <h2 class="section__title">Let&rsquo;s talk.</h2>
+        <p class="section__subtitle mt-2">
+          Open to conversations about senior product leadership roles, platform
+          strategy, and AI product work &mdash; or just trading notes on building
+          with AI.
+        </p>
+
+        <div class="mt-6">
+          <div class="contact-info__item">
+            <div class="contact-info__label">Email</div>
+            <div class="contact-info__value">
+              <a href="mailto:Collin.R.Nicholas@gmail.com">Collin.R.Nicholas@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__label">Location</div>
+            <div class="contact-info__value">Annandale, Virginia</div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__label">Currently</div>
+            <div class="contact-info__value">Senior PM, AI Platform &mdash; Employ Inc.</div>
+          </div>
+
+          <div class="social-row">
+            <a class="social-btn" href="https://linkedin.com/in/collin-nicholas-71103792" target="_blank" rel="noopener">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a class="social-btn" href="https://github.com/collinrnicholas" target="_blank" rel="noopener">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a class="social-btn" href="Collin_Nicholas_Resume.pdf" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Resume
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-start-7 tab-col-12">
+        <form class="contact__form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-group__label" for="contact-name">Name</label>
+              <input class="form-group__input" type="text" id="contact-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-group__label" for="contact-email">Email</label>
+              <input class="form-group__input" type="email" id="contact-email" name="email" placeholder="you@company.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-group__label" for="contact-company">Company</label>
+            <input class="form-group__input" type="text" id="contact-company" name="company" placeholder="Where you work (optional)">
+          </div>
+          <div class="form-group">
+            <label class="form-group__label" for="contact-topic">What&rsquo;s this about?</label>
+            <select class="form-group__select" id="contact-topic" name="topic">
+              <option value="">Select a topic</option>
+              <option>Product leadership role</option>
+              <option>Platform or AI strategy</option>
+              <option>Advisory / consulting</option>
+              <option>Building with AI</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-group__label" for="contact-message">Message</label>
+            <textarea class="form-group__textarea" id="contact-message" name="message" placeholder="Tell me what's on your mind..." required></textarea>
+          </div>
+          <div class="form-message"></div>
+          <button type="submit" class="btn btn--primary btn--lg contact__submit">Send Message <span class="btn__arrow">&rarr;</span></button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <div class="footer__brand-name">Collin Nicholas<span>.</span></div>
+      <div class="footer__brand-note">Product leadership &middot; AI platforms &middot; 0&rarr;1 revenue</div>
+    </div>
+
+    <div class="footer__links">
+      <a class="footer__link" href="work.html">Work</a>
+      <a class="footer__link" href="about.html">About</a>
+      <a class="footer__link" href="Collin_Nicholas_Resume.pdf" download>Résumé</a>
+      <a class="footer__link" href="mailto:Collin.R.Nicholas@gmail.com">Email</a>
+      <a class="footer__link" href="https://linkedin.com/in/collin-nicholas-71103792" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="footer__link" href="https://github.com/collinrnicholas" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <div class="footer__meta">&copy; 2026 Collin Nicholas &middot; Built with vibe coding &mdash; because of course it was</div>
+  </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
-function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
-document.addEventListener('click', e => {
-  const menu = document.getElementById('mobileMenu');
-  const btn = document.querySelector('.nav-hamburger');
-  if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) menu.classList.remove('open');
-});
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-  });
-});
-document.q
+<script src="js/main.js"></script>
+</body>
+</html>

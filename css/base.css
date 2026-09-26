@@ -1,0 +1,222 @@
+/* ==========================================================================
+   Base — reset, typography, global styles, scroll reveal
+   ========================================================================== */
+
+/* ---- Skip link ---- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  z-index: 1000;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-weight: var(--fw-emphasis);
+  border-radius: var(--radius-input);
+  text-decoration: none;
+}
+.skip-link:focus { top: var(--space-sm); }
+
+/* ---- Reset ---- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: var(--fw-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+  /* The signature move: every token flips and the whole page cross-fades
+     when body.theme--light toggles as the hero scrolls away. */
+  transition: background-color var(--duration-theme) cubic-bezier(0.4, 0, 0.2, 1),
+              color var(--duration-theme) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+img, video, svg { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; color: inherit; border: none; background: none; }
+button { cursor: pointer; }
+ul, ol { list-style: none; }
+
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+img { background-color: transparent; }
+
+/* ==========================================================================
+   Typography helpers
+   ========================================================================== */
+
+.text-display {
+  font-family: var(--font-heading);
+  font-size: var(--text-display);
+  font-weight: var(--fw-display);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-heading);
+}
+
+.text-h1 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);
+  font-weight: var(--fw-heading);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+}
+
+.text-h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  font-weight: var(--fw-heading);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+}
+
+.text-h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: var(--fw-emphasis);
+  line-height: var(--leading-subhead);
+  letter-spacing: var(--tracking-heading);
+}
+
+.text-mono {
+  font-family: var(--font-code);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+}
+
+.text-muted { color: var(--color-text-secondary); }
+
+/* ==========================================================================
+   Theme cross-fade — section-level surfaces ride the 1.4s token flip so the
+   dark→light transition reads as one continuous move rather than a snap.
+   Components keep their own (fast) hover transitions.
+   ========================================================================== */
+
+.section,
+.section--alt,
+.footer,
+.cs-progress,
+.hero--project {
+  transition: background-color var(--duration-theme) cubic-bezier(0.4, 0, 0.2, 1),
+              color var(--duration-theme) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+
+.section { padding-block: var(--section-py); }
+
+.section--alt { background-color: var(--color-bg-alt); }
+
+.section__header {
+  max-width: 760px;
+  margin-bottom: var(--section-header-mb);
+}
+
+.section__eyebrow {
+  font-family: var(--font-code);
+  font-size: var(--section-eyebrow-size);
+  font-weight: var(--fw-emphasis);
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--color-signature);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.section__eyebrow::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.section__title {
+  font-family: var(--font-heading);
+  font-size: var(--section-title-size);
+  font-weight: var(--fw-heading);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.section__subtitle {
+  font-size: var(--section-sub-size);
+  line-height: var(--leading-body);
+  color: var(--section-sub-color);
+}
+
+/* ==========================================================================
+   SCROLL REVEAL — JS adds .is-visible when the element enters the viewport
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-slow) var(--ease-default),
+              transform var(--duration-slow) var(--ease-default);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide-only variant — transform, no fade */
+.reveal-slide {
+  transform: translateY(40px);
+  transition: transform var(--duration-slow) var(--ease-default);
+}
+.reveal-slide.is-visible { transform: translateY(0); }
+
+/* Staggered children */
+.reveal-stagger > .reveal:nth-child(2) { transition-delay: 100ms; }
+.reveal-stagger > .reveal:nth-child(3) { transition-delay: 200ms; }
+.reveal-stagger > .reveal:nth-child(4) { transition-delay: 300ms; }
+.reveal-stagger > .reveal:nth-child(5) { transition-delay: 400ms; }
+.reveal-stagger > .reveal:nth-child(6) { transition-delay: 500ms; }
+.reveal-stagger > .reveal:nth-child(7) { transition-delay: 600ms; }
+.reveal-stagger > .reveal:nth-child(8) { transition-delay: 700ms; }
+.reveal-stagger > .reveal:nth-child(9) { transition-delay: 800ms; }
+
+/* ==========================================================================
+   Accessibility — reduced motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .reveal-slide { transform: none; }
+}

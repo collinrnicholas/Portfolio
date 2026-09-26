@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Grid — 12-column container, mirroring the naas-llc layout primitives
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--grid-margin);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  gap: var(--grid-gutter);
+  /* stretch, not start — sibling cards in a row must share one height so
+     their footers and CTAs line up */
+  align-items: stretch;
+}
+
+/* Column spans (desktop) */
+.col-3  { grid-column: span 3; }
+.col-4  { grid-column: span 4; }
+.col-5  { grid-column: span 5; }
+.col-6  { grid-column: span 6; }
+.col-7  { grid-column: span 7; }
+.col-8  { grid-column: span 8; }
+.col-9  { grid-column: span 9; }
+.col-12 { grid-column: span 12; }
+
+.col-start-5 { grid-column-start: 5; }
+.col-start-7 { grid-column-start: 7; }
+
+/* Vertical rhythm helpers */
+.mt-2 { margin-top: var(--space-sm); }
+.mt-3 { margin-top: var(--space-md); }
+.mt-4 { margin-top: var(--space-lg); }
+.mt-6 { margin-top: var(--space-2xl); }
+
+/* ---- Tablet: collapse the 12-col grid to 6 ---- */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+
+  .tab-col-6  { grid-column: span 6; }
+  .tab-col-7  { grid-column: span 6; }
+  .tab-col-8  { grid-column: span 6; }
+  .tab-col-9  { grid-column: span 6; }
+  .tab-col-12 { grid-column: span 6; }
+
+  .tab-col-start-1 { grid-column-start: auto; }
+}
+
+/* ---- Mobile: single column ---- */
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+
+  .col-3, .col-4, .col-5, .col-6,
+  .col-7, .col-8, .col-9, .col-12,
+  .tab-col-6, .tab-col-7, .tab-col-8, .tab-col-9, .tab-col-12 {
+    grid-column: 1 / -1;
+  }
+
+  .col-start-5, .col-start-7 { grid-column-start: auto; }
+}

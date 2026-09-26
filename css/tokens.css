@@ -1,0 +1,401 @@
+/* ==========================================================================
+   Tokens — 3-Tier Hierarchy  (mirrors naas-llc design system)
+   Tier 1 Primitive  --p-*        raw values, never used in views
+   Tier 2 Semantic   --color-* --text-* --space-* --duration-*
+   Tier 3 Component  --nav-* --hero-* --btn-* --card-*
+   ========================================================================== */
+
+:root {
+
+  /* ==================== TIER 1 — PRIMITIVES ==================== */
+
+  /* Neutral ramp — warm-tinted to sit with the gold signature */
+  --p-neutral-0:    #FFFFFF;
+  --p-neutral-25:   #FCFCFA;
+  --p-neutral-50:   #F7F7F4;
+  --p-neutral-100:  #F1F0EB;
+  --p-neutral-150:  #E8E6DF;
+  --p-neutral-200:  #DEDBD2;
+  --p-neutral-300:  #C9C7C1;
+  --p-neutral-350:  #A8A7B0;
+  --p-neutral-400:  #8D8C94;
+  --p-neutral-500:  #6B6B78;
+  --p-neutral-600:  #4E4E5A;
+  --p-neutral-700:  #3A3A45;
+  --p-neutral-800:  #24242E;
+  --p-neutral-900:  #1A1A22;
+  --p-neutral-950:  #111118;
+
+  /* Accent — signature blue (his existing --accent2, aligned to system blue) */
+  --p-accent-50:    #EFF5FC;
+  --p-accent-400:   #3B72C4;
+  --p-accent-500:   #2557A7;
+  --p-accent-600:   #1A3C6E;
+
+  /* Signature — gold, used sparingly as the identity mark */
+  --p-gold-300:     #D9B15E;
+  --p-gold-500:     #B8841E;
+
+  /* Feedback */
+  --p-green-500:    #1E6040;
+  --p-green-50:     #E7F0EB;
+
+  /* Fonts */
+  --p-font-sans:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --p-font-serif:   'Newsreader', 'Roboto Slab', Georgia, serif;
+  --p-font-mono:    'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+
+  /* Weights */
+  --p-fw-regular:   400;
+  --p-fw-medium:    500;
+  --p-fw-semibold:  600;
+  --p-fw-bold:      700;
+  --p-fw-black:     800;
+
+  /* Fluid type scale */
+  --p-fs-100:       0.75rem;
+  --p-fs-200:       0.875rem;
+  --p-fs-300:       1rem;
+  --p-fs-400:       1.125rem;
+  --p-fs-500:       1.25rem;
+  --p-fs-600:       1.5rem;
+  --p-fs-700:       clamp(1.65rem, 2vw + 0.5rem, 2rem);
+  --p-fs-800:       clamp(2rem, 2.4vw + 0.6rem, 2.6rem);
+  --p-fs-900:       clamp(2.4rem, 3vw + 0.6rem, 3.4rem);
+  --p-fs-1000:      clamp(2.9rem, 5vw + 1rem, 4.25rem);
+
+  /* Line height */
+  --p-lh-display:   1.02;
+  --p-lh-tight:     1.18;
+  --p-lh-snug:      1.35;
+  --p-lh-normal:    1.65;
+  --p-lh-loose:     1.8;
+
+  /* Tracking */
+  --p-ls-tight:     -0.025em;
+  --p-ls-normal:    0;
+  --p-ls-wide:      0.05em;
+  --p-ls-caps:      0.12em;
+
+  /* 8px spacing scale */
+  --p-space-1:      8px;
+  --p-space-2:      16px;
+  --p-space-3:      24px;
+  --p-space-4:      32px;
+  --p-space-5:      40px;
+  --p-space-6:      48px;
+  --p-space-8:      64px;
+  --p-space-10:     80px;
+  --p-space-12:     96px;
+  --p-space-16:     128px;
+  --p-space-20:     160px;
+
+  /* Radius */
+  --p-radius-sm:    4px;
+  --p-radius-md:    8px;
+  --p-radius-lg:    12px;
+  --p-radius-xl:    16px;
+  --p-radius-2xl:   24px;
+  --p-radius-pill:  999px;
+
+  /* Shadow */
+  --p-shadow-sm:    0 1px 2px rgba(17,17,24,0.05);
+  --p-shadow-md:    0 4px 12px rgba(17,17,24,0.08);
+  --p-shadow-lg:    0 8px 24px rgba(17,17,24,0.10);
+  --p-shadow-xl:    0 16px 48px rgba(17,17,24,0.12);
+
+  /* Motion */
+  --p-ease:         cubic-bezier(0.25, 0.1, 0.25, 1);
+  --p-duration-fast: 150ms;
+  --p-duration-norm: 250ms;
+  --p-duration-slow: 400ms;
+
+
+  /* ==================== TIER 2 — SEMANTIC ==================== */
+
+  /* Colour — background (dark tier is the default, hero + footer live there) */
+  --color-bg:               var(--p-neutral-950);
+  --color-bg-alt:           var(--p-neutral-900);
+  --color-surface:          var(--p-neutral-800);
+  --color-card:             var(--p-neutral-800);
+  --color-overlay:          rgba(0,0,0,0.7);
+  --color-surface-inverted: var(--p-neutral-900);
+
+  /* Colour — text */
+  --color-text-primary:     var(--p-neutral-50);
+  --color-text-secondary:   var(--p-neutral-300);
+  --color-text-tertiary:    var(--p-neutral-350);
+  --color-text-inverse:     var(--p-neutral-900);
+  --color-text-on-inverted: var(--p-neutral-0);
+
+  /* Colour — border */
+  --color-border:           rgba(255,255,255,0.10);
+  --color-border-light:     rgba(255,255,255,0.06);
+
+  /* Colour — accent */
+  --color-accent:           var(--p-neutral-0);
+  --color-accent-hover:     var(--p-neutral-100);
+  --color-link:             var(--p-accent-400);
+  --color-link-hover:       var(--p-accent-500);
+  --color-focus-ring:       var(--p-accent-400);
+  --color-signature:        var(--p-gold-500);
+  --color-accent-bg:        rgba(37,87,167,0.15);
+
+  /* Colour — feedback */
+  --color-success:          var(--p-green-500);
+  --color-success-bg:       var(--p-green-50);
+
+  /* Typography roles */
+  --font-body:              var(--p-font-sans);
+  --font-heading:           var(--p-font-serif);
+  --font-ui:                var(--p-font-sans);
+  --font-code:              var(--p-font-mono);
+
+  --text-caption:           var(--p-fs-100);
+  --text-label:             var(--p-fs-200);
+  --text-body:              var(--p-fs-300);
+  --text-body-lg:           var(--p-fs-400);
+  --text-h5:                var(--p-fs-500);
+  --text-h4:                var(--p-fs-600);
+  --text-h3:                var(--p-fs-700);
+  --text-h2:                var(--p-fs-800);
+  --text-h1:                var(--p-fs-900);
+  --text-display:           var(--p-fs-1000);
+
+  --fw-body:                var(--p-fw-regular);
+  --fw-emphasis:            var(--p-fw-medium);
+  --fw-heading:             var(--p-fw-semibold);
+  --fw-display:             var(--p-fw-bold);
+
+  --leading-display:        var(--p-lh-display);
+  --leading-heading:        var(--p-lh-tight);
+  --leading-subhead:        var(--p-lh-snug);
+  --leading-body:           var(--p-lh-normal);
+  --leading-prose:          1.75;
+
+  --tracking-heading:       var(--p-ls-tight);
+  --tracking-body:          var(--p-ls-normal);
+  --tracking-wide:          var(--p-ls-wide);
+  --tracking-overline:      var(--p-ls-caps);
+
+  /* Spacing (semantic) */
+  --space-xs:  var(--p-space-1);
+  --space-sm:  var(--p-space-2);
+  --space-md:  var(--p-space-3);
+  --space-lg:  var(--p-space-4);
+  --space-xl:  var(--p-space-5);
+  --space-2xl: var(--p-space-6);
+  --space-3xl: var(--p-space-8);
+  --space-4xl: var(--p-space-10);
+  --space-5xl: var(--p-space-12);
+  --space-6xl: var(--p-space-16);
+  --space-7xl: var(--p-space-20);
+
+  /* Layout */
+  --max-width:      1320px;
+  --grid-columns:   12;
+  --grid-gutter:    var(--p-space-3);
+  --grid-margin:    var(--p-space-8);
+
+  /* Radius (semantic) */
+  --radius-input:   var(--p-radius-md);
+  --radius-card:    var(--p-radius-xl);
+  --radius-panel:   var(--p-radius-lg);
+  --radius-pill:    var(--p-radius-pill);
+
+  /* Shadow (semantic) */
+  --shadow-card:       var(--p-shadow-md);
+  --shadow-card-hover: var(--p-shadow-lg);
+  --shadow-modal:      var(--p-shadow-xl);
+
+  /* Motion (semantic) */
+  --ease-default:   var(--p-ease);
+  --duration-fast:  var(--p-duration-fast);
+  --duration-normal:var(--p-duration-norm);
+  --duration-slow:  var(--p-duration-slow);
+  --duration-theme: 1.4s;
+
+
+  /* ==================== TIER 3 — COMPONENT ==================== */
+
+  /* Nav */
+  --nav-height:            72px;
+  --nav-height-mobile:     56px;
+  --nav-link-size:         var(--text-label);
+  --nav-link-weight:       var(--fw-emphasis);
+  --nav-link-color:        rgba(255,255,255,0.82);
+  --nav-link-color-active: var(--p-neutral-0);
+  --nav-link-gap:          var(--space-xl);
+
+  /* Hero */
+  --hero-pt:               calc(var(--nav-height) + var(--space-4xl));
+  --hero-pb:               var(--space-4xl);
+  --hero-min-h:            100vh;
+  --hero-eyebrow-size:     var(--text-label);
+  --hero-title-size:       var(--text-display);
+  --hero-subtitle-size:    var(--text-h5);
+  --hero-subtitle-color:   var(--color-text-secondary);
+  --hero-bg-home:          var(--color-bg-alt);
+
+  /* Button — colour aliases live on `body` (see below) */
+  --btn-px:                var(--space-md);
+  --btn-py:                var(--space-xs);
+  --btn-px-lg:             var(--space-lg);
+  --btn-font-size:         var(--text-label);
+  --btn-font-size-lg:      var(--text-body);
+  --btn-font-weight:       var(--fw-emphasis);
+  --btn-radius:            var(--radius-pill);
+
+  /* Card — colour aliases live on `body` (see below), because a :root-declared
+     alias resolves against :root's computed value and would freeze to the dark
+     tier forever. Sizes are theme-independent and stay here. */
+  --card-radius:           var(--radius-card);
+  --card-padding:          var(--space-lg);
+  --card-tag-size:         var(--text-caption);
+  --card-title-size:       var(--text-h5);
+  --card-desc-size:        var(--text-label);
+  --card-hover-y:          -4px;
+
+  /* Section — colour aliases live on `body` (see below) */
+  --section-py:            var(--space-6xl);
+  --section-header-mb:     var(--space-3xl);
+  --section-eyebrow-size:  var(--text-caption);
+  --section-title-size:    var(--text-h2);
+  --section-sub-size:      var(--text-body-lg);
+
+  /* Prose — colour aliases live on `body` (see below) */
+  --prose-max-w:           740px;
+  --prose-h2-size:         var(--text-h3);
+  --prose-h3-size:         var(--text-h5);
+
+  /* Form */
+  --form-input-px:         var(--space-md);
+  --form-input-py:         var(--space-sm);
+  --form-input-size:       var(--text-body);
+  --form-input-border:     rgba(0,0,0,0.12);
+  --form-input-focus:      var(--p-neutral-900);
+  --form-input-radius:     var(--radius-input);
+  --form-input-bg:         var(--p-neutral-0);
+  --form-input-color:      var(--p-neutral-900);
+  --form-placeholder:      var(--p-neutral-400);
+  --form-gap:              var(--space-sm);
+
+  /* Footer */
+  --footer-py:             var(--space-3xl);
+  --footer-bg:             var(--p-neutral-950);
+  --footer-meta-color:     var(--p-neutral-500);
+  --footer-link-color:     var(--p-neutral-300);
+  --footer-link-hover:     var(--p-neutral-0);
+}
+
+
+/* ==========================================================================
+   THEME-COUPLED TIER 3 ALIASES
+   Declared on `body`, not `:root`, and deliberately so.
+
+   A custom property resolves its var() references at computed-value time *on
+   the element where it is declared*, and the resolved value is what inherits.
+   So `:root { --card-bg: var(--color-card) }` freezes to :root's dark value
+   and never sees body.theme--light's override — the card stays dark on the
+   light page. Declaring them on `body` means they resolve against body's own
+   tier-2 values, which the theme flip does change.
+   ========================================================================== */
+
+body {
+  --card-bg:               var(--color-card);
+  --card-border:           var(--color-border-light);
+  --card-tag-color:        var(--color-text-tertiary);
+  --card-desc-color:       var(--color-text-secondary);
+
+  --btn-primary-bg:        var(--color-accent);
+  --btn-primary-bg-hover:  var(--color-accent-hover);
+  --btn-primary-fg:        var(--color-text-inverse);
+  --btn-secondary-border:  var(--color-border);
+  --btn-secondary-border-hover: var(--color-text-primary);
+
+  --section-eyebrow-color: var(--color-text-tertiary);
+  --section-sub-color:     var(--color-text-secondary);
+
+  --prose-color:           var(--p-neutral-500);
+  --prose-heading-color:   var(--color-text-primary);
+
+  --hero-subtitle-color:   var(--color-text-secondary);
+}
+
+
+/* ==========================================================================
+   LIGHT THEME — the body page tier.
+   Toggled via body.theme--light once the hero clears the fold, exactly as on
+   naas-llc: every semantic token flips, every token-based component follows
+   with no extra class changes.
+   ========================================================================== */
+body.theme--light {
+  --color-bg:             var(--p-neutral-0);
+  --color-bg-alt:         var(--p-neutral-50);
+  --color-surface:        var(--p-neutral-100);
+  --color-card:           var(--p-neutral-0);
+  --color-overlay:        rgba(255,255,255,0.7);
+
+  --color-text-primary:   var(--p-neutral-900);
+  --color-text-secondary: var(--p-neutral-500);
+  --color-text-tertiary:  var(--p-neutral-500);
+  --color-text-inverse:   var(--p-neutral-0);
+
+  --color-border:         rgba(17,17,24,0.09);
+  --color-border-light:   rgba(17,17,24,0.06);
+
+  --color-accent:         var(--p-neutral-900);
+  --color-accent-hover:   var(--p-neutral-700);
+
+  /* Links need their own light value: the dark-tier accent-400 only just
+     clears AA on white, and these are used for 14px CTAs. */
+  --color-link:           var(--p-accent-600);
+  --color-link-hover:     var(--p-accent-500);
+
+  --prose-color:          var(--p-neutral-500);
+  --prose-heading-color:  var(--p-neutral-900);
+}
+
+
+/* ==========================================================================
+   RESPONSIVE SPACING — primitives scale down per breakpoint
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  :root {
+    --p-space-3:  20px;
+    --p-space-4:  24px;
+    --p-space-5:  32px;
+    --p-space-6:  40px;
+    --p-space-8:  48px;
+    --p-space-10: 56px;
+    --p-space-12: 64px;
+    --p-space-16: 80px;
+    --p-space-20: 96px;
+    --grid-gutter: 20px;
+    --grid-margin: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --p-space-1:  4px;
+    --p-space-2:  8px;
+    --p-space-3:  16px;
+    --p-space-4:  16px;
+    --p-space-5:  24px;
+    --p-space-6:  32px;
+    --p-space-8:  40px;
+    --p-space-10: 48px;
+    --p-space-12: 56px;
+    --p-space-16: 64px;
+    --p-space-20: 80px;
+
+    --grid-columns: 2;
+    --grid-gutter:  16px;
+    --grid-margin:  20px;
+
+    --nav-height:  56px;
+    --section-py:  var(--space-4xl);
+  }
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The PM Toolkit — Case Study — Collin Nicholas</title>
+<meta name="description" content="A production SaaS platform for product managers, built and shipped solo with live billing and real users.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The PM Toolkit — Case Study">
+<meta property="og:description" content="A production SaaS platform for product managers, built and shipped solo with live billing and real users.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/grid.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<div class="cs-progress" role="progressbar" aria-label="Reading progress"></div>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="../index.html" class="nav__logo" aria-label="Collin Nicholas — Home">CN<span>.</span></a>
+    <div class="nav__links">
+      <a class="nav__link" href="../work.html">Work</a>
+      <a class="nav__link" href="../work.html#enterprise">Case Studies</a>
+      <a class="nav__link" href="../about.html">About</a>
+      <a class="nav__link" href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav__actions">
+      <a class="nav__cta" href="../Collin_Nicholas_Resume.pdf" download>Download Resume</a>
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<section class="hero--project" data-theme-hero>
+  <div class="hero--project__grid"></div>
+  <div class="container hero--project__inner">
+    <nav class="hero__breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> <span>/</span>
+      <a href="../work.html">Work</a> <span>/</span>
+      <span>The PM Toolkit</span>
+    </nav>
+
+    <h1 class="hero__project-title">A product I would have paid for at work.</h1>
+
+    <p class="hero__project-lede">
+      The PM Toolkit is a grounded AI workspace for product managers. It carries a
+      project from market research and customer insight through strategy, PRDs, ROI
+      modelling, roadmaps, and the executive summary that has to survive a board
+      review. I designed, built, and shipped it alone &mdash; it runs in production,
+      bills real customers, and has users I have never met.
+    </p>
+
+    <div class="hero__meta">
+      <div class="hero__meta-item">
+        <div class="hero__meta-label">Role</div>
+        <div class="hero__meta-value">Founder, product &amp; engineering</div>
+      </div>
+      <div class="hero__meta-item">
+        <div class="hero__meta-label">Timeline</div>
+        <div class="hero__meta-value">2025 &mdash; Present</div>
+      </div>
+      <div class="hero__meta-item">
+        <div class="hero__meta-label">Team</div>
+        <div class="hero__meta-value">One person, no engineers</div>
+      </div>
+      <div class="hero__meta-item">
+        <div class="hero__meta-label">Status</div>
+        <div class="hero__meta-value">Live &middot; billing &middot; real users</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+  <div class="cs-stats">
+    <div class="cs-stat">
+      <div class="cs-stat__number">0</div>
+      <div class="cs-stat__label">Engineers Involved</div>
+    </div>
+    <div class="cs-stat">
+      <div class="cs-stat__number">1</div>
+      <div class="cs-stat__label">Person, Idea to Production</div>
+    </div>
+    <div class="cs-stat">
+      <div class="cs-stat__number">Live</div>
+      <div class="cs-stat__label">Billing &amp; Users</div>
+    </div>
+  </div>
+
+  <article class="cs-chapter">
+    <div class="cs-chapter__label">01 &middot; The problem</div>
+    <div>
+      <h2 class="cs-chapter__title">Product work is fragmented, and the artefacts are the deliverable</h2>
+      <div class="cs-chapter__body">
+        <p>
+          A working PM keeps context across a dozen tools and produces a specific set
+          of artefacts: a market scan, a customer insight synthesis, a strategy
+          narrative, a PRD, a financial model, a roadmap, and an executive summary
+          that has to hold up in a room full of people who will poke at it.
+        </p>
+        <p>
+          The gap I kept hitting is that the tools are either blank-page generators
+          (fast, but you cannot defend the output) or heavyweight platforms that
+          assume a research team. <strong>The product I wanted was one that made the
+          work faster without making the reasoning weaker</strong> &mdash; every
+          generated artefact anchored to the project&rsquo;s own brief, research, and
+          uploaded files rather than to generic training-data patterns.
+        </p>
+        <p>
+          I had a second motive, honestly. I wanted to prove that the methodology I was
+          advocating at work &mdash; that a product person can ship a real product
+          with AI &mdash; held up outside a supportive enterprise environment, with
+          billing, auth, and real strangers using it.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <article class="cs-chapter">
+    <div class="cs-chapter__label">02 &middot; Product decisions</div>
+    <div>
+      <h2 class="cs-chapter__title">Grounded output over impressive output</h2>
+      <div class="cs-chapter__body">
+        <p>
+          The central product decision was to make synthesis consume the
+          project&rsquo;s own material. When a brief is written or a file is uploaded,
+          the system builds a working profile of the ideal customer and stores it on
+          the project; every downstream artefact is constructed against that profile.
+          The output is narrower and more specific than a generic generator&rsquo;s
+          &mdash; which is exactly the point, because specific is what makes it usable
+          in a real review.
+        </p>
+
+        <div class="cs-list">
+          <div class="cs-list__item">
+            <div class="cs-list__key">Structure</div>
+            <div class="cs-list__val">Phases &mdash; research, strategy, financials &mdash; each ending in a synthesis that consolidates what was learned before the next phase begins.</div>
+          </div>
+          <div class="cs-list__item">
+            <div class="cs-list__key">Decision log</div>
+            <div class="cs-list__val">A first-class decisions record with resolution paths (decide, validate, defer, descope, mitigate, accept) and append-only chains, so a superseded decision is never silently deleted.</div>
+          </div>
+          <div class="cs-list__item">
+            <div class="cs-list__key">Artefacts</div>
+            <div class="cs-list__val">PRD, roadmap, epics and user stories, launch plan, pitch, ROI model, executive summary &mdash; each one editable, versioned, and exportable.</div>
+          </div>
+          <div class="cs-list__item">
+            <div class="cs-list__key">Voice</div>
+            <div class="cs-list__val">A realtime voice mode, so a PM can think out loud through a problem instead of typing into a form.</div>
+          </div>
+          <div class="cs-list__item">
+            <div class="cs-list__key">Instrumentation</div>
+            <div class="cs-list__val">Product analytics from day one, and a public feature surface indexed for discovery &mdash; because a product nobody finds has no users.</div>
+          </div>
+        </div>
+
+        <p>
+          Deliberately out of scope: real-time collaboration, enterprise SSO, and
+          anything requiring a sales conversation. Each one would have been a
+          reasonable feature and each one would have delayed the only question that
+          mattered, which was whether the core artefact quality was good enough that
+          someone would pay for it.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <article class="cs-chapter">
+    <div class="cs-chapter__label">03 &middot; What building it alone changed</div>
+    <div>
+      <h2 class="cs-chapter__title">The part that transfers back to enterprise product work</h2>
+      <div class="cs-chapter__body">
+        <p>
+          Building this end to end &mdash; data model, prompt architecture, billing,
+          onboarding, analytics, SEO, support &mdash; removed the abstraction layer I
+          used to have when talking to engineers. I now know where the cost actually
+          lives: it is rarely the feature, and almost always the grounded data path
+          behind it. That changes how I scope, and it changes what I am willing to
+          promise in a roadmap review.
+        </p>
+        <p>
+          It also changed how I run AI initiatives. <strong>Evaluation stops being a
+          phase and becomes a habit.</strong> When you are the person who gets the
+          support email about a bad output, prompt quality stops being a research
+          topic and becomes a product requirement with an owner.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <article class="cs-chapter">
+    <div class="cs-chapter__label">04 &middot; Outcome</div>
+    <div>
+      <h2 class="cs-chapter__title">In production, with strangers using it</h2>
+      <div class="cs-chapter__body">
+        <p>
+          The PM Toolkit is live, subscription-billed, and used by product managers
+          who found it without me in the room. That is the whole claim: not that a
+          prototype was demoed, but that a product was shipped, priced, launched,
+          instrumented, and operated &mdash; by one person, with AI as the multiplier
+          rather than the product.
+        </p>
+        <p>
+          It is also the most direct evidence I can offer for how I would run an AI
+          product organisation: small loops, working software over alignment decks,
+          evidence over confidence, and a hard line between what the model is allowed
+          to decide and what a person decides.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <div class="next-project">
+    <div class="next-project__label">Next case study</div>
+    <a class="next-project__link" href="bidpacket.html">
+      <span class="next-project__title">BidPacket</span>
+      <span class="next-project__arrow">&rarr;</span>
+    </a>
+  </div>
+
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <div class="footer__brand-name">Collin Nicholas<span>.</span></div>
+      <div class="footer__brand-note">Product leadership &middot; AI platforms &middot; 0&rarr;1 revenue</div>
+    </div>
+    <div class="footer__links">
+      <a class="footer__link" href="../work.html">Work</a>
+      <a class="footer__link" href="../about.html">About</a>
+      <a class="footer__link" href="../Collin_Nicholas_Resume.pdf" download>Résumé</a>
+      <a class="footer__link" href="mailto:Collin.R.Nicholas@gmail.com">Email</a>
+      <a class="footer__link" href="https://linkedin.com/in/collin-nicholas-71103792" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="footer__link" href="https://github.com/collinrnicholas" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="footer__meta">&copy; 2026 Collin Nicholas &middot; Built with vibe coding &mdash; because of course it was</div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

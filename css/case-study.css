@@ -1,0 +1,320 @@
+/* ==========================================================================
+   Case study — project page hero, reading progress, prose, chapter blocks
+   ========================================================================== */
+
+/* ---- Reading progress bar ---- */
+.cs-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: var(--color-signature);
+  z-index: 200;
+  transition: width 80ms linear;
+}
+
+/* ==========================================================================
+   PROJECT HERO — dark, full-bleed, with breadcrumb + meta
+   ========================================================================== */
+
+.hero--project {
+  position: relative;
+  background-color: var(--p-neutral-900);
+  padding: var(--hero-pt) 0 var(--space-4xl);
+  overflow: hidden;
+}
+
+.hero--project__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
+.hero--project__inner { position: relative; }
+
+.hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-code);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--p-neutral-500);
+  margin-bottom: var(--space-lg);
+}
+.hero__breadcrumb a { transition: color var(--duration-fast) var(--ease-default); }
+.hero__breadcrumb a:hover { color: var(--p-neutral-200); }
+.hero__breadcrumb span { color: var(--p-neutral-700); }
+
+.hero__project-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.2vw, 3.5rem);
+  font-weight: var(--fw-display);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: var(--p-neutral-0);
+  margin-bottom: var(--space-md);
+  max-width: 20ch;
+}
+
+.hero__project-lede {
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body);
+  color: var(--p-neutral-300);
+  max-width: 66ch;
+  margin-bottom: var(--space-xl);
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(255,255,255,0.09);
+}
+
+.hero__meta-item {}
+
+.hero__meta-label {
+  font-family: var(--font-code);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--p-neutral-500);
+  margin-bottom: 4px;
+}
+
+.hero__meta-value {
+  font-size: var(--text-label);
+  font-weight: var(--fw-emphasis);
+  color: var(--p-neutral-100);
+}
+
+/* ==========================================================================
+   STAT ROW on case studies
+   ========================================================================== */
+
+.cs-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background-color: var(--color-border-light);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  margin-block: var(--space-2xl);
+  border: 1px solid var(--color-border-light);
+}
+
+.cs-stat {
+  background-color: var(--color-bg);
+  padding: var(--space-lg) var(--space-md);
+}
+
+.cs-stat__number {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-weight: var(--fw-display);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+.cs-stat__number span { color: var(--color-signature); font-size: 0.6em; }
+
+.cs-stat__label {
+  font-family: var(--font-code);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+/* ==========================================================================
+   PROSE
+   ========================================================================== */
+
+.prose { max-width: var(--prose-max-w); }
+
+.prose p {
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-prose);
+  color: var(--prose-color);
+  margin-bottom: var(--space-md);
+}
+
+.prose strong { color: var(--prose-heading-color); font-weight: var(--fw-emphasis); }
+
+.prose h2 {
+  font-family: var(--font-heading);
+  font-size: var(--prose-h2-size);
+  font-weight: var(--fw-heading);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--prose-heading-color);
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-sm);
+}
+
+.prose h3 {
+  font-family: var(--font-heading);
+  font-size: var(--prose-h3-size);
+  font-weight: var(--fw-emphasis);
+  line-height: var(--leading-subhead);
+  letter-spacing: var(--tracking-heading);
+  color: var(--prose-heading-color);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-xs);
+}
+
+.prose ul { margin-bottom: var(--space-md); }
+
+.prose li {
+  position: relative;
+  padding-left: var(--space-md);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-prose);
+  color: var(--prose-color);
+  margin-bottom: var(--space-xs);
+}
+.prose li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 6px;
+  height: 1px;
+  background-color: var(--color-signature);
+}
+
+.prose blockquote {
+  border-left: 2px solid var(--color-signature);
+  padding-left: var(--space-md);
+  margin-block: var(--space-lg);
+}
+.prose blockquote p {
+  font-family: var(--font-heading);
+  font-size: var(--text-h5);
+  line-height: var(--leading-subhead);
+  color: var(--prose-heading-color);
+  margin: 0;
+}
+
+/* ==========================================================================
+   CHAPTER — label + title + body, side by side
+   ========================================================================== */
+
+.cs-chapter {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-2xl);
+  padding-block: var(--space-2xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.cs-chapter__label {
+  font-family: var(--font-code);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--color-signature);
+  padding-top: 6px;
+}
+
+.cs-chapter__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: var(--fw-heading);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.cs-chapter__body {
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-prose);
+  color: var(--color-text-secondary);
+}
+.cs-chapter__body p { margin-bottom: var(--space-md); }
+.cs-chapter__body p:last-child { margin-bottom: 0; }
+.cs-chapter__body strong { color: var(--color-text-primary); font-weight: var(--fw-emphasis); }
+
+/* Architecture / decision list */
+.cs-list { border-top: 1px solid var(--color-border-light); margin-top: var(--space-sm); }
+
+.cs-list__item {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-md);
+  padding-block: var(--space-sm);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.cs-list__key {
+  font-family: var(--font-code);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.cs-list__val {
+  font-size: var(--text-label);
+  line-height: var(--leading-body);
+  color: var(--color-text-secondary);
+}
+.cs-list__val strong { color: var(--color-text-primary); }
+
+/* ==========================================================================
+   NEXT PROJECT
+   ========================================================================== */
+
+.next-project {
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-4xl);
+}
+.next-project__label {
+  font-family: var(--font-code);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-sm);
+}
+.next-project__link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+}
+.next-project__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: var(--fw-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--color-text-primary);
+  transition: color var(--duration-fast) var(--ease-default);
+}
+.next-project__arrow { color: var(--color-text-tertiary); transition: transform var(--duration-fast) var(--ease-default); }
+.next-project__link:hover .next-project__arrow { transform: translateX(6px); color: var(--color-text-primary); }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .cs-stats { grid-template-columns: 1fr; }
+  .cs-chapter { grid-template-columns: 1fr; gap: var(--space-sm); }
+  .cs-list__item { grid-template-columns: 1fr; gap: var(--space-xs); }
+}
+
+@media (max-width: 640px) {
+  .hero--project { padding: calc(var(--nav-height) + var(--space-2xl)) 0 var(--space-2xl); }
+  .hero__meta { gap: var(--space-lg); }
+  .prose p, .prose li, .cs-chapter__body { font-size: var(--text-body); }
+}
