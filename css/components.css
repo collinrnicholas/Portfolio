@@ -94,8 +94,15 @@
 .nav__toggle {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
-  padding: 6px;
+  /* 44px minimum hit area; the negative margin keeps the icon optically
+     aligned with the nav edge while the touch target stays large enough. */
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px;
+  margin-right: -10px;
 }
 .nav__toggle span {
   display: block;
@@ -153,9 +160,12 @@ body.theme--light .nav__toggle span { background-color: var(--p-neutral-900); }
   .nav__links.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
 
   .nav__link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
     padding: var(--space-sm) var(--space-sm);
     border-bottom: 1px solid rgba(255,255,255,0.06);
-    color: var(--p-neutral-300);
+    color: var(--p-neutral-200);
   }
   .nav__link:last-child { border-bottom: none; }
 
