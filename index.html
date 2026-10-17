@@ -121,6 +121,21 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .video-title { font-family: var(--ff-d); font-size: 13px; font-weight: 600; color: rgba(250,250,248,0.6); line-height: 1.4; }
 .video-duration { font-family: var(--ff-m); font-size: 11px; color: rgba(250,250,248,0.3); }
 
+/* Independent product highlights */
+.project-card-showcase { scroll-margin-top: 88px; }
+.project-card-showcase .project-body { min-width: 0; }
+.project-card-showcase .proj-btn { min-height: 44px; }
+.project-card-showcase .proj-btn:focus-visible { outline: 3px solid var(--accent2); outline-offset: 4px; }
+.project-capabilities { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0 0 24px; }
+.project-capabilities li { padding: 6px 10px; border: 1px solid var(--border2); border-radius: var(--r); font-size: 13px; color: var(--muted); }
+.project-highlight { background: var(--ink2); color: var(--paper); padding: 36px 28px; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+.project-highlight-label { color: var(--paper3); font-family: var(--ff-m); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+.project-highlight-title { font-family: var(--ff-d); font-size: 22px; font-weight: 700; line-height: 1.3; }
+.project-highlight ol { list-style: none; display: grid; gap: 12px; }
+.project-highlight li { border-top: 1px solid var(--muted); padding-top: 12px; font-size: 14px; line-height: 1.6; }
+.project-highlight li strong { display: block; font-weight: 600; }
+.project-highlight-note { font-size: 13px; color: var(--paper3); line-height: 1.6; }
+
 /* CASE STUDIES */
 #casestudies { background: var(--paper2); }
 .cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
@@ -344,28 +359,76 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); p
   <div class="section-inner">
     <div class="section-label">Portfolio</div>
     <h2 class="section-title">Projects & Prototypes</h2>
-    <p class="section-sub">A mix of production products, AI prototypes, and personal builds. Each video walks through the problem, my approach, and what I learned.</p>
+    <p class="section-sub">Independent products and enterprise prototypes. Explore the live tools, see real sample output, and learn what I am building next.</p>
     <div class="projects-grid">
-      <div class="project-card featured">
+      <article class="project-card project-card-showcase featured" id="the-pm-toolkit" aria-labelledby="pm-toolkit-title">
         <div class="project-body">
-          <div class="project-tags"><span class="tag tag-gold">Personal SaaS</span><span class="tag tag-blue">In Production</span><span class="tag tag-green">Real Users</span></div>
-          <h3 class="project-title">The PM Toolkit</h3>
-          <p class="project-desc">A production SaaS application built entirely with vibe coding — designed for product managers who want to move faster. Built and shipped independently without an engineering team, demonstrating end-to-end product ownership from idea to live users.</p>
-          <div class="project-metrics">
-            <div class="metric"><div class="metric-val">[X]<span class="unit"> users</span></div><div class="metric-label">Active Users</div></div>
-            <div class="metric"><div class="metric-val">Vibe<span class="unit"> coded</span></div><div class="metric-label">Built with AI</div></div>
-          </div>
+          <div class="project-tags"><span class="tag tag-gold">Independent Product</span><span class="tag tag-blue">Live</span></div>
+          <h3 class="project-title" id="pm-toolkit-title">The PM Toolkit</h3>
+          <p class="project-desc">A grounded AI workspace for product managers and founders. Connect discovery, market research, strategy, and delivery documents around the same product context, with sources and confidence indicators that make the reasoning easier to review.</p>
+          <ul class="project-capabilities" aria-label="The PM Toolkit capabilities"><li>Product discovery</li><li>Research with sources</li><li>Connected planning</li></ul>
           <div class="project-links">
-            <a href="#" class="proj-btn proj-btn-primary">▶ Watch Walkthrough</a>
-            <a href="https://thepmtoolkit.app" target="_blank" class="proj-btn proj-btn-secondary">Live Demo →</a>
+            <a href="https://thepmtoolkit.app/" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">Explore The PM Toolkit ↗</a>
+            <a href="https://thepmtoolkit.app/features" target="_blank" rel="noopener" class="proj-btn proj-btn-secondary">See product features ↗</a>
           </div>
         </div>
-        <div class="project-video"><div class="video-placeholder">
-          <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
-          <div class="video-title">The PM Toolkit<br>Full Walkthrough</div>
-          <div class="video-duration">~5 min · Face + Screen</div>
-        </div></div>
-      </div>
+        <aside class="project-highlight" aria-label="The PM Toolkit workflow">
+          <div class="project-highlight-label">Discovery to delivery</div>
+          <p class="project-highlight-title">Keep the product context connected.</p>
+          <ol><li><strong>Discover</strong>Work through the problem and target customer.</li><li><strong>Research and plan</strong>Review evidence, assumptions, and strategy.</li><li><strong>Build the documents</strong>Carry that context into stories, PRDs, and deliverables.</li></ol>
+        </aside>
+      </article>
+      <article class="project-card project-card-showcase" id="bidpacket" aria-labelledby="bidpacket-title">
+        <div class="project-body">
+          <div class="project-tags"><span class="tag tag-gold">Independent Product</span><span class="tag tag-blue">Live</span><span class="tag tag-gray">Construction</span></div>
+          <h3 class="project-title" id="bidpacket-title">BidPacket</h3>
+          <p class="project-desc">Turn construction plans and RFPs into a project summary, materials checklist, and editable proposal draft for contractor review. The public sample shows the generated documents and open questions; final quantities, pricing, and submission still need contractor verification.</p>
+          <ul class="project-capabilities" aria-label="BidPacket outputs"><li>Project summary</li><li>Materials checklist</li><li>Proposal draft</li></ul>
+          <div class="project-links">
+            <a href="https://bidpacket.co/" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">Explore BidPacket ↗</a>
+            <a href="https://bidpacket.co/demo" target="_blank" rel="noopener" class="proj-btn proj-btn-secondary">Watch the 45-second sample ↗</a>
+          </div>
+        </div>
+        <aside class="project-highlight" aria-label="BidPacket sample output">
+          <div class="project-highlight-label">From documents to a first pass</div>
+          <p class="project-highlight-title">Open the output. Check the details.</p>
+          <ol><li><strong>Read the scope</strong>Start with the generated project summary.</li><li><strong>Organize the work</strong>Review materials and items marked for confirmation.</li><li><strong>Edit the proposal</strong>Reconcile scope, quantities, prices, and terms.</li></ol>
+          <p class="project-highlight-note">A starting point for bid preparation, with contractor review required.</p>
+        </aside>
+      </article>
+      <article class="project-card project-card-showcase" id="arclo-pro" aria-labelledby="arclo-pro-title">
+        <div class="project-body">
+          <div class="project-tags"><span class="tag tag-gold">Independent Product</span><span class="tag tag-blue">Live</span><span class="tag tag-gray">Local Business</span></div>
+          <h3 class="project-title" id="arclo-pro-title">Arclo Pro</h3>
+          <p class="project-desc">Websites and ongoing SEO for local businesses. Arclo Pro brings the site, content updates, and search-performance reporting into one service, helping owners maintain their online presence and understand how their site is performing.</p>
+          <ul class="project-capabilities" aria-label="Arclo Pro capabilities"><li>Business websites</li><li>Ongoing SEO</li><li>Performance reporting</li></ul>
+          <div class="project-links">
+            <a href="https://arclo.pro/" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">Explore Arclo Pro ↗</a>
+          </div>
+        </div>
+        <aside class="project-highlight" aria-label="Arclo Pro service focus">
+          <div class="project-highlight-label">A maintained online presence</div>
+          <p class="project-highlight-title">Build the site. Keep improving it.</p>
+          <ol><li><strong>Website</strong>A public home for the business and its services.</li><li><strong>Content and SEO</strong>Ongoing updates that keep the site relevant.</li><li><strong>Reporting</strong>Visibility into search performance over time.</li></ol>
+        </aside>
+      </article>
+      <article class="project-card project-card-showcase" id="loupe" aria-labelledby="loupe-title">
+        <div class="project-body">
+          <div class="project-tags"><span class="tag tag-gold">Independent Product</span><span class="tag tag-gray">In Development</span><span class="tag tag-blue">Developer Tools</span></div>
+          <h3 class="project-title" id="loupe-title">Loupe</h3>
+          <p class="project-desc">A browser-based UX review tool that turns recorded product sessions into concrete implementation briefs for AI coding agents. Capture interactions and interface evidence, review UX and design-consistency findings, then route selected work to Claude Code, Cursor, or Codex.</p>
+          <ul class="project-capabilities" aria-label="Loupe capabilities"><li>Session capture</li><li>UX review</li><li>Coding-agent handoff</li></ul>
+          <div class="project-links">
+            <a href="mailto:Collin.R.Nicholas@gmail.com?subject=Loupe%20project" class="proj-btn proj-btn-primary">Ask me about Loupe →</a>
+          </div>
+        </div>
+        <aside class="project-highlight" aria-label="Loupe workflow">
+          <div class="project-highlight-label">Capture → Review → Build This</div>
+          <p class="project-highlight-title">Turn an observed issue into a clear brief.</p>
+          <ol><li><strong>Capture</strong>Record screenshots, DOM, interactions, and narration.</li><li><strong>Review</strong>Explore UX, accessibility, and design-consistency findings.</li><li><strong>Hand off</strong>Package selected findings for an AI coding agent.</li></ol>
+          <p class="project-highlight-note">In development. Get in touch to learn more about the project.</p>
+        </aside>
+      </article>
       <div class="project-card">
         <div class="project-body">
           <div class="project-tags"><span class="tag tag-blue">0→1 Launch</span><span class="tag tag-gold">AI Product</span><span class="tag tag-gray">HR Tech</span></div>
@@ -529,4 +592,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
-document.q
+</script>
+</body>
+</html>
