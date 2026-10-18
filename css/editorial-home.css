@@ -1,0 +1,296 @@
+/* Homepage-only refinement. The approved Silver Graphite colour tokens are not
+   touched here: this file sets rhythm, hierarchy, control feedback and entrance
+   timing only. Every value maps to an existing token or a shared spacing step,
+   and no type size is redefined — the approved scale stays as it is. */
+:root {
+  /* One spacing scale for the homepage rhythm. */
+  --editorial-space-xs: 8px;
+  --editorial-space-sm: 16px;
+  --editorial-space-md: 24px;
+  --editorial-space-lg: 32px;
+  --editorial-space-xl: 40px;
+  --editorial-space-2xl: 48px;
+  --editorial-space-3xl: 64px;
+  --editorial-space-4xl: 80px;
+  --editorial-space-5xl: 96px;
+
+  /* Current Remit internals. */
+  --remit-inset: 32px;
+  --remit-row-inset: 18px;
+  --remit-header-gap: 20px;
+  --remit-title-gap: 28px;
+  --remit-label-col: 120px;
+
+  --control-radius: 4px;
+
+  /* Entrance timing: shorter than the first pass, one short move per element. */
+  --motion-ease-enter: cubic-bezier(.22,1,.36,1);
+  --motion-ease-state: cubic-bezier(.2,.75,.25,1);
+  --motion-duration-micro: 120ms;
+  --motion-duration-state: 160ms;
+  --motion-duration-panel: 240ms;
+  --motion-duration-enter: 260ms;
+  --motion-duration-hero: 260ms;
+  --motion-duration-page: 180ms;
+  --motion-stagger: 36ms;
+  --motion-distance-text: 10px;
+  --motion-distance-panel: 6px;
+
+  /* Existing motion components read the same scale. */
+  --ease-out-quint: var(--motion-ease-enter);
+  --ease-out-soft: var(--motion-ease-state);
+  --dur-micro: var(--motion-duration-micro);
+  --dur-state: var(--motion-duration-state);
+  --dur-enter: var(--motion-duration-panel);
+  --dur-large: var(--motion-duration-enter);
+}
+
+/* ---------- Hero rhythm ---------- */
+
+/* The two-column relationship is preserved. The gap and the padding are
+   tightened so the Remit panel lands inside the first screen. */
+.portfolio-home .studio-hero {
+  gap: var(--editorial-space-3xl);
+  padding-block: 76px 84px;
+}
+.portfolio-home .studio-hero .studio-eyebrow { margin-bottom: var(--editorial-space-md); }
+.portfolio-home .studio-hero h1 { margin-bottom: var(--editorial-space-lg); }
+.portfolio-home .studio-hero__lede {
+  max-width: 44ch;
+  line-height: 1.7;
+  margin-bottom: var(--editorial-space-md);
+  text-wrap: pretty;
+}
+.portfolio-home .studio-hero__lede .keep-phrase { white-space: nowrap; }
+@supports (text-wrap: balance) {
+  .portfolio-home .studio-hero__lede { text-wrap: balance; }
+}
+.portfolio-home .executive-hero-actions { gap: var(--editorial-space-xs) var(--editorial-space-md); }
+.portfolio-home .studio-hero__location { margin-top: var(--editorial-space-sm); line-height: 1.6; }
+
+/* ---------- Current Remit hierarchy ---------- */
+
+/* Header, title, label/value rows, caption. The levels are separated by space
+   and by hairlines from the existing border token — no new colours, no new
+   type size. */
+.portfolio-home .leadership-artifact {
+  padding: var(--remit-inset) var(--remit-inset) 0;
+  align-self: start;
+}
+.portfolio-home .leadership-artifact .hero-artifact__header {
+  padding: 0 0 var(--remit-header-gap);
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+.portfolio-home .leadership-artifact .hero-artifact__header > :last-child {
+  font-weight: 400;
+  letter-spacing: .01em;
+}
+.portfolio-home .leadership-artifact__title {
+  margin: 0 0 var(--remit-title-gap);
+  line-height: 1.15;
+}
+.portfolio-home .leadership-map > div {
+  grid-template-columns: var(--remit-label-col) minmax(0,1fr);
+  gap: var(--editorial-space-sm);
+  padding-block: var(--remit-row-inset);
+  border-top: 1px solid var(--color-border);
+}
+.portfolio-home .leadership-map > div:first-child { border-top: 0; }
+.portfolio-home .leadership-map :is(dt,dd) { line-height: 1.55; }
+.portfolio-home .leadership-map dt { color: var(--color-text-secondary); }
+.portfolio-home .leadership-map dd { text-wrap: pretty; }
+.portfolio-home .leadership-artifact figcaption {
+  padding-block: var(--remit-row-inset);
+  margin-top: 0;
+  gap: var(--editorial-space-xs) var(--editorial-space-sm);
+  line-height: 1.5;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---------- Section rhythm ---------- */
+
+/* Same sections, same order. Only the space between them changes, so the page
+   reads as one column with consistent steps. */
+.portfolio-home .studio-enterprise { padding-block: var(--editorial-space-4xl); }
+.portfolio-home .enterprise-current {
+  gap: var(--editorial-space-3xl);
+  padding-bottom: var(--editorial-space-xl);
+}
+.portfolio-home .enterprise-current__copy { padding-top: var(--editorial-space-lg); }
+.portfolio-home .enterprise-current__copy > p { max-width: 50ch; line-height: 1.7; }
+.portfolio-home .leadership-remit {
+  gap: var(--editorial-space-lg);
+  padding-bottom: var(--editorial-space-xl);
+}
+.portfolio-home .leadership-remit article { padding-top: var(--editorial-space-md); }
+.portfolio-home .leadership-remit h3 { margin-bottom: 12px; }
+.portfolio-home .leadership-remit p { line-height: 1.7; }
+.portfolio-home .enterprise-history { padding-top: var(--editorial-space-lg); }
+.portfolio-home .enterprise-history > .studio-eyebrow { margin-bottom: var(--editorial-space-lg); }
+.portfolio-home .enterprise-results { gap: var(--editorial-space-lg); margin-bottom: var(--editorial-space-sm); }
+.portfolio-home .enterprise-results__number { margin-bottom: var(--editorial-space-sm); }
+.portfolio-home .enterprise-results h3 { margin-bottom: var(--editorial-space-xs); }
+.portfolio-home .enterprise-results p { line-height: 1.7; max-width: 34ch; }
+.portfolio-home .studio-approach {
+  gap: var(--editorial-space-3xl);
+  padding-block: var(--editorial-space-4xl);
+}
+.portfolio-home .studio-approach__intro { margin-block: var(--editorial-space-md) var(--editorial-space-xs); line-height: 1.7; }
+.portfolio-home .approach-list > li { gap: var(--editorial-space-md); padding-block: var(--editorial-space-md); }
+.portfolio-home .approach-list > li:first-child { padding-top: 0; }
+.portfolio-home .approach-list > li:last-child { padding-bottom: 0; }
+.portfolio-home .approach-list h3 { line-height: 1.45; margin-bottom: var(--editorial-space-xs); }
+.portfolio-home .approach-list p { max-width: 50ch; line-height: 1.7; }
+.portfolio-home .studio-work { padding-top: var(--editorial-space-3xl); padding-bottom: var(--editorial-space-5xl); }
+.portfolio-home .studio-section-heading { gap: var(--editorial-space-lg); margin-bottom: var(--editorial-space-xl); }
+.portfolio-home .work-pair { gap: var(--editorial-space-2xl); }
+.portfolio-home .work-pair--secondary { margin-top: var(--editorial-space-2xl); }
+.portfolio-home .work-feature__meta { margin-top: var(--editorial-space-md); }
+.portfolio-home .work-feature h3 { margin-block: 12px; }
+.portfolio-home .work-feature > p { line-height: 1.7; max-width: 58ch; }
+.portfolio-home .work-feature__links { gap: var(--editorial-space-xs) var(--editorial-space-md); margin-top: var(--editorial-space-sm); }
+.portfolio-home .work-feature__value { margin-top: var(--editorial-space-sm); }
+.portfolio-home .studio-contact { gap: var(--editorial-space-3xl); padding-block: var(--editorial-space-4xl); }
+.portfolio-home .studio-contact__action > p { max-width: 45ch; line-height: 1.7; margin-bottom: var(--editorial-space-md); }
+.portfolio-home .footer { padding-block: var(--editorial-space-2xl) var(--editorial-space-md); }
+
+/* ---------- Navigation microinteractions ---------- */
+
+/* Size and colour stay. Only the rule under the link moves, and the current
+   section keeps a quieter version of it. */
+.portfolio-home .nav__links { gap: var(--editorial-space-lg); }
+.portfolio-home .nav__link { transition: color var(--motion-duration-state) var(--motion-ease-state); }
+.portfolio-home .nav__link::after {
+  bottom: 8px;
+  height: 1px;
+  transform-origin: left center;
+  transition: transform var(--motion-duration-state) var(--motion-ease-state),
+              opacity var(--motion-duration-state) var(--motion-ease-state);
+}
+.portfolio-home .nav__link:focus-visible::after { transform: scaleX(1); }
+.portfolio-home .nav__link[aria-current="location"]::after { transform: scaleX(1); opacity: .55; }
+.portfolio-home .nav__link[aria-current="location"] { color: var(--color-text-primary); }
+
+/* The CTA answers on press as well as on hover, so it never feels inert. */
+.portfolio-home .nav__cta {
+  border-radius: var(--control-radius);
+  transition: background-color var(--motion-duration-state) var(--motion-ease-state),
+              color var(--motion-duration-state) var(--motion-ease-state),
+              border-color var(--motion-duration-state) var(--motion-ease-state),
+              transform var(--motion-duration-micro) var(--motion-ease-state);
+}
+.portfolio-home .nav__cta:hover { transform: translateY(-1px); }
+.portfolio-home .nav__cta:active { transform: translateY(1px); }
+.portfolio-home .nav__toggle { border-radius: var(--control-radius); }
+
+/* ---------- Button feedback ---------- */
+
+.portfolio-home .studio-button {
+  min-height: 52px;
+  gap: var(--editorial-space-lg);
+  padding-inline: var(--editorial-space-md);
+  border-radius: var(--control-radius);
+  transition: background-color var(--motion-duration-state) var(--motion-ease-state),
+              color var(--motion-duration-state) var(--motion-ease-state),
+              transform var(--motion-duration-micro) var(--motion-ease-state);
+}
+.portfolio-home .studio-button:hover { transform: translateY(-1px); }
+.portfolio-home .studio-button:active { transform: translateY(1px); }
+.portfolio-home .studio-button span { transition: transform var(--motion-duration-state) var(--motion-ease-state); }
+.portfolio-home .studio-text-link { text-decoration-thickness: 1px; }
+.portfolio-home :is(a,button):focus-visible { outline-width: 2px; outline-offset: 4px; }
+
+/* ---------- Restrained entrance ---------- */
+
+/* Five elements, one short move each, 36ms apart. Nothing stays hidden after
+   the animation, so the page reads normally if it never runs. */
+@media (prefers-reduced-motion: no-preference) {
+  .portfolio-home .studio-hero__copy > * {
+    animation: editorial-text-in var(--motion-duration-hero) var(--motion-ease-enter) backwards;
+  }
+  .portfolio-home .studio-hero__copy > :nth-child(1) { animation-delay: 0ms; }
+  .portfolio-home .studio-hero__copy > :nth-child(2) { animation-delay: var(--motion-stagger); }
+  .portfolio-home .studio-hero__copy > :nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
+  .portfolio-home .studio-hero__copy > :nth-child(4) { animation-delay: calc(var(--motion-stagger) * 3); }
+  .portfolio-home .studio-hero__copy > :nth-child(5) { animation-delay: calc(var(--motion-stagger) * 4); }
+  .portfolio-home .leadership-artifact {
+    animation: editorial-panel-in var(--motion-duration-panel) calc(var(--motion-stagger) * 2) var(--motion-ease-enter) backwards;
+  }
+  .portfolio-home .nav__cta:hover span { transform: translate(1px,-1px); }
+  .portfolio-home .nav__cta:focus-visible span { transform: translate(1px,-1px); }
+  .portfolio-home .studio-button:focus-visible span { transform: translateY(2px); }
+  .portfolio-home .studio-contact .studio-button:hover span { transform: translate(2px,-2px); }
+  .portfolio-home .studio-contact .studio-button:focus-visible span { transform: translate(2px,-2px); }
+  .portfolio-home .studio-button:active span { transform: none; }
+  .portfolio-home .nav__cta span { transition: transform var(--motion-duration-state) var(--motion-ease-state); }
+}
+@keyframes editorial-text-in {
+  from { transform: translateY(var(--motion-distance-text)); }
+  to { transform: none; }
+}
+@keyframes editorial-panel-in {
+  from { opacity: .96; transform: translateY(var(--motion-distance-panel)); }
+  to { opacity: 1; transform: none; }
+}
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: var(--motion-duration-page); }
+
+/* ---------- Narrower viewports ---------- */
+
+@media (max-width: 1100px) {
+  .portfolio-home .studio-hero { gap: var(--editorial-space-xl); padding-block: var(--editorial-space-3xl); }
+  .portfolio-home .studio-hero h1 { margin-bottom: var(--editorial-space-md); }
+  .portfolio-home .leadership-artifact {
+    --remit-inset: 28px;
+    --remit-title-gap: 24px;
+    --remit-header-gap: 18px;
+    --remit-row-inset: 16px;
+    --remit-label-col: 112px;
+  }
+  .portfolio-home .leadership-artifact { padding: var(--remit-inset) var(--remit-inset) 0; }
+  .portfolio-home .leadership-map > div { grid-template-columns: 1fr; gap: 4px; padding-block: var(--editorial-space-sm); }
+  .portfolio-home .leadership-remit { gap: var(--editorial-space-md); }
+  .portfolio-home .enterprise-current,
+  .portfolio-home .studio-approach,
+  .portfolio-home .studio-contact { gap: var(--editorial-space-xl); }
+}
+
+@media (max-width: 900px) {
+  .portfolio-home .nav__links { gap: 0; }
+  .portfolio-home .studio-hero { gap: var(--editorial-space-lg); }
+  .portfolio-home .work-pair { gap: var(--editorial-space-lg); }
+}
+
+/* Mobile: the copy block is tightened and the panel follows it directly, so the
+   panel's header and title are visible without scrolling. */
+@media (max-width: 700px) {
+  .portfolio-home .studio-hero { gap: 20px; padding-block: 24px 24px; }
+  .portfolio-home .studio-hero .studio-eyebrow { margin-bottom: var(--editorial-space-sm); }
+  .portfolio-home .studio-hero h1 { margin-bottom: 18px; }
+  .portfolio-home .studio-hero__lede { max-width: none; margin-bottom: 18px; }
+  .portfolio-home .executive-hero-actions { gap: 10px 18px; }
+  .portfolio-home .studio-hero__location { margin-top: 12px; }
+  .portfolio-home .leadership-artifact {
+    --remit-inset: 22px;
+    --remit-title-gap: 18px;
+    --remit-header-gap: 14px;
+    --remit-row-inset: 13px;
+  }
+  .portfolio-home .leadership-artifact { padding: var(--remit-inset) var(--remit-inset) 0; }
+  .portfolio-home .leadership-map > div { padding-block: var(--remit-row-inset); }
+  .portfolio-home .leadership-artifact figcaption { padding-block: var(--remit-row-inset); }
+  .portfolio-home .studio-enterprise { padding-block: var(--editorial-space-2xl); }
+  .portfolio-home .enterprise-current { gap: var(--editorial-space-md); padding-bottom: var(--editorial-space-lg); }
+  .portfolio-home .enterprise-current__copy { padding-top: 0; }
+  .portfolio-home .leadership-remit { gap: var(--editorial-space-md); padding-bottom: var(--editorial-space-lg); }
+  .portfolio-home .enterprise-results { gap: var(--editorial-space-lg); }
+  .portfolio-home .studio-approach { gap: var(--editorial-space-lg); padding-block: var(--editorial-space-2xl); }
+  .portfolio-home .approach-list > li:first-child { padding-top: var(--editorial-space-md); }
+  .portfolio-home .studio-work { padding-top: var(--editorial-space-xl); padding-bottom: var(--editorial-space-2xl); }
+  .portfolio-home .studio-section-heading { margin-bottom: var(--editorial-space-lg); }
+  .portfolio-home .work-pair { gap: var(--editorial-space-xl); }
+  .portfolio-home .work-pair--secondary { margin-top: var(--editorial-space-xl); }
+  .portfolio-home .studio-contact { gap: var(--editorial-space-lg); padding-block: var(--editorial-space-2xl); }
+  .portfolio-home .footer { padding-block: var(--editorial-space-lg) var(--editorial-space-md); }
+}
