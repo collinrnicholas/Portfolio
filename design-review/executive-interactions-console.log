@@ -1,0 +1,229 @@
+{
+  "startedAt": "2026-10-18T12:59:49.287Z",
+  "sourceHashes": {
+    "js/studio.js": "e7b5dd7331d3d9e6dd9bb02b8f247352284d7c8d623a80f0ceec84e519e7c8cb",
+    "js/motion.js": "eeb8d333dfd69f4af6bbe237ec2f572efda1079e8ee13a0a043696a47cf08b62"
+  },
+  "menus": [
+    {
+      "route": "home",
+      "status": 200,
+      "onOpen": {
+        "name": "Leadership",
+        "inMenu": true,
+        "visible": true
+      },
+      "onTab": {
+        "name": "Work",
+        "inMenu": true,
+        "visible": true
+      },
+      "closed": "false",
+      "focusReturned": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "work",
+      "status": 200,
+      "onOpen": {
+        "name": "Leadership",
+        "inMenu": true,
+        "visible": true
+      },
+      "onTab": {
+        "name": "Work",
+        "inMenu": true,
+        "visible": true
+      },
+      "closed": "false",
+      "focusReturned": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "about",
+      "status": 200,
+      "onOpen": {
+        "name": "Leadership",
+        "inMenu": true,
+        "visible": true
+      },
+      "onTab": {
+        "name": "Work",
+        "inMenu": true,
+        "visible": true
+      },
+      "closed": "false",
+      "focusReturned": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "arclo-prospecting",
+      "status": 200,
+      "onOpen": {
+        "name": "Leadership",
+        "inMenu": true,
+        "visible": true
+      },
+      "onTab": {
+        "name": "Work",
+        "inMenu": true,
+        "visible": true
+      },
+      "closed": "false",
+      "focusReturned": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "bidpacket",
+      "status": 200,
+      "onOpen": {
+        "name": "Leadership",
+        "inMenu": true,
+        "visible": true
+      },
+      "onTab": {
+        "name": "Work",
+        "inMenu": true,
+        "visible": true
+      },
+      "closed": "false",
+      "focusReturned": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "the-pm-toolkit",
+      "status": 200,
+      "onOpen": {
+        "name": "Leadership",
+        "inMenu": true,
+        "visible": true
+      },
+      "onTab": {
+        "name": "Work",
+        "inMenu": true,
+        "visible": true
+      },
+      "closed": "false",
+      "focusReturned": true,
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "tickers": [
+    {
+      "viewport": "desktop",
+      "before": [
+        {
+          "text": "$0.93M",
+          "final": "$1.76M"
+        },
+        {
+          "text": "19%",
+          "final": "36%"
+        },
+        {
+          "text": "790",
+          "final": "1,500"
+        }
+      ],
+      "after": [
+        {
+          "text": "$1.76M",
+          "final": "$1.76M"
+        },
+        {
+          "text": "36%",
+          "final": "36%"
+        },
+        {
+          "text": "1,500",
+          "final": "1,500"
+        }
+      ],
+      "later": [
+        {
+          "text": "$1.76M",
+          "final": "$1.76M"
+        },
+        {
+          "text": "36%",
+          "final": "36%"
+        },
+        {
+          "text": "1,500",
+          "final": "1,500"
+        }
+      ],
+      "running": 0,
+      "pointerAfterReduce": {
+        "inlineTransform": "",
+        "computedTransform": "none"
+      },
+      "exercisedMidTicker": true,
+      "pass": true
+    },
+    {
+      "viewport": "mobile",
+      "before": [
+        {
+          "text": "$0.93M",
+          "final": "$1.76M"
+        },
+        {
+          "text": "19%",
+          "final": "36%"
+        },
+        {
+          "text": "1,500",
+          "final": "1,500"
+        }
+      ],
+      "after": [
+        {
+          "text": "$1.76M",
+          "final": "$1.76M"
+        },
+        {
+          "text": "36%",
+          "final": "36%"
+        },
+        {
+          "text": "1,500",
+          "final": "1,500"
+        }
+      ],
+      "later": [
+        {
+          "text": "$1.76M",
+          "final": "$1.76M"
+        },
+        {
+          "text": "36%",
+          "final": "36%"
+        },
+        {
+          "text": "1,500",
+          "final": "1,500"
+        }
+      ],
+      "running": 0,
+      "pointerAfterReduce": null,
+      "exercisedMidTicker": true,
+      "pass": true
+    }
+  ],
+  "issues": [],
+  "sourceHashesAfter": {
+    "js/studio.js": "e7b5dd7331d3d9e6dd9bb02b8f247352284d7c8d623a80f0ceec84e519e7c8cb",
+    "js/motion.js": "eeb8d333dfd69f4af6bbe237ec2f572efda1079e8ee13a0a043696a47cf08b62"
+  },
+  "sourceStable": true,
+  "verdict": "pass",
+  "finishedAt": "2026-10-18T12:59:56.151Z",
+  "results": "/Users/test/dev/collinnicholas-designos-preview/.designos/qa/executive-interactions-2026-10-18T12-59-49-286Z/interaction-results.json"
+}

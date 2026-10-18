@@ -1,0 +1,127 @@
+/* Silver Graphite interaction layer. Static content is always readable.
+   One-time entrances and user-triggered feedback; no ambient/pointer effects. */
+:root {
+  --ease-out-quint: cubic-bezier(.22,1,.36,1);
+  --ease-out-soft: cubic-bezier(.16,.84,.28,1);
+  --dur-micro: 120ms;
+  --dur-state: 180ms;
+  --dur-enter: 240ms;
+  --dur-large: 320ms;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .studio-hero__copy > *, .hero--project__inner > * {
+    animation: silver-section-in 380ms var(--ease-out-quint) backwards;
+  }
+  .studio-hero__copy > :nth-child(2), .hero--project__inner > :nth-child(2) { animation-delay: 60ms; }
+  .studio-hero__copy > :nth-child(3), .hero--project__inner > :nth-child(3) { animation-delay: 120ms; }
+  .studio-hero__copy > :nth-child(4), .hero--project__inner > :nth-child(4) { animation-delay: 180ms; }
+  .studio-hero__copy > :nth-child(5), .hero--project__inner > :nth-child(5) { animation-delay: 240ms; }
+  .silver-reveal.is-in-view { animation: silver-section-in var(--dur-large) var(--ease-out-soft) backwards; }
+}
+@keyframes silver-section-in {
+  from { opacity: .98; transform: translate3d(0,12px,0); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Navigation structure and mobile behavior are unchanged. */
+.nav__link {
+  position: relative;
+  min-width: 44px;
+  justify-content: flex-start;
+  transition: color var(--dur-state) var(--ease-out-soft);
+}
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 11px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform var(--dur-enter) var(--ease-out-quint);
+}
+.nav__link:hover::after, .nav__link:focus-visible::after,
+.nav__link--active::after { transform: scaleX(1); }
+.nav__cta span { transition: transform var(--dur-state) var(--ease-out-quint); }
+.nav__cta:hover span { transform: translate(2px,-2px); }
+
+.studio-button {
+  transition: background-color var(--dur-state) var(--ease-out-soft), border-color var(--dur-state) var(--ease-out-soft);
+}
+.studio-button span { transition: transform var(--dur-state) var(--ease-out-quint); }
+.studio-button:hover span { transform: translateY(2px); }
+.studio-button:active span { transform: none; }
+.studio-button:active, .btn:active { transform: none; }
+
+.studio-text-link, .studio-secondary-link {
+  text-underline-offset: 5px;
+  transition: color var(--dur-state) var(--ease-out-soft), text-decoration-color var(--dur-state) var(--ease-out-soft);
+}
+.studio-text-link span { transition: transform var(--dur-state) var(--ease-out-quint); }
+.portfolio-home .studio-text-link:hover span,
+.portfolio-page .studio-text-link:hover span { transform: translate(2px,-1px); }
+.footer__link, .next-project__link { min-width: 44px; min-height: 48px; }
+
+/* Borders and tone provide feedback without lifting or zooming the work. */
+.hero-artifact, .pm-artifacts, .bid-artifact, .arclo-artifact, .loupe-artifact, .case-artifact {
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--dur-state) var(--ease-out-soft);
+}
+@media (hover: hover) and (pointer: fine) {
+  .pm-artifacts:hover, .bid-artifact:hover, .loupe-artifact:hover, .case-artifact:hover {
+    border-color: var(--color-border-strong);
+  }
+}
+
+.artifact-tab {
+  min-height: 44px;
+  transition: color var(--dur-state) var(--ease-out-soft), background-color var(--dur-state) var(--ease-out-soft);
+}
+.portfolio-home .artifact-tab-indicator {
+  transition: transform var(--dur-enter) var(--ease-out-quint), width var(--dur-enter) var(--ease-out-quint);
+}
+.portfolio-home .artifact-panel.is-changing[data-dir="forward"] { animation: silver-panel-forward var(--dur-enter) var(--ease-out-quint) backwards; }
+.portfolio-home .artifact-panel.is-changing[data-dir="back"] { animation: silver-panel-back var(--dur-enter) var(--ease-out-quint) backwards; }
+@keyframes silver-panel-forward {
+  from { opacity: .98; transform: translateX(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes silver-panel-back {
+  from { opacity: .98; transform: translateX(-8px); }
+  to { opacity: 1; transform: none; }
+}
+.enterprise-results__number { font-variant-numeric: tabular-nums; }
+
+@view-transition { navigation: auto; }
+.nav { view-transition-name: site-nav; }
+::view-transition-old(root), ::view-transition-new(root) {
+  animation-duration: var(--dur-state);
+  animation-timing-function: var(--ease-out-soft);
+}
+::view-transition-old(site-nav), ::view-transition-new(site-nav) { animation: none; mix-blend-mode: normal; }
+
+/* Graphite ring on every light surface; white on the dark artifact. */
+:where(.portfolio-home,.portfolio-page) :focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 5px;
+}
+.arclo-artifact :focus-visible { outline-color: var(--color-button-text); }
+::selection { background: var(--color-button-primary); color: var(--color-button-text); }
+@media (prefers-contrast: more) {
+  :where(.portfolio-home,.portfolio-page) :focus-visible { outline-width: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
+  .studio-button:hover span, .nav__cta:hover span,
+  .portfolio-home .studio-text-link:hover span,
+  .portfolio-page .studio-text-link:hover span { transform: none; }
+}
+.no-motion *, .no-motion *::before, .no-motion *::after {
+  transition: none !important;
+  animation: none !important;
+}

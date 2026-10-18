@@ -1,0 +1,96 @@
+{
+  "runId": "independent-qa-iteration-1",
+  "sourceResults": ".designos/qa/iteration-1/functional-results.json",
+  "baseUrl": "http://127.0.0.1:4175",
+  "commit": "7e49790a9c6e690c62ffa930a66abd0f5eadf7db",
+  "workingTree": "Uncommitted preview; raw results record exact git status.",
+  "verdict": "fail",
+  "items": [
+    {
+      "itemId": "plan-01",
+      "verdict": "pass",
+      "acceptance": "At 1440px the hero contains under 90 visible words, a visible primary action, and a real product image; headline <=56px. At 390px the role and action remain readable, no horizontal overflow. No autoplay.",
+      "observed": "Desktop hero contains53words; h1 computed56px; primarywork action visible at y522.8–573.8 in900px viewport; actualPMToolkit image loaded572.6×425.6. Mobile role/action visible and nooverflow. No selection/image change in6500ms autoplayprobe; source js/studio.js contains no autoplay loop.",
+      "artifacts": [
+        ".designos/qa/iteration-1/functional-results.json",
+        ".designos/qa/iteration-1/home-desktop-after.png",
+        ".designos/qa/iteration-1/home-mobile-after.png"
+      ]
+    },
+    {
+      "itemId": "plan-02",
+      "verdict": "blocked",
+      "acceptance": "Every featured project has a shipped artifact/named outcome or explicit development status and valid destination. No dummy video controls, href='#', fabricated user/revenue metrics or unlabeled mock screenshots. Artifact tabs respond to click and arrow keys and expose selected state. First artifact visible without JS.",
+      "observed": "Featured projects show accurate explicit statuses and destinations; actualPMToolkit vs illustrativeBidPacket/Arclo/Loupe labels visually verified. All publichome destinationsGET200. Tabclick+ArrowRight and roving selected/focus states pass. Need individualselectedpanel image checks for all3 tabs in correctedpass2 harness; hiddenlazy images were false positives, not brokenassets.",
+      "artifacts": [
+        ".designos/qa/iteration-1/functional-results.json",
+        ".designos/qa/iteration-1/home-desktop-after.png"
+      ]
+    },
+    {
+      "itemId": "plan-03",
+      "verdict": "pass",
+      "acceptance": "Current employer is Persado on all pages; Employ role is historical; JazzHR spelling and LinkedIn slug match new profile. Revenue numbers name initiative, company and timeframe. BidPacket links to real sample and no longer claims its entire pipeline is unbuilt. All 6 routes load and existing deep dives remain accessible.",
+      "observed": "Persado present all6pages; abouttimeline marksEmploy Jul2025–Aug2026 andPersado Aug2026–present; JazzHR casing andcollinnicholas LinkedInslug correct. Revenueinitiatives/company/timeframe contextualized; BidPacketpublicsampleGET200; no staleunbuiltpipeline markers. This verifies consistency with ownermaintainedcontent, not independent financialverification.",
+      "artifacts": [
+        ".designos/qa/iteration-1/functional-results.json",
+        ".designos/qa/iteration-1/work-desktop-after.png"
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "verdict": "fail",
+      "acceptance": "Every page exposes contact without footer scrolling. All visible interactive mobile targets >=44x44; visible focus indicator; one h1 and no skipped heading levels; no serious/critical axe issues. Mobile menu is keyboard usable and no hidden focusable links. Prose >=16px.",
+      "observed": "All18 captures have topcontact, oneh1 and noheading skips.26desktop/24mobile Tabstops visible with3pxblueoutline; menuEnter/Escape/focusreturn/linkclosure pass. Contrastfails69 repeatednodes across15captures: chaptergold4.28:1; Bidordinal3.18:1; Loupeartifactlabel4.35:1; approachordinal3.89:1. DeeperrouteHomebreadcrumb33.63×44; Aboutfooter36.67×44 andEmail32.81×44 fail literal44×44. Supportinghomeprose14px and revenuecontext12pxdesktop/13pxmobile fail literalprose16. Smallmetadatalabels are separatedbelow.",
+      "artifacts": [
+        ".designos/qa/iteration-1/functional-results.json",
+        ".designos/qa/iteration-1/home-mobile-after.png"
+      ]
+    },
+    {
+      "itemId": "plan-05",
+      "verdict": "fail",
+      "acceptance": "18/18 route/viewport captures succeed; 320px probe has no overflow; reduced motion has no looping or long animation; no failed local assets or browser errors; evidence and honest residuals saved. Original working trees remain unchanged by this experiment.",
+      "observed": "18/18 routeviewportsHTTP200; all6narrow320pxprobes nooverflow; zero browsererrors/failedrequests/localassetHTTPfailures; initialreducedmotion all6static; noJShome readable andartifactvisible atdesktop/mobile. Livechange toreducedmotion leaves indicatorwidth/transform240ms and tabcolor180ms transitionsrunning150mslater. Originalworkingtree preservation must be confirmedby root before finalsignoff.",
+      "artifacts": [
+        ".designos/qa/iteration-1/functional-results.json",
+        ".designos/qa/iteration-1/home-desktop-no-js.png",
+        ".designos/qa/iteration-1/home-mobile-no-js.png"
+      ]
+    }
+  ],
+  "classification": {
+    "objective": [
+      "Measured contrast ratios",
+      "Measured mobiletarget dimensions against explicit44px projectcriterion",
+      "Livepreferenceswitch leaves transitionsrunning",
+      "All18 HTTPstatus/headings/contact results",
+      "Browser/networkerrors and320pxoverflow"
+    ],
+    "explicitPlanCriterion": [
+      "Prose16px is a written projectacceptance target, not a claim of universalWCAGminimumfontsize"
+    ],
+    "falsePositives": [
+      {
+        "probe": "brokenImages hiddenepicmap/empathypanel",
+        "reason": "Unselectedpanels carry hidden plus loadinglazy. NoHTTPfailure; noinitialrequest expected. Harness now excludes intentionallyunloadedhiddenimages and willselect/decodeeachpanel."
+      },
+      {
+        "probe": "NoJScontentmissingPersado",
+        "reason": "CSSuppercase rendersPERSADO; case-sensitivestringcheck was incorrect. BothnoJSscreenshots showrole,loadedartifact,andreadablecontent; harness fixedto/Persado/i."
+      },
+      {
+        "probe": "smallprose metadata",
+        "reason": "Locationline,workflowoverline,illustrativeartifactnote/caption/labels are metadata or embeddedillustration, not prose. Theirsmallsize remains a legibilityjudgment; no automaticblock."
+      },
+      {
+        "probe": "skiplink42.39highinitiallyoffscreen",
+        "reason": "Notvisibleatrest, so blanketinitialvisiblemobiletargetflagmisclassifiesit. Keyboardprobe confirms42.39pxwhenfocused; buildercanapply44pxminimumforliteralinteractionconsistency."
+      }
+    ]
+  },
+  "residual": [
+    "Need rerun after builderpass2 and finalmanual review.",
+    "This artifact documents iteration1; do not infer currentfinalUI from it."
+  ]
+}

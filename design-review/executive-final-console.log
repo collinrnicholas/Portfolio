@@ -1,0 +1,31 @@
+{
+  "verdict": "fail",
+  "captures": 18,
+  "issues": [
+    {
+      "itemId": "exec-04",
+      "scope": "home/reduced-motion",
+      "message": "Animation/ticker persists under reduced motion",
+      "evidence": {
+        "route": "home",
+        "initial": [],
+        "afterPreferenceChange": [],
+        "numbers": [
+          {
+            "text": "$1.47M",
+            "final": "$1.76M"
+          },
+          {
+            "text": "30%",
+            "final": "36%"
+          },
+          {
+            "text": "1,249",
+            "final": "1,500"
+          }
+        ]
+      }
+    }
+  ],
+  "results": "/Users/test/dev/collinnicholas-designos-preview/.designos/qa/executive-2026-10-18T12-55-47-395Z/executive-results.json"
+}

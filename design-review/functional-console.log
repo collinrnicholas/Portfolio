@@ -1,0 +1,1151 @@
+{
+  "verdict": "fail",
+  "captures": 18,
+  "issues": [
+    {
+      "itemId": "plan-05",
+      "scope": "home/desktop",
+      "message": "Browser error or failed local asset",
+      "evidence": {
+        "errors": [],
+        "failedAssets": [],
+        "brokenImages": [
+          "assets/pm-toolkit/epic-map.png",
+          "assets/pm-toolkit/empathy-map.png"
+        ]
+      }
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "home/desktop",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                ".bid-document > ol > li:nth-child(1) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.18 (foreground color: #9a8b70, background color: #fbfaf5, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bid-document > ol > li:nth-child(2) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.18 (foreground color: #9a8b70, background color: #fbfaf5, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bid-document > ol > li:nth-child(3) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.18 (foreground color: #9a8b70, background color: #fbfaf5, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".loupe-artifact__bottom > span:nth-child(2)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.35 (foreground color: #706779, background color: #e9e6ee, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".approach-list > li:nth-child(1) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #8b794f, background color: #f6f5f1, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".approach-list > li:nth-child(2) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #8b794f, background color: #f6f5f1, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".approach-list > li:nth-child(3) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #8b794f, background color: #f6f5f1, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "home/desktop",
+      "message": "Prose below 16px",
+      "evidence": [
+        {
+          "text": "Based in Virginia. Building for what’s next.",
+          "selector": "p.studio-hero__location",
+          "size": 12,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "Different problems. The same instinct: get close to the work, then build.",
+          "selector": "p",
+          "size": 14,
+          "lineHeight": 1.6
+        },
+        {
+          "text": "BID PREPARATION / WORKFLOW ILLUSTRATION",
+          "selector": "p.bid-document__overline",
+          "size": 7,
+          "lineHeight": 1.5
+        },
+        {
+          "text": "Review scope, quantities, and pricing before submission.",
+          "selector": "p.bid-document__note",
+          "size": 7,
+          "lineHeight": 1.5
+        },
+        {
+          "text": "Illustrative workflow · See actual output in the public sample.",
+          "selector": "p.artifact-disclaimer",
+          "size": 9,
+          "lineHeight": 1.5
+        },
+        {
+          "text": "Year one · One integration serving three applicant tracking systems.",
+          "selector": "p",
+          "size": 12,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "First three months · Five capabilities, 14 enterprise customers.",
+          "selector": "p",
+          "size": 12,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "2025 · A six-month recovery effort leading to a multi-year commitment.",
+          "selector": "p",
+          "size": 12,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "Look for the real constraint, the customer context, and the assumption worth testing.",
+          "selector": "p",
+          "size": 14,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "A prototype turns a conversation into something we can use, question, and improve.",
+          "selector": "p",
+          "size": 14,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "Design the experience and the business model together. Stay accountable to what ships.",
+          "selector": "p",
+          "size": 14,
+          "lineHeight": 1.65
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "work/desktop",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                ".cs-chapter:nth-child(2) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".cs-chapter:nth-child(3) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".cs-chapter:nth-child(4) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".cs-chapter:nth-child(5) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "arclo-prospecting/desktop",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "article:nth-child(1) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(2) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(3) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(4) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "bidpacket/desktop",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "article:nth-child(1) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(2) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(3) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(4) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "the-pm-toolkit/desktop",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "article:nth-child(1) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(2) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(3) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(4) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-05",
+      "scope": "home/tablet",
+      "message": "Browser error or failed local asset",
+      "evidence": {
+        "errors": [],
+        "failedAssets": [],
+        "brokenImages": [
+          "assets/pm-toolkit/epic-map.png",
+          "assets/pm-toolkit/empathy-map.png"
+        ]
+      }
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "home/tablet",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                ".bid-document > ol > li:nth-child(1) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.18 (foreground color: #9a8b70, background color: #fbfaf5, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bid-document > ol > li:nth-child(2) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.18 (foreground color: #9a8b70, background color: #fbfaf5, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bid-document > ol > li:nth-child(3) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.18 (foreground color: #9a8b70, background color: #fbfaf5, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".loupe-artifact__bottom > span:nth-child(2)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.35 (foreground color: #706779, background color: #e9e6ee, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".approach-list > li:nth-child(1) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #8b794f, background color: #f6f5f1, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".approach-list > li:nth-child(2) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #8b794f, background color: #f6f5f1, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".approach-list > li:nth-child(3) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #8b794f, background color: #f6f5f1, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "home/tablet",
+      "message": "Prose below 16px",
+      "evidence": [
+        {
+          "text": "Based in Virginia. Building for what’s next.",
+          "selector": "p.studio-hero__location",
+          "size": 12,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "Different problems. The same instinct: get close to the work, then build.",
+          "selector": "p",
+          "size": 14,
+          "lineHeight": 1.6
+        },
+        {
+          "text": "BID PREPARATION / WORKFLOW ILLUSTRATION",
+          "selector": "p.bid-document__overline",
+          "size": 7,
+          "lineHeight": 1.5
+        },
+        {
+          "text": "Review scope, quantities, and pricing before submission.",
+          "selector": "p.bid-document__note",
+          "size": 7,
+          "lineHeight": 1.5
+        },
+        {
+          "text": "Illustrative workflow · See actual output in the public sample.",
+          "selector": "p.artifact-disclaimer",
+          "size": 9,
+          "lineHeight": 1.5
+        },
+        {
+          "text": "Year one · One integration serving three applicant tracking systems.",
+          "selector": "p",
+          "size": 12,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "First three months · Five capabilities, 14 enterprise customers.",
+          "selector": "p",
+          "size": 12,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "2025 · A six-month recovery effort leading to a multi-year commitment.",
+          "selector": "p",
+          "size": 12,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "Look for the real constraint, the customer context, and the assumption worth testing.",
+          "selector": "p",
+          "size": 14,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "A prototype turns a conversation into something we can use, question, and improve.",
+          "selector": "p",
+          "size": 14,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "Design the experience and the business model together. Stay accountable to what ships.",
+          "selector": "p",
+          "size": 14,
+          "lineHeight": 1.65
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "work/tablet",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                ".cs-chapter:nth-child(2) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".cs-chapter:nth-child(3) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".cs-chapter:nth-child(4) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".cs-chapter:nth-child(5) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "arclo-prospecting/tablet",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "article:nth-child(1) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(2) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(3) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(4) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "bidpacket/tablet",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "article:nth-child(1) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(2) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(3) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(4) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "the-pm-toolkit/tablet",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "article:nth-child(1) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(2) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(3) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(4) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-05",
+      "scope": "home/mobile",
+      "message": "Browser error or failed local asset",
+      "evidence": {
+        "errors": [],
+        "failedAssets": [],
+        "brokenImages": [
+          "assets/pm-toolkit/epic-map.png",
+          "assets/pm-toolkit/empathy-map.png"
+        ]
+      }
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "home/mobile",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                ".bid-document > ol > li:nth-child(1) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.18 (foreground color: #9a8b70, background color: #fbfaf5, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bid-document > ol > li:nth-child(2) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.18 (foreground color: #9a8b70, background color: #fbfaf5, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bid-document > ol > li:nth-child(3) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.18 (foreground color: #9a8b70, background color: #fbfaf5, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".loupe-artifact__bottom > span:nth-child(2)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.35 (foreground color: #706779, background color: #e9e6ee, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".approach-list > li:nth-child(1) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #8b794f, background color: #f6f5f1, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".approach-list > li:nth-child(2) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #8b794f, background color: #f6f5f1, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".approach-list > li:nth-child(3) > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #8b794f, background color: #f6f5f1, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "home/mobile",
+      "message": "Interactive target below 44×44",
+      "evidence": [
+        {
+          "name": "Skip to content",
+          "selector": "a.skip-link",
+          "width": 146.95,
+          "height": 42.39,
+          "x": 16,
+          "y": -844,
+          "href": "#main-content"
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "home/mobile",
+      "message": "Prose below 16px",
+      "evidence": [
+        {
+          "text": "Based in Virginia. Building for what’s next.",
+          "selector": "p.studio-hero__location",
+          "size": 12,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "Different problems. The same instinct:get close to the work, then build.",
+          "selector": "p",
+          "size": 14,
+          "lineHeight": 1.6
+        },
+        {
+          "text": "BID PREPARATION / WORKFLOW ILLUSTRATION",
+          "selector": "p.bid-document__overline",
+          "size": 7,
+          "lineHeight": 1.5
+        },
+        {
+          "text": "Review scope, quantities, and pricing before submission.",
+          "selector": "p.bid-document__note",
+          "size": 7,
+          "lineHeight": 1.5
+        },
+        {
+          "text": "Illustrative workflow · See actual output in the public sample.",
+          "selector": "p.artifact-disclaimer",
+          "size": 9,
+          "lineHeight": 1.5
+        },
+        {
+          "text": "Year one · One integration serving three applicant tracking systems.",
+          "selector": "p",
+          "size": 13,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "First three months · Five capabilities, 14 enterprise customers.",
+          "selector": "p",
+          "size": 13,
+          "lineHeight": 1.65
+        },
+        {
+          "text": "2025 · A six-month recovery effort leading to a multi-year commitment.",
+          "selector": "p",
+          "size": 13,
+          "lineHeight": 1.65
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "work/mobile",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                ".cs-chapter:nth-child(2) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".cs-chapter:nth-child(3) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".cs-chapter:nth-child(4) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".cs-chapter:nth-child(5) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "work/mobile",
+      "message": "Interactive target below 44×44",
+      "evidence": [
+        {
+          "name": "Skip to content",
+          "selector": "a.skip-link",
+          "width": 146.95,
+          "height": 42.39,
+          "x": 16,
+          "y": -844,
+          "href": "#main-content"
+        },
+        {
+          "name": "Home",
+          "selector": "a",
+          "width": 33.63,
+          "height": 44,
+          "x": 24,
+          "y": 95,
+          "href": "index.html"
+        },
+        {
+          "name": "About",
+          "selector": "a.footer__link",
+          "width": 36.67,
+          "height": 44,
+          "x": 222.7,
+          "y": 5428.45,
+          "href": "about.html"
+        },
+        {
+          "name": "Email",
+          "selector": "a.footer__link",
+          "width": 32.81,
+          "height": 44,
+          "x": 24,
+          "y": 5472.45,
+          "href": "mailto:Collin.R.Nicholas@gmail.com"
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "about/mobile",
+      "message": "Interactive target below 44×44",
+      "evidence": [
+        {
+          "name": "Skip to content",
+          "selector": "a.skip-link",
+          "width": 146.95,
+          "height": 42.39,
+          "x": 16,
+          "y": -844,
+          "href": "#main-content"
+        },
+        {
+          "name": "Home",
+          "selector": "a",
+          "width": 33.63,
+          "height": 44,
+          "x": 24,
+          "y": 95,
+          "href": "index.html"
+        },
+        {
+          "name": "About",
+          "selector": "a.footer__link",
+          "width": 36.67,
+          "height": 44,
+          "x": 222.7,
+          "y": 3820.77,
+          "href": "about.html"
+        },
+        {
+          "name": "Email",
+          "selector": "a.footer__link",
+          "width": 32.81,
+          "height": 44,
+          "x": 24,
+          "y": 3864.77,
+          "href": "mailto:Collin.R.Nicholas@gmail.com"
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "arclo-prospecting/mobile",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "article:nth-child(1) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(2) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(3) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(4) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "arclo-prospecting/mobile",
+      "message": "Interactive target below 44×44",
+      "evidence": [
+        {
+          "name": "Skip to content",
+          "selector": "a.skip-link",
+          "width": 146.95,
+          "height": 42.39,
+          "x": 16,
+          "y": -844,
+          "href": "#main-content"
+        },
+        {
+          "name": "Home",
+          "selector": "a",
+          "width": 33.63,
+          "height": 44,
+          "x": 24,
+          "y": 95,
+          "href": "../index.html"
+        },
+        {
+          "name": "About",
+          "selector": "a.footer__link",
+          "width": 36.67,
+          "height": 44,
+          "x": 222.7,
+          "y": 3684.66,
+          "href": "../about.html"
+        },
+        {
+          "name": "Email",
+          "selector": "a.footer__link",
+          "width": 32.81,
+          "height": 44,
+          "x": 24,
+          "y": 3728.66,
+          "href": "mailto:Collin.R.Nicholas@gmail.com"
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "bidpacket/mobile",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "article:nth-child(1) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(2) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(3) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(4) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "bidpacket/mobile",
+      "message": "Interactive target below 44×44",
+      "evidence": [
+        {
+          "name": "Skip to content",
+          "selector": "a.skip-link",
+          "width": 146.95,
+          "height": 42.39,
+          "x": 16,
+          "y": -844,
+          "href": "#main-content"
+        },
+        {
+          "name": "Home",
+          "selector": "a",
+          "width": 33.63,
+          "height": 44,
+          "x": 24,
+          "y": 95,
+          "href": "../index.html"
+        },
+        {
+          "name": "About",
+          "selector": "a.footer__link",
+          "width": 36.67,
+          "height": 44,
+          "x": 222.7,
+          "y": 2518.91,
+          "href": "../about.html"
+        },
+        {
+          "name": "Email",
+          "selector": "a.footer__link",
+          "width": 32.81,
+          "height": 44,
+          "x": 24,
+          "y": 2562.91,
+          "href": "mailto:Collin.R.Nicholas@gmail.com"
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "the-pm-toolkit/mobile",
+      "message": "Serious/critical axe violations",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": [
+            {
+              "target": [
+                "article:nth-child(1) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(2) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(3) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "article:nth-child(4) > .cs-chapter__label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.28 (foreground color: #956d27, background color: #f6f5f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "plan-04",
+      "scope": "the-pm-toolkit/mobile",
+      "message": "Interactive target below 44×44",
+      "evidence": [
+        {
+          "name": "Skip to content",
+          "selector": "a.skip-link",
+          "width": 146.95,
+          "height": 42.39,
+          "x": 16,
+          "y": -844,
+          "href": "#main-content"
+        },
+        {
+          "name": "Home",
+          "selector": "a",
+          "width": 33.63,
+          "height": 44,
+          "x": 24,
+          "y": 95,
+          "href": "../index.html"
+        },
+        {
+          "name": "About",
+          "selector": "a.footer__link",
+          "width": 36.67,
+          "height": 44,
+          "x": 222.7,
+          "y": 3270.67,
+          "href": "../about.html"
+        },
+        {
+          "name": "Email",
+          "selector": "a.footer__link",
+          "width": 32.81,
+          "height": 44,
+          "x": 24,
+          "y": 3314.67,
+          "href": "mailto:Collin.R.Nicholas@gmail.com"
+        }
+      ]
+    },
+    {
+      "itemId": "plan-05",
+      "scope": "home/motion-preference-change",
+      "message": "Animation continues after preference changes to reduce",
+      "evidence": [
+        {
+          "name": "width",
+          "duration": 240,
+          "iterations": 1,
+          "target": "span.artifact-tab-indicator"
+        },
+        {
+          "name": "transform",
+          "duration": 240,
+          "iterations": 1,
+          "target": "span.artifact-tab-indicator"
+        },
+        {
+          "name": "color",
+          "duration": 180,
+          "iterations": 1,
+          "target": "button#tab-research.artifact-tab"
+        },
+        {
+          "name": "color",
+          "duration": 180,
+          "iterations": 1,
+          "target": "button#tab-plan.artifact-tab"
+        }
+      ]
+    },
+    {
+      "itemId": "plan-05",
+      "scope": "home/desktop/no-js",
+      "message": "No-JS content/reflow fails",
+      "evidence": {
+        "overflow": false,
+        "textLength": 3709
+      }
+    },
+    {
+      "itemId": "plan-05",
+      "scope": "home/mobile/no-js",
+      "message": "No-JS content/reflow fails",
+      "evidence": {
+        "overflow": false,
+        "textLength": 3669
+      }
+    }
+  ],
+  "results": "/Users/test/dev/collinnicholas-designos-preview/.designos/qa/functional-results.json"
+}

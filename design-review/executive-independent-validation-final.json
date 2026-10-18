@@ -1,0 +1,101 @@
+{
+  "runId": "executive-independent-final-2026-10-18",
+  "generatedAt": "2026-10-18T13:02:03.911Z",
+  "commit": "7e49790a9c6e690c62ffa930a66abd0f5eadf7db",
+  "verdict": "pass",
+  "sourcePlan": "design-review/executive-content-plan.md",
+  "evidence": {
+    "matrix": ".designos/qa/executive-2026-10-18T12-55-47-395Z/executive-results.json",
+    "focusedInteractions": ".designos/qa/executive-interactions-2026-10-18T12-59-49-286Z/interaction-results.json",
+    "finalCaptures": ".designos/qa/executive-interactions-2026-10-18T12-59-49-286Z/final-capture-manifest.json"
+  },
+  "validationScope": "Full 6-route/3-viewport matrix on frozen HTML/CSS; only two JS files subsequently changed, both verified by targeted behavior checks. Final screenshots capture those final JS files.",
+  "finalSourceHashes": {
+    "index.html": "cebba3c9be91c8a7be9866f57d873c99673aa5166bb4ce0be29c99991f4d20f7",
+    "work.html": "845f3cebc8305506aad97d01e34ebd94914fa510f18a1301cbc4599990042092",
+    "about.html": "cc955a7b6f35965ad39bfdec79aa0bc3d87ade70ef1e262975af72754c19a0fe",
+    "projects/arclo-prospecting.html": "8e346744398cec409130df2b5923823376e1527677d9f52a0ee5be3b7446782e",
+    "projects/bidpacket.html": "0a08c3b8881617eaa613b9afeac0721bc77637bacb32f8316f0adeb4a8136427",
+    "projects/the-pm-toolkit.html": "945941a04ad5b07eb70c5ec846918e27dfcc467d0baa47befe68b768e217745a",
+    "css/base.css": "f32731aeb7657ad19b0ea90ab782e7da552308a069934617a4fe0b61cecfd931",
+    "css/case-study.css": "a29aa3348b793743c3d644f09054a758a93e5f254b93ed452add60eae848ca9c",
+    "css/components.css": "b367513cc24f158cfa800379573f86a893bc19581b51ffd3c1f92f38be54fedc",
+    "css/executive.css": "1b0a45f074d76856dbcaf525fd71040840c34360e321e461d023c0405f6978ee",
+    "css/grid.css": "921f7d338486143cf772dd03da74f02321f3072caa186c883c3f4921078b9d89",
+    "css/motion.css": "88002d04e50e3591876a8f3031b32d7bbb6fbb7af005c0abdb03f06564e702b9",
+    "css/studio.css": "fa6558422e460a3b77f7d27b29ad672707e42ab868559ba18d1687d400f0187d",
+    "css/tokens.css": "199dec9a645efd273ec70b74b64193761c9fddcb1f296ef15160cd365f00b39d",
+    "js/main.js": "0aa0b2398d952094ecbda5e633c828f3619f66ee0200b661e3819519aa48ae49",
+    "js/motion.js": "eeb8d333dfd69f4af6bbe237ec2f572efda1079e8ee13a0a043696a47cf08b62",
+    "js/studio.js": "e7b5dd7331d3d9e6dd9bb02b8f247352284d7c8d623a80f0ceec84e519e7c8cb"
+  },
+  "changedAfterMatrix": [
+    "js/motion.js",
+    "js/studio.js"
+  ],
+  "items": [
+    {
+      "itemId": "exec-01",
+      "verdict": "pass",
+      "acceptance": "1. **exec-01 — executive first impression.** Home states current title and leadership across growth, retention, design and customer value. One primary action leads to leadership evidence. Hero scope map is readable and supported; no developer/PR counts or solo-building headline.",
+      "observed": "Current Director of Product at Persado title, growth/retention remit, direct design-team leadership and customer-value scope are visible. Primary action navigates to actual leadership evidence. Responsibility descriptions are 16px with 14px category labels, and desktop/mobile screenshots were visually inspected. Hero does not claim a VP/CPO title or feature developer/PR counts.",
+      "artifacts": [
+        ".designos/qa/executive-interactions-2026-10-18T12-59-49-286Z/home-desktop-fold-final.png",
+        ".designos/qa/executive-interactions-2026-10-18T12-59-49-286Z/home-mobile-fold-final.png"
+      ]
+    },
+    {
+      "itemId": "exec-02",
+      "verdict": "pass",
+      "acceptance": "2. **exec-02 — evidence before independent products.** Current portfolio and three attributed, complementary enterprise results appear before the independent-product grid in DOM and visual order. Each result explains the responsibility/decision and company/timeframe; responsibilities are separate from achieved results.",
+      "observed": "Current responsibilities and three complementary results precede independent products in DOM and visual order at all three viewports. Shared-service first-year ARR, Candidate Texting 36% YoY customer-activity growth (separate 10% SMS-volume growth), and the nine-month/three-wave 1,500-customer UI rollout are grouped under Jobvite, 2021–2025. Current remit and historical achieved results are separately labeled.",
+      "artifacts": [
+        ".designos/qa/executive-2026-10-18T12-55-47-395Z/executive-results.json",
+        ".designos/qa/executive-2026-10-18T12-55-47-395Z/home-desktop-full-after.png"
+      ]
+    },
+    {
+      "itemId": "exec-03",
+      "verdict": "pass",
+      "acceptance": "3. **exec-03 — full story, consistent across routes.** Work/About and existing three project pages use the same source-supported facts, correct anchors, current title, and product-strategy language. Independent projects explain user/problem, product decision and status without unsupported quantified results.",
+      "observed": "All six HTML pages have consistent current positioning and bounded independent-product claims. Work/About and homepage include the owner-supplied facts: direct Persado design-team management; about ten historical MicroStrategy direct reports; Employ partner management including $600K+ Twilio spend with no invented annual period; and product–engineering collaboration without invented speed percentages. LinkedIn remains a limited detail. All local fragment links work, including work.html#persado. Independent projects name problem, decision and status without new quantified user/revenue/time-saving claims.",
+      "artifacts": [
+        ".designos/qa/executive-2026-10-18T12-55-47-395Z/executive-results.json",
+        "design-review/executive-content-plan.md",
+        ".designos/qa/executive-2026-10-18T12-55-47-395Z/work-desktop-full-after.png"
+      ]
+    },
+    {
+      "itemId": "exec-04",
+      "verdict": "pass",
+      "acceptance": "4. **exec-04 — retain the approved experience.** Six routes × desktop/tablet/mobile load; navigation and artifact tabs work with keyboard; no 320px horizontal overflow, missing local assets, or serious/critical accessibility violations. Reduced-motion and no-JS content remain usable. Capture before/after and report residuals.",
+      "observed": "18/18 route/viewport loads returned HTTP 200; zero serious/critical axe violations, browser errors or missing local assets. All six 320px probes have no overflow. All pages have one h1, no skipped levels, a top contact action and no mobile target below 44×44px. All three artifact panels load their images and respond to ArrowRight with correct selected/focus state. Final natural keyboard tests pass on all six mobile routes: Enter focuses Leadership, Tab reaches Work, Escape closes and restores the toggle. Desktop/mobile live preference tests start during the number ticker, then reach and retain exact final values with zero running animations; desktop pointer movement after reduce leaves no transform. No-JS map and first artifact remain readable.",
+      "artifacts": [
+        ".designos/qa/executive-2026-10-18T12-55-47-395Z/executive-results.json",
+        ".designos/qa/executive-interactions-2026-10-18T12-59-49-286Z/interaction-results.json",
+        ".designos/qa/executive-interactions-2026-10-18T12-59-49-286Z/home-desktop-fold-final.png",
+        ".designos/qa/executive-interactions-2026-10-18T12-59-49-286Z/home-mobile-fold-final.png"
+      ]
+    }
+  ],
+  "a11y": {
+    "serious": 0,
+    "critical": 0,
+    "headings": "All 18 captures have one h1 and no skipped levels.",
+    "keyboard": "27 desktop and 25 mobile focus stops visible/outlined; final six-route mobile menu path passes."
+  },
+  "residual": [
+    {
+      "severity": "minor",
+      "finding": "Existing figure used as a tabpanel triggers axe aria-allowed-role on the homepage; HTML was unchanged by the final JS fixes. This does not meet the serious/critical acceptance threshold."
+    },
+    {
+      "severity": "scope",
+      "finding": "The existing resume PDF was intentionally unchanged. The source plan records an older team-scope figure; align that document with the owner clarification before an eventual full-profile release."
+    }
+  ],
+  "notes": [
+    "No changes were pushed or deployed by this validation.",
+    "Typography and spacing heuristics are not represented as objective defects or a universal clean-design score."
+  ]
+}

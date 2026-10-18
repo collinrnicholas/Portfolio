@@ -1,0 +1,47 @@
+{
+  "verdict": "fail",
+  "captures": 18,
+  "issues": [
+    {
+      "itemId": "exec-02",
+      "scope": "home/desktop",
+      "message": "36% adoption result missing correct metric/timeframe label"
+    },
+    {
+      "itemId": "exec-02",
+      "scope": "home/tablet",
+      "message": "36% adoption result missing correct metric/timeframe label"
+    },
+    {
+      "itemId": "exec-04",
+      "scope": "home/mobile",
+      "message": "Serious/critical axe violation",
+      "evidence": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [
+                ".hero-artifact__type"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.14 (foreground color: #657168, background color: #e5e9e0, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemId": "exec-04",
+      "scope": "mobile/menu",
+      "message": "Menu keyboard behavior fails",
+      "evidence": {
+        "opened": "true",
+        "linkFocused": false,
+        "closed": "false",
+        "focusReturned": true
+      }
+    }
+  ],
+  "results": "/Users/test/dev/collinnicholas-designos-preview/.designos/qa/executive-2026-10-18T12-50-36-155Z/executive-results.json"
+}

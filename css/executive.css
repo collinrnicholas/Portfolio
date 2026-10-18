@@ -1,0 +1,122 @@
+/* Executive content pass: retain the existing visual system and motion.
+   Only the leadership artifact and new portfolio row need new layout. */
+.portfolio-home .executive-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+.portfolio-home .studio-hero__lede { max-width: 48ch; }
+.portfolio-home .leadership-artifact {
+  padding: 24px 26px 0;
+  background: var(--color-surface);
+}
+.portfolio-home .leadership-artifact .hero-artifact__header {
+  padding: 0 0 24px;
+  font-weight: 400;
+}
+.portfolio-home .leadership-artifact__title {
+  margin: 0 0 24px;
+  color: var(--color-text-primary);
+  font: 400 36px/1.12 var(--studio-serif);
+  letter-spacing: -.7px;
+}
+.portfolio-home .leadership-map { margin: 0; }
+.portfolio-home .leadership-map > div {
+  display: grid;
+  grid-template-columns: 138px minmax(0,1fr);
+  align-items: baseline;
+  gap: 12px;
+  border-top: 1px solid var(--color-border);
+  padding-block: 18px;
+}
+.portfolio-home .leadership-map dt {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+.portfolio-home .leadership-map dd {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.portfolio-home .leadership-artifact figcaption {
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  border-top: 1px solid var(--color-border);
+  padding-block: 18px;
+  font-size: 14px;
+}
+.portfolio-home .leadership-remit {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 36px;
+  padding-bottom: 36px;
+}
+.portfolio-home .leadership-remit article {
+  min-width: 0;
+  border-top: 1px solid var(--color-border);
+  padding-top: 20px;
+}
+.portfolio-home .leadership-remit h3 {
+  margin: 0 0 10px;
+  color: var(--color-text-primary);
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 500;
+  letter-spacing: -.3px;
+}
+.portfolio-home .leadership-remit p {
+  margin: 0;
+  max-width: 40ch;
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  line-height: 1.65;
+}
+.portfolio-home .proof-context {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.portfolio-home .enterprise-results h3 { max-width: 27ch; }
+.portfolio-home .studio-work { padding-top: 56px; }
+.portfolio-home .work-feature__value { margin-top: 16px; }
+
+/* Full-opacity base prevents animation-dependent content visibility.
+   Entrance is brief; reduced motion bypasses it entirely. */
+@media (prefers-reduced-motion: no-preference) {
+  .portfolio-home .studio-hero__copy > *,
+  .portfolio-page .hero--project__inner > * { animation-name: silver-text-in; }
+  .portfolio-home .leadership-artifact {
+    animation: silver-remit-in 320ms 120ms var(--ease-out-soft) backwards;
+    clip-path: none;
+  }
+  @keyframes silver-text-in {
+    from { opacity: .98; transform: translate3d(0,14px,0); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes silver-remit-in {
+    from { opacity: .98; transform: translate3d(0,8px,0); }
+    to { opacity: 1; transform: none; }
+  }
+}
+@media (max-width: 1100px) {
+  .portfolio-home .leadership-artifact { padding-inline: 22px; }
+  .portfolio-home .leadership-map > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding-block: 14px;
+  }
+  .portfolio-home .leadership-remit { gap: 24px; }
+}
+@media (max-width: 700px) {
+  .portfolio-home .executive-hero-actions { align-items: flex-start; gap: 8px 20px; }
+  .portfolio-home .leadership-artifact { padding: 20px 20px 0; }
+  .portfolio-home .leadership-artifact__title { font-size: 32px; }
+  .portfolio-home .leadership-remit { grid-template-columns: 1fr; gap: 24px; padding-bottom: 32px; }
+  .portfolio-home .leadership-remit article { padding-top: 18px; }
+  .portfolio-home .studio-work { padding-top: 36px; }
+}

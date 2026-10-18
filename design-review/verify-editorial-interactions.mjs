@@ -1,0 +1,17 @@
+import fs from 'node:fs/promises';
+import {createRequire} from 'node:module';
+const require=createRequire('/Users/test/dev/designos/package.json'),{chromium}=require('playwright');
+const dir='.designos/editorial-home/qa';const result={checks:[],issues:[]};const check=(name,pass,evidence)=>{result.checks.push({name,pass,evidence});if(!pass)result.issues.push(name)};const b=await chromium.launch();
+try{
+ for(const width of [1440,834,390]){
+  const p=await b.newPage({viewport:{width,height:900}});await p.goto('http://127.0.0.1:4177/',{waitUntil:'networkidle'});await p.waitForTimeout(700);
+  for(const [section,expected] of [['#leadership','Leadership'],['#work','Work'],['.studio-contact',null]]){
+   const url=p.url();await p.locator(section).scrollIntoViewIfNeeded();await p.waitForTimeout(150);const active=await p.locator('.nav__link[aria-current="location"]').allTextContents();check(`active-${width}-${section}`,JSON.stringify(active)===JSON.stringify(expected?[expected]:[])&&p.url()===url,{active,url:p.url()});
+  }
+  await p.locator('#work').scrollIntoViewIfNeeded();await p.waitForTimeout(150);
+  if(width<=900){await p.locator('.nav__toggle').focus();await p.keyboard.press('Enter');await p.waitForTimeout(250);const active=p.locator('.nav__link[aria-current="location"]');check(`visible-active-menu-${width}`,await active.isVisible()&&(await active.innerText())==='Work'&&(await active.evaluate(el=>getComputedStyle(el,'::after').transform))==='matrix(1, 0, 0, 1, 0, 0)',{text:await active.innerText()});await p.keyboard.press('Escape');}
+  const button=p.locator('.studio-button').first();await button.hover();await p.mouse.down();await p.waitForTimeout(180);const pressed=await button.evaluate(el=>({background:getComputedStyle(el).backgroundColor,color:getComputedStyle(el).color,opacity:getComputedStyle(el).opacity,transform:getComputedStyle(el).transform}));await p.mouse.move(1,1);await p.mouse.up();check(`pressed-${width}`,pressed.background==='rgb(34, 38, 44)'&&pressed.color==='rgb(255, 255, 255)'&&pressed.opacity==='1'&&pressed.transform==='none',pressed);await p.close();
+ }
+ const live=await b.newPage();await live.goto('http://127.0.0.1:4177/',{waitUntil:'domcontentloaded'});const before=await live.evaluate(()=>document.getAnimations().filter(a=>a.playState==='running').length);await live.emulateMedia({reducedMotion:'reduce'});await live.waitForTimeout(75);const after=await live.evaluate(()=>({animations:document.getAnimations().filter(a=>a.playState==='running').length,opacity:getComputedStyle(document.querySelector('h1')).opacity,transform:getComputedStyle(document.querySelector('h1')).transform}));check('reduced-motion-during-hero',before>0&&after.animations===0&&after.opacity==='1'&&after.transform==='none',{before,after});await live.close();
+ const reduced=await b.newPage({reducedMotion:'reduce'});await reduced.goto('http://127.0.0.1:4177/',{waitUntil:'networkidle'});const initial=await reduced.evaluate(()=>({animations:document.getAnimations().filter(a=>a.playState==='running').length,opacity:getComputedStyle(document.querySelector('h1')).opacity,transform:getComputedStyle(document.querySelector('.leadership-artifact')).transform}));check('initial-reduced-motion',initial.animations===0&&initial.opacity==='1'&&initial.transform==='none',initial);await reduced.close();
+}finally{await b.close();result.verdict=result.issues.length?'fail':'pass';await fs.writeFile(dir+'/interaction-results.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));}

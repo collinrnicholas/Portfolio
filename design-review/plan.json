@@ -1,0 +1,77 @@
+{
+  "projectId": "collinnicholas",
+  "purpose": "Local portfolio design experiment. No pushes, deploys, or modifications to the two existing portfolio checkouts.",
+  "baseline": {
+    "repository": "https://github.com/collinrnicholas/Portfolio.git",
+    "commit": "7e49790",
+    "sourceAudit": "/Users/test/dev/designos/.designos/runs/20261017-135159-collinnicholas-audit-c8ia/findings.json",
+    "currentContentReference": "/Users/test/dev/collinnicholas-project-links-20261017/index.html",
+    "contentCaveat": "Current role and career metrics are supported by owner-maintained source, not independently audited. The shared content checkout is concurrently edited; read only."
+  },
+  "direction": {
+    "focalPoint": "Collin as a product leader who builds: a short claim paired with one real product artifact.",
+    "hierarchy": ["Specific proposition and selected work", "Project decisions and scoped enterprise results", "Career metadata and contact"],
+    "typePosture": "Keep Inter + Newsreader; warm editorial serif emphasis; honor saved 56/36/28 display direction, fluid bounds, 16px prose minimum, 1.5-1.65 body leading.",
+    "surfacePosture": "Warm ivory, charcoal ink, signature navy and restrained gold; fine rules, clear whitespace, large artifact surfaces; avoid generic repeated card walls and decorative gradients.",
+    "motionPosture": "User-triggered artifact transitions and active background inspired by Motion Primitives; 180-320ms transform/opacity, no auto-advance, no scroll hijack; static readable content without JS and under reduced motion."
+  },
+  "references": {
+    "designos": ["pack.portfolio-editorial", "hierarchy.focal", "motion.timing", "interaction.states", "accessibility.baseline"],
+    "uiUxProMax": {
+      "source": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "referenceCheckout": "/tmp/cn-ui-ux-pro-max.xjQaPh",
+      "commit": "56ea9cf174ed86786187daa9de0e6247cb0747e4",
+      "applied": ["portfolio-grid: Name/Role > Projects > About > Contact", "minimalism-and-swiss-style: high contrast grid and minimal decoration", "News Editorial typography: existing Newsreader with sans", "44px targets, reduced motion, reserved media space"],
+      "rejected": "Two full design-system searches produced unsuitable ecommerce/brutalist font recommendations; neither is persisted as an approved system. Targeted domain guidance is used instead."
+    },
+    "motionPrimitives": ["https://motion-primitives.com/docs/transition-panel", "https://motion-primitives.com/docs/animated-background", "https://motion-primitives.com/docs/in-view"],
+    "motionImplementation": "Native CSS/JS adaptations, not installed React components. Keep the existing static site and add no dependencies."
+  },
+  "plan": [
+    {
+      "id": "plan-01",
+      "title": "A concise proposition with a real artifact",
+      "scope": "index.html, css/studio.css",
+      "change": "Replace metric carousel with a compact editorial hero: name, Director of Product at Persado, under-20-word claim, one primary work action and a real PM Toolkit artifact. Put selected work immediately after hero.",
+      "acceptance": "At 1440px the hero contains under 90 visible words, a visible primary action, and a real product image; headline <=56px. At 390px the role and action remain readable, no horizontal overflow. No autoplay.",
+      "rules": ["portfolio.hero.claim", "hierarchy.first.view", "hierarchy.single.primary", "portfolio.motion.restraint"],
+      "risk": "medium"
+    },
+    {
+      "id": "plan-02",
+      "title": "Make selected work tangible and navigable",
+      "scope": "index.html, css/studio.css, assets/, js/studio.js",
+      "change": "Use real PM Toolkit images and clearly illustrative BidPacket/Arclo workflow graphics. Show PM Toolkit, BidPacket, Arclo Pro and Loupe with accurate status, concise problem/decision, and functioning project/live links. Use user-driven artifact tabs for selected views with Motion Primitives-inspired transitions.",
+      "acceptance": "Every featured project has a shipped artifact/named outcome or explicit development status and valid destination. No dummy video controls, href='#', fabricated user/revenue metrics or unlabeled mock screenshots. Artifact tabs respond to click and arrow keys and expose selected state. First artifact visible without JS.",
+      "rules": ["portfolio.proof.density", "portfolio.pacing", "interaction.keyboard.order", "interaction.hover.touch"],
+      "risk": "medium"
+    },
+    {
+      "id": "plan-03",
+      "title": "Current positioning and attributable proof",
+      "scope": "index.html, work.html, about.html, projects/*.html",
+      "change": "Bring in source-supported Persado Director positioning, current responsibilities and historical Employ results. Keep Arclo Pro separate from its prospecting pipeline; update stale BidPacket status; avoid unverified financial-loss claims.",
+      "acceptance": "Current employer is Persado on all pages; Employ role is historical; JazzHR spelling and LinkedIn slug match new profile. Revenue numbers name initiative, company and timeframe. BidPacket links to real sample and no longer claims its entire pipeline is unbuilt. All 6 routes load and existing deep dives remain accessible.",
+      "rules": ["portfolio.proof.density", "portfolio.contact", "hierarchy.levels"],
+      "risk": "medium"
+    },
+    {
+      "id": "plan-04",
+      "title": "One visual language and a reliable contact path",
+      "scope": "css/studio.css, all HTML routes, js/studio.js",
+      "change": "Share navigation, readable type, warm surface palette, keyboard focus and footer across routes. Use direct email contact, LinkedIn, GitHub, and existing resume. Mobile menu closes on Escape/navigation and exposes state.",
+      "acceptance": "Every page exposes contact without footer scrolling. All visible interactive mobile targets >=44x44; visible focus indicator; one h1 and no skipped heading levels; no serious/critical axe issues. Mobile menu is keyboard usable and no hidden focusable links. Prose >=16px.",
+      "rules": ["a11y.axe.critical", "a11y.headings", "a11y.names", "interaction.focus.visible", "portfolio.mobile.read"],
+      "risk": "medium"
+    },
+    {
+      "id": "plan-05",
+      "title": "Motion and responsive verification",
+      "scope": "js/studio.js, css/studio.css, design-review/",
+      "change": "Remove homepage carousel/counter choreography, keep interactions immediate with short transform/opacity transitions; verify 6 routes at desktop/tablet/mobile plus 320px overflow, reduced motion and JS-disabled homepage.",
+      "acceptance": "18/18 route/viewport captures succeed; 320px probe has no overflow; reduced motion has no looping or long animation; no failed local assets or browser errors; evidence and honest residuals saved. Original working trees remain unchanged by this experiment.",
+      "rules": ["motion.reduced", "motion.properties", "motion.scroll", "interaction.loading"],
+      "risk": "low"
+    }
+  ]
+}

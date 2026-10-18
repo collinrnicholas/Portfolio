@@ -1,0 +1,56 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {createRequire} from 'node:module';
+import {createHash} from 'node:crypto';
+import browserFacts from './qa-browser-facts.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const require=createRequire('/Users/test/dev/designos/package.json'),{chromium}=require('playwright');
+const dir=path.join(root,'.designos/editorial-home/qa/final');await fs.mkdir(dir,{recursive:true});
+const before='http://127.0.0.1:4176',after='http://127.0.0.1:4177';
+const result={before,after,matrix:[],preservation:[],responsive:[],navigation:[],menus:[],tabs:[],reduced:[],supporting:[],issues:[]};
+const check=(pass,message,evidence)=>{if(!pass)result.issues.push({message,evidence});};
+const manifest=JSON.parse(await fs.readFile(path.join(root,'.designos/editorial-home/before/manifest.json'),'utf8'));
+for(const [file,hash]of Object.entries(manifest)){
+ if(file==='index.html')continue;
+ const same=createHash('sha256').update(await fs.readFile(path.join(root,file))).digest('hex')===hash;result.preservation.push({file,unchanged:same});check(same,'Preserved file changed',file);
+}
+const baseline=await fs.readFile(path.join(root,'.designos/editorial-home/before/index.html'),'utf8');
+const current=await fs.readFile(path.join(root,'index.html'),'utf8');
+result.homeMarkupPreserved=current.replace('\n<link rel="stylesheet" href="css/editorial-home.css">','').replace('\n<script src="js/editorial-home.js" defer></script>','')===baseline;check(result.homeMarkupPreserved,'Homepage changed beyond two asset includes');
+const expected={'--color-background':'#F4F5F6','--color-surface':'#E7E9EC','--color-surface-elevated':'#FFFFFF','--color-text-primary':'#22262C','--color-text-secondary':'#59616B','--color-accent':'#6D777F','--color-border':'#D4D8DD','--color-button-primary':'#22262C','--color-button-text':'#FFFFFF','--color-hover':'#DDE1E6'};
+async function load(p,url){const r=await p.goto(url,{waitUntil:'networkidle'});await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(750);return r.status();}
+async function settle(p){await p.evaluate(async()=>{for(let y=0;y<document.documentElement.scrollHeight;y+=innerHeight*.8){scrollTo(0,y);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));}scrollTo(0,0)});await p.waitForTimeout(1100);}
+const browser=await chromium.launch();
+try{
+ for(const [name,width,height]of [['desktop',1440,900],['tablet',834,1112],['mobile',390,844]]){
+  const c=await browser.newContext({viewport:{width,height},isMobile:name==='mobile',hasTouch:name==='mobile'});const row={viewport:name};
+  for(const [stage,base]of [['before',before],['after',after]]){
+   const p=await c.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));p.on('requestfailed',r=>errors.push(r.failure()?.errorText));p.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url())});const status=await load(p,base);await settle(p);const facts=await p.evaluate(browserFacts);
+   row[stage]={status,errors,facts};await p.screenshot({path:path.join(dir,`home-${name}-${stage}.png`),fullPage:true,animations:'disabled'});await p.screenshot({path:path.join(dir,`home-${name}-fold-${stage}.png`),animations:'disabled'});
+   check(status===200&&!errors.length,'Page/asset failure',{name,stage,status,errors});check(!facts.overflow&&!facts.brokenImages.length&&facts.h1Count===1&&!facts.headingSkips.length,'Rendering regression',{name,stage,facts});
+   if(stage==='before'){await p.close();continue;}
+   await p.addScriptTag({path:require.resolve('axe-core/axe.min.js')});row.axe=await p.evaluate(async()=> (await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','best-practice']}})).violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))})));
+   check(!row.axe.some(v=>['serious','critical'].includes(v.impact)),'Serious/critical accessibility violation',row.axe);
+   const colors=await p.evaluate(keys=>Object.fromEntries(keys.map(k=>[k,getComputedStyle(document.body).getPropertyValue(k).trim()])),Object.keys(expected));row.colors=colors;check(Object.entries(expected).every(([k,v])=>colors[k].toUpperCase()===v),'Palette changed',colors);
+   const startURL=p.url();await p.locator('.studio-button').first().click();await p.waitForTimeout(200);result.navigation.push({viewport:name,location:'leadership',active:await p.locator('.nav__link[aria-current="location"]').allTextContents()});check((await p.locator('.nav__link[aria-current="location"]').textContent()).trim()==='Leadership','Leadership active indicator',name);
+   const hashURL=p.url();await p.locator('#work').scrollIntoViewIfNeeded();await p.waitForTimeout(150);const workActive=await p.locator('.nav__link[aria-current="location"]').allTextContents();check(JSON.stringify(workActive)===JSON.stringify(['Work'])&&p.url()===hashURL,'Scroll active indicator or URL mutation',{name,workActive,url:p.url(),hashURL});result.navigation.push({viewport:name,location:'work',active:workActive});
+   if(name!=='desktop'){
+    const toggle=p.locator('.nav__toggle');await toggle.focus();await p.keyboard.press('Enter');await p.waitForTimeout(250);const first=await p.evaluate(()=>document.activeElement.textContent.trim());await p.keyboard.press('Tab');const second=await p.evaluate(()=>document.activeElement.textContent.trim());await p.keyboard.press('Escape');const closed=await toggle.getAttribute('aria-expanded')==='false'&&await toggle.evaluate(el=>document.activeElement===el);result.menus.push({name,first,second,closed});check(first==='Leadership'&&second==='Work'&&closed,'Keyboard menu',result.menus.at(-1));
+   }
+   const tabs=p.getByRole('tab');for(let i=0;i<3;i++){await tabs.nth(i).focus();await p.keyboard.press('ArrowRight');await p.waitForTimeout(280);const tab=await p.evaluate(()=>{const el=document.activeElement,img=document.getElementById(el.getAttribute('aria-controls'))?.querySelector('img');return {selected:el.getAttribute('aria-selected'),name:el.innerText,loaded:!!img&&img.complete&&img.naturalWidth>0}});result.tabs.push({name,...tab});check(tab.selected==='true'&&tab.loaded,'Tab regression',tab);}
+   const button=p.locator('.studio-button').first();await button.scrollIntoViewIfNeeded();await button.hover();await p.waitForTimeout(220);row.hover=await button.evaluate(el=>({bg:getComputedStyle(el).backgroundColor,color:getComputedStyle(el).color,transform:getComputedStyle(el).transform,shadow:getComputedStyle(el).boxShadow,arrow:getComputedStyle(el.querySelector('span')).transform}));check(row.hover.bg==='rgb(54, 63, 73)'&&row.hover.color==='rgb(255, 255, 255)'&&row.hover.transform==='none'&&row.hover.shadow==='none','CTA hover',row.hover);await button.focus();row.focus=await button.evaluate(el=>({color:getComputedStyle(el).outlineColor,width:getComputedStyle(el).outlineWidth,style:getComputedStyle(el).outlineStyle}));check(row.focus.color==='rgb(34, 38, 44)'&&parseFloat(row.focus.width)>=2&&row.focus.style!=='none','Focus visibility',row.focus);
+   await p.emulateMedia({reducedMotion:'reduce'});await p.waitForTimeout(100);const reduced=await p.evaluate(()=>({animations:document.getAnimations().filter(a=>a.playState==='running').length,values:[...document.querySelectorAll('.enterprise-results__number')].map(el=>el.innerText)}));result.reduced.push({name,...reduced});check(reduced.animations===0&&JSON.stringify(reduced.values)===JSON.stringify(['$1.76M','36%','1,500']),'Reduced motion',reduced);await p.close();
+  }
+  row.contentPreserved=row.before.facts.text===row.after.facts.text;check(row.contentPreserved,'Rendered content changed',name);result.matrix.push(row);await c.close();
+ }
+ const c=await browser.newContext();const p=await c.newPage();
+ for(const width of [320,375,390,700,701,834,900,901,1024,1100,1280,1440]){
+  await p.setViewportSize({width,height:900});await load(p,after);const state=await p.evaluate(()=>{const h=document.querySelector('h1'),r=document.createRange();r.selectNode(h.firstChild);const first=[...r.getClientRects()];r.selectNodeContents(h.querySelector('em'));const second=[...r.getClientRects()];return {width:innerWidth,overflow:document.documentElement.scrollWidth>innerWidth,headlineFirstLines:new Set(first.map(r=>r.top)).size,headlineSecondLines:new Set(second.map(r=>r.top)).size,font:getComputedStyle(h).fontSize,columns:getComputedStyle(document.querySelector('.studio-hero')).gridTemplateColumns.split(' ').length,card:document.querySelector('.leadership-artifact').getBoundingClientRect().width}});result.responsive.push(state);check(!state.overflow&&state.headlineFirstLines===1&&state.headlineSecondLines===1,'Overflow or awkward hero wrapping',state);if(width===320)await p.screenshot({path:path.join(dir,'home-320-after.png'),fullPage:true,animations:'disabled'});
+ }
+ for(const url of ['/work.html','/about.html','/projects/arclo-prospecting.html','/projects/bidpacket.html','/projects/the-pm-toolkit.html']){const status=await load(p,after+url);const newAssets=await p.locator('link[href*="editorial-home"],script[src*="editorial-home"]').count();result.supporting.push({url,status,newAssets});check(status===200&&newAssets===0,'Homepage scope escaped',{url,status,newAssets});}
+ await c.close();
+ // Count a reveal across two visits to the same viewport region; observer must unobserve it.
+ const once=await browser.newPage({viewport:{width:1440,height:900}});await load(once,after);await once.evaluate(()=>{window.revealCount=0;document.querySelector('.work-feature').addEventListener('animationstart',e=>{if(e.animationName==='editorial-section-in')window.revealCount++})});await once.locator('.work-feature').first().scrollIntoViewIfNeeded();await once.waitForTimeout(500);const firstCount=await once.evaluate(()=>window.revealCount);await once.evaluate(()=>scrollTo(0,0));await once.waitForTimeout(150);await once.locator('.work-feature').first().scrollIntoViewIfNeeded();await once.waitForTimeout(500);result.once={first:firstCount,second:await once.evaluate(()=>window.revealCount)};check(result.once.first===1&&result.once.second===1,'Reveal replay',result.once);await once.close();
+ const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const n=await nojs.newPage();await load(n,after);await n.locator('.pm-artifacts').scrollIntoViewIfNeeded();result.noJS=await n.evaluate(()=>({h1Opacity:getComputedStyle(document.querySelector('h1')).opacity,cardOpacity:getComputedStyle(document.querySelector('.leadership-artifact')).opacity,img:document.querySelector('.artifact-panel img').complete&&document.querySelector('.artifact-panel img').naturalWidth>0}));check(result.noJS.h1Opacity==='1'&&result.noJS.cardOpacity==='1'&&result.noJS.img,'No-JS content',result.noJS);await nojs.close();
+}finally{await browser.close();result.verdict=result.issues.length?'fail':'pass';await fs.writeFile(path.join(dir,'results.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({verdict:result.verdict,preserved:result.preservation.length,matrix:result.matrix.length,responsive:result.responsive,issues:result.issues},null,2));}

@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "defaultProject": "collinnicholas",
+  "projects": [
+    {
+      "id": "collinnicholas",
+      "name": "Collin Nicholas \u2014 portfolio",
+      "root": ".",
+      "framework": "static-html",
+      "baseUrl": "http://127.0.0.1:4178",
+      "routes": [
+        {
+          "name": "home",
+          "path": "/",
+          "label": "Home"
+        }
+      ],
+      "viewports": [
+        {
+          "name": "desktop",
+          "width": 1440,
+          "height": 900,
+          "deviceScaleFactor": 2,
+          "isMobile": false
+        },
+        {
+          "name": "tablet",
+          "width": 834,
+          "height": 1112,
+          "deviceScaleFactor": 2,
+          "isMobile": false
+        },
+        {
+          "name": "mobile",
+          "width": 390,
+          "height": 844,
+          "deviceScaleFactor": 3,
+          "isMobile": true
+        }
+      ],
+      "commands": {
+        "install": [],
+        "build": [],
+        "typecheck": [],
+        "test": [],
+        "serve": [
+          "python3",
+          "-m",
+          "http.server",
+          "4178",
+          "--bind",
+          "127.0.0.1"
+        ]
+      },
+      "design": {
+        "identity": "Silver Graphite: cool silver surfaces, charcoal typography, preserved editorial layout and factual leadership content; restrained motion.",
+        "tokenSources": [
+          "css/"
+        ],
+        "tags": [
+          "portfolio",
+          "editorial",
+          "product-leadership",
+          "case-study"
+        ],
+        "motionPosture": "restrained"
+      },
+      "notes": "Local isolated design experiment. Static HTML. No deploy or push. Current professional copy referenced from existing owner-maintained source. Motion Primitives-inspired native CSS/JS."
+    }
+  ],
+  "safety": {
+    "allowedRoots": [],
+    "allowedCommands": [
+      "npm",
+      "node",
+      "npx",
+      "git",
+      "python3",
+      "tsc"
+    ],
+    "maxIterations": 3,
+    "localOnly": true,
+    "allowDeploy": false
+  },
+  "knowledge": {
+    "packs": [
+      "/Users/test/dev/designos/knowledge/packs"
+    ],
+    "maxResults": 6
+  },
+  "review": {
+    "vision": {
+      "provider": "none",
+      "maxScreenshots": 6
+    },
+    "artifacts": ".designos/runs"
+  }
+}
