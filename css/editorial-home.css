@@ -294,3 +294,26 @@
   .portfolio-home .studio-contact { gap: var(--editorial-space-lg); padding-block: var(--editorial-space-2xl); }
   .portfolio-home .footer { padding-block: var(--editorial-space-lg) var(--editorial-space-md); }
 }
+
+/* Outcomes lead the leadership section; the portfolio becomes the proof that follows. */
+.portfolio-home .studio-enterprise > .studio-container > .enterprise-history:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.portfolio-home .enterprise-history h2 {
+  font: 500 36px/1.15 var(--studio-sans);
+  letter-spacing: -1.3px;
+  margin: 0 0 var(--editorial-space-md);
+}
+.portfolio-home .enterprise-history h2 em {
+  font-family: var(--studio-serif);
+  font-weight: 400;
+}
+.portfolio-home .enterprise-current {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--editorial-space-md);
+}
+
+@media (max-width: 700px) {
+  .portfolio-home .enterprise-history h2 { font-size: 32px; }
+}
