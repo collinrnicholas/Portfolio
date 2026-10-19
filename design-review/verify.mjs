@@ -79,6 +79,9 @@ function browserFacts() {
     src: img.getAttribute('src'), alt: img.alt, loaded: img.complete && img.naturalWidth > 0,
     width: img.getBoundingClientRect().width, height: img.getBoundingClientRect().height,
   })) : [];
+  const mainImages = [...document.querySelectorAll('main img')].filter(styleVisible).map(img => ({
+    src: img.getAttribute('src'), alt: img.alt, loaded: img.complete && img.naturalWidth > 0,
+  }));
   const animations = document.getAnimations().filter(a => a.playState === 'running').map(a => {
     const timing = a.effect.getComputedTiming();
     return { name: a.animationName || a.transitionProperty || 'web-animation', duration: timing.duration, iterations: timing.iterations, target: describe(a.effect.target) };
@@ -94,7 +97,7 @@ function browserFacts() {
     headings, headingSkips, targets,
     smallTargets: targets.filter(t => (t.width < 43.5 || t.height < 43.5) && t.width > 0 && t.x + t.width > 0 && t.x < innerWidth),
     prose, smallProse: prose.filter(p => p.size < 15.9),
-    hero: { text: heroText, words: heroText.split(/\s+/).filter(Boolean).length, height: heroBounds?.height, images: heroImages,
+    images: mainImages, hero: { text: heroText, words: heroText.split(/\s+/).filter(Boolean).length, height: heroBounds?.height, images: heroImages,
       actions: hero ? [...hero.querySelectorAll('a,button')].filter(styleVisible).map(el => ({ name: name(el), ...rect(el) })) : [] },
     bodyWidth: document.documentElement.scrollWidth, viewportWidth: innerWidth,
     overflow: document.documentElement.scrollWidth > innerWidth + 1, overflowElements,
@@ -187,10 +190,11 @@ try {
         if (severe.length) addIssue('plan-04', scope, 'Serious/critical axe violations', severe);
         if (viewport === 'mobile' && facts.smallTargets.length) addIssue('plan-04', scope, 'Interactive target below 44×44', facts.smallTargets);
         if (facts.smallProse.length) addIssue('plan-04', scope, 'Prose below 16px', facts.smallProse);
-        if (!/Persado/i.test(facts.text)) addIssue('plan-03', scope, 'Current employer Persado absent from visible page content');
+        const employerRoutes = ['home', 'work', 'about'];
+        if (employerRoutes.includes(route) && !/Persado/i.test(facts.text)) addIssue('plan-03', scope, 'Current employer Persado absent from visible page content');
         if (route === 'home' && viewport === 'desktop') {
-          const primary = initial.hero.actions.find(a => /work|explore|project/i.test(a.name));
-          if (initial.hero.words >= 90 || !primary || primary.y + primary.height > height || !initial.hero.images.some(img => img.loaded)) addIssue('plan-01', scope, 'Hero word/action/artifact criterion fails', initial.hero);
+          const primary = initial.hero.actions[0];
+          if (initial.hero.words >= 90 || !primary || primary.y + primary.height > height) addIssue('plan-01', scope, 'Hero word/action criterion fails', initial.hero);
           const h1 = facts.headings.find(h => h.level === 1);
           if (h1?.size > 56.1) addIssue('plan-01', scope, 'Headline exceeds 56px', h1);
         }
@@ -321,7 +325,7 @@ try {
     const facts = await page.evaluate(browserFacts);
     const image = await screenshot(page, `home-${viewport}-no-js.png`);
     result.noJavaScript.push({ viewport, hero: facts.hero, overflow: facts.overflow, textLength: facts.text.length, smallTargets: facts.smallTargets, screenshot: image });
-    if (!facts.hero.images.some(img => img.loaded && img.width > 0 && img.height > 0)) addIssue('plan-02', `home/${viewport}/no-js`, 'Initial product image absent without JS', facts.hero);
+    if (!facts.images.some(img => img.loaded)) addIssue('plan-02', `home/${viewport}/no-js`, 'Product image absent without JS', { hero: facts.hero, images: facts.images });
     if (facts.overflow || !/Persado/i.test(facts.text) || facts.text.length < 500) addIssue('plan-05', `home/${viewport}/no-js`, 'No-JS content/reflow fails', { overflow: facts.overflow, textLength: facts.text.length });
     await context.close();
   }

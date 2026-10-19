@@ -120,3 +120,102 @@
   .portfolio-home .leadership-remit article { padding-top: 18px; }
   .portfolio-home .studio-work { padding-top: 36px; }
 }
+
+/* ============================================================
+   Content rewrites: proof strip, 2x2 results, quotes, closing
+   Rules reuse existing tokens; no new palette or type scale.
+   ============================================================ */
+
+/* Home hero without the side card: single measure, same rhythm. */
+.portfolio-home .studio-hero.studio-hero--solo { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.portfolio-home .studio-hero.studio-hero--solo .studio-hero__copy { max-width: 720px; }
+
+/* Proof strip replaces the current-remit card. */
+.portfolio-home .proof-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  border-top: 1px solid var(--studio-rule);
+  border-bottom: 1px solid var(--studio-rule);
+  padding-block: 26px;
+}
+.portfolio-home .proof-strip > div { border-left: 1px solid var(--color-border); padding-left: 22px; }
+.portfolio-home .proof-strip > div:first-child { border-left: 0; padding-left: 0; }
+.portfolio-home .proof-strip__number {
+  display: block;
+  font: 400 34px/1 var(--studio-serif);
+  letter-spacing: -1px;
+  color: var(--color-text-primary);
+  margin-bottom: 9px;
+}
+.portfolio-home .proof-strip__label {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* Four results in a 2x2 grid. */
+.portfolio-home .enterprise-results--quad { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 40px; }
+.portfolio-home .enterprise-results--quad p { max-width: 42ch; }
+
+/* Quotes. */
+.portfolio-home .quote-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+}
+.portfolio-home .quote-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--studio-rule);
+}
+.portfolio-home .quote-card p {
+  font: 400 19px/1.45 var(--studio-serif);
+  letter-spacing: -.3px;
+  color: var(--color-text-primary);
+  margin: 0 0 18px;
+}
+.portfolio-home .quote-card footer { display: grid; gap: 3px; margin-top: auto; }
+.portfolio-home .quote-card strong { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+.portfolio-home .quote-card span { font-size: 13px; line-height: 1.5; color: var(--color-text-secondary); }
+
+/* Closing line under the numbered list. */
+.portfolio-home .approach-closing {
+  margin: var(--editorial-space-md) 0 0;
+  padding-top: var(--editorial-space-md);
+  border-top: 1px solid var(--studio-rule);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--studio-muted);
+}
+
+/* Also-building line under independent products. */
+.portfolio-home .also-building {
+  margin: var(--editorial-space-md) 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+.portfolio-home .also-building a { color: var(--color-text-primary); }
+
+/* Italic emphasis on page heroes that use the sans display face. */
+.hero__project-title { max-width: 26ch; }
+.hero__project-title em {
+  font-family: var(--studio-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.5px;
+}
+
+@media (max-width: 900px) {
+  .portfolio-home .proof-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .portfolio-home .proof-strip > div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .portfolio-home .quote-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+}
+@media (max-width: 700px) {
+  .portfolio-home .enterprise-results--quad { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .portfolio-home .proof-strip__number { font-size: 30px; }
+}
