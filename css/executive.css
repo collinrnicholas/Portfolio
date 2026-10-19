@@ -219,3 +219,109 @@
   .portfolio-home .enterprise-results--quad { grid-template-columns: minmax(0, 1fr); gap: 26px; }
   .portfolio-home .proof-strip__number { font-size: 30px; }
 }
+
+/* ============================================================
+   V2: executive identity, principles, case previews, journey
+   ============================================================ */
+
+/* Hero identity: disciplines line above the headline, role beneath the lede. */
+.portfolio-home .hero-role {
+  margin: 18px 0 0;
+  font-family: var(--font-code);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+/* Four leadership principles in a 2x2 grid using the existing principle card. */
+.principles.principles--four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.principles--four .principle { padding: var(--space-xl) var(--space-lg); }
+.principles--four .principle__body { font-size: 16px; }
+.principles--four .principle__example {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-text-tertiary);
+}
+
+/* Three case-study previews reusing the case-study card. */
+.cs-grid.cs-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cs-grid--three .cs-card { padding: var(--space-lg); }
+.cs-grid--three .cs-card__result {
+  margin-top: auto;
+  padding-top: var(--space-md);
+  font-family: var(--font-code);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--color-signature);
+}
+
+/* Portfolio pillars: three connected bets with labelled evidence. */
+.pillar-facts { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 8px; }
+.pillar-facts li { font-size: 16px; line-height: 1.55; color: var(--color-text-secondary); }
+.pillar-facts strong { font-weight: 500; color: var(--color-text-primary); }
+
+/* Independent products: compact three-up, art directed by the existing card. */
+.venture-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px; }
+.venture { display: flex; flex-direction: column; padding-top: 18px; border-top: 1px solid var(--studio-rule); }
+.venture__meta { display: flex; justify-content: space-between; gap: 12px; font-family: var(--font-code);
+  font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-text-tertiary); }
+.venture h3 { margin: 12px 0 8px; font: 400 24px/1.2 var(--studio-serif); letter-spacing: -.4px; color: var(--color-text-primary); }
+.venture p { margin: 0 0 10px; font-size: 16px; line-height: 1.6; color: var(--color-text-secondary); }
+.venture p strong { font-weight: 500; color: var(--color-text-primary); }
+.venture__links { margin-top: auto; display: flex; gap: 18px; flex-wrap: wrap; }
+
+/* Journey: progressive disclosure inside the existing timeline. */
+.journey { --journey-rule: var(--studio-rule); }
+.journey__more { margin-top: 14px; border-top: 1px solid var(--journey-rule); padding-top: 12px; }
+.journey__more summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-code);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+.journey__more summary::-webkit-details-marker { display: none; }
+.journey__more summary::after { content: "+"; font-size: 13px; color: var(--color-signature); }
+.journey__more[open] summary::after { content: "–"; }
+.journey__more summary:focus-visible { outline: 2px solid var(--color-signature); outline-offset: 4px; }
+.journey__more > *:not(summary) { margin-top: 12px; }
+.journey__facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+.journey__facts li { font-size: 16px; line-height: 1.6; color: var(--color-text-secondary); }
+.journey__facts strong { font-weight: 500; color: var(--color-text-primary); }
+.journey__links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 14px; }
+
+@media (max-width: 1000px) {
+  .venture-grid, .cs-grid.cs-grid--three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .principles.principles--four, .venture-grid, .cs-grid.cs-grid--three { grid-template-columns: minmax(0, 1fr); }
+  .venture h3 { font-size: 22px; }
+}
+
+@media (max-width: 760px) {
+  /* Touch targets: text links carry a full-height hit area on mobile. */
+  .portfolio-home .studio-text-link, .portfolio-home .studio-secondary-link,
+  .portfolio-page .studio-text-link, .portfolio-page .studio-secondary-link,
+  .venture__links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .pillar-facts li, .venture p { font-size: 16px; }
+}
+
+/* Case-study previews on the homepage use the same 16px prose floor. */
+.portfolio-home .cs-card__desc { font-size: 16px; }
+
+/* Journey disclosure: give the expanded record room to breathe. */
+.journey__more { margin-top: var(--space-sm, 12px); }
+.journey__more[open] summary { margin-bottom: 10px; }
+.journey__facts { margin-top: 4px; }
+.journey__facts li { margin-bottom: 10px; }
+.journey__links { display: flex; flex-wrap: wrap; gap: 6px 24px; margin-top: 6px; }

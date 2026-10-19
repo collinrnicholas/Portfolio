@@ -26,6 +26,10 @@ const routes = [
   ['arclo-prospecting', '/projects/arclo-prospecting.html'],
   ['bidpacket', '/projects/bidpacket.html'],
   ['the-pm-toolkit', '/projects/the-pm-toolkit.html'],
+  ['journey', '/journey.html'],
+  ['case-shared-service', '/projects/case-shared-service.html'],
+  ['case-fortune100', '/projects/case-fortune100.html'],
+  ['case-delivery-model', '/projects/case-delivery-model.html'],
 ];
 const viewports = [
   ['desktop', 1440, 900], ['tablet', 834, 1112], ['mobile', 390, 844],
@@ -66,7 +70,7 @@ function browserFacts() {
       name: name(el), selector: describe(el), width: +r.width.toFixed(2), height: +r.height.toFixed(2),
       x: +r.x.toFixed(2), y: +r.y.toFixed(2), href: el.getAttribute('href'),
     }; });
-  const prose = [...document.querySelectorAll('main p, main li, .prose p, .prose li')].filter(el => styleVisible(el) && !el.closest('[class*="eyebrow"],[class*="label"],[class*="kicker"],[class*="caption"],[class*="tag"],[class*="status"],figcaption,nav')).map(el => {
+  const prose = [...document.querySelectorAll('main p, main li, .prose p, .prose li')].filter(el => styleVisible(el) && !el.closest('[class*="eyebrow"],[class*="label"],[class*="kicker"],[class*="caption"],[class*="tag"],[class*="status"],[data-meta],figcaption,nav')).map(el => {
     const cs = getComputedStyle(el); return {
       text: name(el), selector: describe(el), size: parseFloat(cs.fontSize),
       lineHeight: cs.lineHeight === 'normal' ? null : +(parseFloat(cs.lineHeight) / parseFloat(cs.fontSize)).toFixed(3),
@@ -292,7 +296,23 @@ try {
         if (!state.visible || !state.images.length || state.images.some(img => !img.loaded)) addIssue('plan-02', `home/${viewport}/tabs`, 'Selected artifact panel/image does not render', state);
       }
       result.keyboard.push({ viewport, selectedArtifactPanels: panels });
-    } else addIssue('plan-02', `home/${viewport}`, 'No semantic artifact tabs found');
+    } else {
+      // V2 replaced the artifact tab strip with a typographic executive hero.
+      const structure = await page.evaluate(() => {
+        const sections = [...document.querySelectorAll('main > section')];
+        const hero = sections[0], next = sections[1];
+        const txt = el => (el ? el.innerText.replace(/\s+/g, ' ').trim() : '');
+        return {
+          hero: txt(hero).slice(0, 400),
+          nextHeading: txt(next?.querySelector('h2')),
+          actions: hero ? [...hero.querySelectorAll('a,button')].map(el => el.innerText.trim()).filter(Boolean) : [],
+        };
+      });
+      result.keyboard.push({ viewport, executiveHero: structure });
+      if (!/director of product/i.test(structure.hero) || !/persado/i.test(structure.hero)) addIssue('plan-02', `home/${viewport}`, 'Hero does not state current title and employer', structure);
+      if (structure.actions.length < 2) addIssue('plan-02', `home/${viewport}`, 'Hero lacks primary and secondary action', structure);
+      if (!/moved the business/i.test(structure.nextHeading)) addIssue('plan-02', `home/${viewport}`, 'Commercial impact does not follow the hero', structure);
+    }
     await context.close();
   }
 
@@ -325,7 +345,7 @@ try {
     const facts = await page.evaluate(browserFacts);
     const image = await screenshot(page, `home-${viewport}-no-js.png`);
     result.noJavaScript.push({ viewport, hero: facts.hero, overflow: facts.overflow, textLength: facts.text.length, smallTargets: facts.smallTargets, screenshot: image });
-    if (!facts.images.some(img => img.loaded)) addIssue('plan-02', `home/${viewport}/no-js`, 'Product image absent without JS', { hero: facts.hero, images: facts.images });
+    if (!/director of product/i.test(facts.text) || !/moved the business/i.test(facts.text) || facts.hero.actions.length < 2) addIssue('plan-02', `home/${viewport}/no-js`, 'Executive hero or commercial impact absent without JS', { hero: facts.hero });
     if (facts.overflow || !/Persado/i.test(facts.text) || facts.text.length < 500) addIssue('plan-05', `home/${viewport}/no-js`, 'No-JS content/reflow fails', { overflow: facts.overflow, textLength: facts.text.length });
     await context.close();
   }
@@ -336,6 +356,33 @@ try {
   const dummyLinks = result.matrix.flatMap(row => (row.links || []).filter(l => l.visible && (l.href === '#' || /^javascript:/i.test(l.href))).map(l => ({ route: row.route, viewport: row.viewport, ...l })));
   result.links.dummyLinks = dummyLinks;
   if (dummyLinks.length) addIssue('plan-02', 'all-routes', 'Dummy destination remains', dummyLinks);
+
+  // plan-06: every featured case study carries the seven-part decision structure.
+  const caseRoutes = ['case-shared-service', 'case-fortune100', 'case-delivery-model'];
+  const chapterLabels = ['Business context', 'Strategic problem', 'Options and trade-offs', 'Decision and rationale', 'My leadership role', 'Measurable outcomes', 'Lessons and reflections'];
+  const structureContext = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  for (const route of caseRoutes) {
+    const page = await structureContext.newPage();
+    await visit(page, `/${routes.find(r => r[0] === route)[1].replace(/^\//, '')}`);
+    const labels = await page.$$eval('.cs-chapter__label', els => els.map(el => el.innerText.replace(/\s+/g, ' ').trim()));
+    const found = chapterLabels.filter(want => labels.some(label => label.toLowerCase().includes(want.toLowerCase())));
+    result.caseStructures = result.caseStructures || [];
+    result.caseStructures.push({ route, found: found.length, labels });
+    if (found.length < chapterLabels.length) addIssue('plan-06', route, 'Case study missing decision chapters', { missing: chapterLabels.filter(w => !found.includes(w)) });
+    await page.close();
+  }
+  const journeyPage = await structureContext.newPage();
+  await visit(journeyPage, '/journey.html');
+  const journeyFacts = await journeyPage.evaluate(() => ({
+    details: document.querySelectorAll('details').length,
+    periods: [...document.querySelectorAll('.timeline__period')].map(el => el.innerText.trim()),
+    h1: document.querySelector('h1')?.innerText.replace(/\s+/g, ' ').trim() || '',
+  }));
+  result.journey = journeyFacts;
+  if (journeyFacts.details < 5) addIssue('plan-06', 'journey', 'Journey lacks expandable role detail', journeyFacts);
+  if (journeyFacts.periods.length < 5) addIssue('plan-06', 'journey', 'Journey timeline is incomplete', journeyFacts);
+  await journeyPage.close();
+  await structureContext.close();
   result.links.linkedin = [...new Set(result.matrix.flatMap(row => (row.links || []).map(l => l.href).filter(href => /linkedin\.com\/in\//.test(href))))];
   if (result.links.linkedin.some(href => !/^https:\/\/(www\.)?linkedin\.com\/in\/collinnicholas\/?$/.test(href))) addIssue('plan-03', 'all-routes', 'LinkedIn slug differs from owner-maintained source', result.links.linkedin);
   const external = [...new Set(links.map(l => l.href).filter(href => /^https?:/.test(href) && !/linkedin\.com/.test(href)))];

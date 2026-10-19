@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recovering a Fortune 100 account — Case study — Collin Nicholas</title>
+<meta name="description" content="A post-acquisition integration failure put a Fortune 100 account up for termination. Six months of cross-functional recovery ended in a two-year, $880K agreement.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Recovering a Fortune 100 account — Collin Nicholas">
+<meta property="og:description" content="A Fortune 100 customer was ready to leave. The recovery ended in a two-year, $880K agreement and a 1.6x ARR expansion.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/grid.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/case-study.css">
+<link rel="stylesheet" href="../css/studio.css">
+<link rel="stylesheet" href="../css/motion.css">
+<link rel="stylesheet" href="../css/executive.css">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+</head>
+<body class="portfolio-page">
+<a href="#main-content" class="skip-link">Skip to content</a>
+<nav class="nav" aria-label="Main navigation">
+  <div class="container nav__inner">
+    <a href="../index.html" class="nav__logo" aria-label="Collin Nicholas — Home">Collin Nicholas<span>.</span></a>
+    <div class="nav__links" id="site-navigation">
+      <a class="nav__link" href="../index.html#leadership">Leadership</a>
+      <a class="nav__link" href="../work.html" aria-current="page">Work</a>
+      <a class="nav__link" href="../journey.html">Journey</a>
+      <a class="nav__link" href="../about.html">About</a>
+      <a class="nav__link" href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav__actions">
+      <a class="nav__cta" href="mailto:Collin.R.Nicholas@gmail.com">Let’s talk ↗</a>
+      <button type="button" class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<main id="main-content">
+<section class="hero--project">
+  <div class="container hero--project__inner">
+    <nav class="hero__breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../work.html">Work</a><span aria-hidden="true">/</span><span aria-current="page">Fortune 100 recovery</span></nav>
+    <h1 class="hero__project-title">Recovering a <em>Fortune 100 account.</em></h1>
+    <p class="hero__project-lede">A failed integration after an acquisition left a major customer ready to terminate. The recovery took six months, four functions, and one uncomfortable admission.</p>
+    <div class="hero__meta"><div class="hero__meta-item"><div class="hero__meta-label">Role</div>
+<div class="hero__meta-value">Product lead, retention recovery</div></div>
+<div class="hero__meta-item"><div class="hero__meta-label">Company</div>
+<div class="hero__meta-value">Jobvite → Employ</div></div>
+<div class="hero__meta-item"><div class="hero__meta-label">Outcome</div>
+<div class="hero__meta-value">$880K · two-year agreement</div></div></div>
+  </div>
+</section>
+<div class="container">
+<article class="cs-chapter"><div class="cs-chapter__label">01 · Business context</div>
+<div>
+<h2 class="cs-chapter__title">A strategic account, mid-migration.</h2>
+<div class="cs-chapter__body">
+<p>A Fortune 100 customer ran a large portion of its hiring through our platform. When the business combined products after an acquisition, that customer was moved onto a shared integration path. It broke.</p>
+<p>This was not a bug with a workaround. Hiring workflows the customer had built their process around stopped behaving the way they had been promised, and their team had already escalated to executive level.</p>
+</div></div></article>
+<article class="cs-chapter"><div class="cs-chapter__label">02 · Strategic problem</div>
+<div>
+<h2 class="cs-chapter__title">The contract gave them an easy exit.</h2>
+<div class="cs-chapter__body">
+<p>The agreement included termination for convenience. The customer could leave without cause, and they were preparing to. Retention was not the only exposure: this was a reference account in their sector, and losing it would have cost more than the ARR.</p>
+<p>The technical problem was tractable. The commercial problem was trust, and trust was running out on their timeline, not ours.</p>
+</div></div></article>
+<article class="cs-chapter"><div class="cs-chapter__label">03 · Options and trade-offs</div>
+<div>
+<h2 class="cs-chapter__title">Three responses, and what each one cost.</h2>
+<div class="cs-chapter__body">
+<ol class="cs-list" aria-label="Options considered">
+<li class="cs-list__item"><strong class="cs-list__key">Hold the migration</strong><span class="cs-list__val">Safest technically. It confirmed the customer's fear that we could not deliver what we had sold.</span></li>
+<li class="cs-list__item"><strong class="cs-list__key">Revert them to the old path</strong><span class="cs-list__val">Restored service immediately, but split the platform strategy and created a permanent exception.</span></li>
+<li class="cs-list__item"><strong class="cs-list__key">Fix forward with a named team</strong><span class="cs-list__val">Highest short-term cost in engineering focus. The only option that kept the customer, the platform, and the reference intact.</span></li>
+</ol>
+</div></div></article>
+<article class="cs-chapter"><div class="cs-chapter__label">04 · Decision and rationale</div>
+<div>
+<h2 class="cs-chapter__title">Fix forward, and say the hard part first.</h2>
+<div class="cs-chapter__body">
+<p>We chose to fix forward. My reasoning was that a temporary exception would have solved this quarter's contract and created next year's architecture problem, while also signalling that the customer's own migration was negotiable.</p>
+<p>The first decision was not technical. I told the customer plainly that we had broken their workflow, what we were changing, and what would be true by a specific date. That admission bought the time the engineering work required.</p>
+</div></div></article>
+<article class="cs-chapter"><div class="cs-chapter__label">05 · My leadership role</div>
+<div>
+<h2 class="cs-chapter__title">Leading across four functions and an executive relationship.</h2>
+<div class="cs-chapter__body">
+<p>I led the product recovery: prioritization against the rest of the roadmap, the technical plan with engineering, and the sequencing that got the customer's critical workflows stable first. I ran the working relationship with Sales and Customer Success for six months, and wrote the executive updates the customer's leadership read.</p>
+<p>Engineering did not report to me, the account team did not report to me, and the renewal was not mine to sign. The work was alignment under pressure: one priority, one story, one date.</p>
+</div></div></article>
+<article class="cs-chapter"><div class="cs-chapter__label">06 · Measurable outcomes</div>
+<div>
+<h2 class="cs-chapter__title">Retained, expanded, and locked in.</h2>
+<div class="cs-chapter__body">
+<p>The customer stayed. They renewed at $440K ARR, up from about $271K, on a two-year, $880K enterprise agreement — a 1.6x expansion rather than a save.</p>
+<p>They also dropped the termination-for-convenience clause. That was the truest measure of the outcome: the exit got harder because the confidence came back.</p>
+</div></div></article>
+<article class="cs-chapter"><div class="cs-chapter__label">07 · Lessons and reflections</div>
+<div>
+<h2 class="cs-chapter__title">What I took from it.</h2>
+<div class="cs-chapter__body">
+<p>Integration work is customer-facing strategy, not plumbing. The failure was not that a migration went badly; it was that we treated a strategic account's migration as an internal sequencing decision.</p>
+<p>I now ask, before any platform consolidation, which customer would feel it first and what we owe them before the change lands. That question is cheaper to answer at design time than in a recovery meeting.</p>
+</div></div></article>
+<div class="next-project"><div class="next-project__label">Next case study</div><a class="next-project__link" href="case-delivery-model.html"><span class="next-project__title">Changing how the team ships</span><span class="next-project__arrow" aria-hidden="true">→</span></a></div></div>
+</main>
+<footer class="footer">
+  <div class="container footer__inner">
+    <div><div class="footer__brand-name">Collin Nicholas<span>.</span></div>
+<div class="footer__brand-note">Product strategy. Customer value. Commercial impact.</div></div>
+    <div class="footer__links">
+      <a class="footer__link" href="../journey.html">Journey</a>
+      <a class="footer__link" href="../work.html">Work</a>
+      <a class="footer__link" href="../about.html">About</a>
+      <a class="footer__link" href="../Collin_Nicholas_Resume.pdf" download>Résumé</a>
+      <a class="footer__link" href="mailto:Collin.R.Nicholas@gmail.com">Email</a>
+      <a class="footer__link" href="https://www.linkedin.com/in/collinnicholas/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="footer__meta">© 2026 Collin Nicholas · Product strategy. Customer value. Commercial impact.</div>
+  </div>
+</footer>
+<script src="../js/studio.js"></script>
+<script src="../js/motion.js"></script>
+</body>
+</html>

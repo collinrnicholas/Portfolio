@@ -19,7 +19,7 @@ export default function browserFacts() {
       name: name(el), selector: describe(el), width: +r.width.toFixed(2), height: +r.height.toFixed(2),
       x: +r.x.toFixed(2), y: +r.y.toFixed(2), href: el.getAttribute('href'),
     }; });
-  const prose = [...document.querySelectorAll('main p, main li, .prose p, .prose li')].filter(el => styleVisible(el) && !el.closest('[class*="eyebrow"],[class*="label"],[class*="kicker"],[class*="caption"],[class*="tag"],[class*="status"],figcaption,nav')).map(el => {
+  const prose = [...document.querySelectorAll('main p, main li, .prose p, .prose li')].filter(el => styleVisible(el) && !el.closest('[class*="eyebrow"],[class*="label"],[class*="kicker"],[class*="caption"],[class*="tag"],[class*="status"],[data-meta],figcaption,nav')).map(el => {
     const cs = getComputedStyle(el); return {
       text: name(el), selector: describe(el), size: parseFloat(cs.fontSize),
       lineHeight: cs.lineHeight === 'normal' ? null : +(parseFloat(cs.lineHeight) / parseFloat(cs.fontSize)).toFixed(3),

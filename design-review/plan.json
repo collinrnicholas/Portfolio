@@ -49,10 +49,10 @@
   "plan": [
     {
       "id": "plan-01",
-      "title": "A concise proposition with a real artifact",
+      "title": "Executive positioning in the opening viewport",
       "scope": "index.html, css/studio.css",
-      "change": "Replace metric carousel with a compact editorial hero: name, Director of Product at Persado, under-20-word claim, one primary work action and a real PM Toolkit artifact. Put selected work immediately after hero.",
-      "acceptance": "At 1440px the hero contains under 90 visible words, a visible primary action above the fold, and a headline <=56px. At 390px the role and action remain readable, no horizontal overflow. No autoplay. (Artifact proof moved to Independent products \u2014 content rewrite, Oct 2026.)",
+      "change": "Lead with the identity block (name, disciplines, current title and employer), the unchanged headline, executive supporting copy, and the Explore my impact / How I lead actions with résumé, LinkedIn, and contact one click away.",
+      "acceptance": "At every viewport the hero states Director of Product at Persado and exposes at least two actions; no headshot is added without an approved photograph; hero stays a typographic composition. No autoplay.",
       "rules": [
         "portfolio.hero.claim",
         "hierarchy.first.view",
@@ -63,10 +63,10 @@
     },
     {
       "id": "plan-02",
-      "title": "Make selected work tangible and navigable",
+      "title": "Commercial impact immediately after the hero, and a tangible independent-product section",
       "scope": "index.html, css/studio.css, assets/, js/studio.js",
-      "change": "Use real PM Toolkit images and clearly illustrative BidPacket/Arclo workflow graphics. Show PM Toolkit, BidPacket, Arclo Pro and Loupe with accurate status, concise problem/decision, and functioning project/live links. Use user-driven artifact tabs for selected views with Motion Primitives-inspired transitions.",
-      "acceptance": "Every featured project has a shipped artifact/named outcome or explicit development status and valid destination. No dummy video controls, href='#', fabricated user/revenue metrics or unlabeled mock screenshots. Artifact tabs respond to click and arrow keys and expose selected state. Real product image present without JS.",
+      "change": "Homepage order: hero, \"Decisions that moved the business\" with four documented metrics, Persado portfolio pillars, How I lead, three case studies, journey preview, independent products, quotes, contact. Independent products stay compact with accurate status.",
+      "acceptance": "The section directly after the hero is the commercial impact section; every metric names role and distinguishes pipeline from recognized revenue; independent products are present, subordinate, and never claim unverified revenue. Hierarchy is present without JS. (Artifact tab strip retired in the executive restructure, Oct 2026.)",
       "rules": [
         "portfolio.proof.density",
         "portfolio.pacing",
@@ -80,7 +80,7 @@
       "title": "Current positioning and attributable proof",
       "scope": "index.html, work.html, about.html, projects/*.html",
       "change": "Bring in source-supported Persado Director positioning, current responsibilities and historical Employ results. Keep Arclo Pro separate from its prospecting pipeline; update stale BidPacket status; avoid unverified financial-loss claims.",
-      "acceptance": "Current employer is Persado on the home, work and about pages; Employ role is historical; JazzHR spelling and LinkedIn slug match new profile. Revenue numbers name initiative, company and timeframe. BidPacket links to real sample and no longer claims its entire pipeline is unbuilt. All 6 routes load and existing deep dives remain accessible. (Case studies are independent products and do not name Persado.)",
+      "acceptance": "Current employer is Persado on home, work, about, and journey; Employ and Jobvite are historical with the combined 2021-2026 tenure stated; every figure names initiative, company, and timeframe; all 10 routes load and existing deep dives remain reachable from Work.",
       "rules": [
         "portfolio.proof.density",
         "portfolio.contact",
@@ -116,6 +116,19 @@
         "interaction.loading"
       ],
       "risk": "low"
+    },
+    {
+      "id": "plan-06",
+      "title": "Case studies and an interactive executive journey",
+      "scope": "projects/case-*.html, journey.html, css/executive.css",
+      "change": "Three flagship case studies with the seven-part decision structure, plus a dedicated Executive Journey page using native disclosure for progressive detail.",
+      "acceptance": "Each case study contains context, problem, options, decision, role, outcomes, and reflection chapters; the journey presents five roles with dates, scope, and expandable detail; disclosure is keyboard and touch operable with no hover dependency.",
+      "rules": [
+        "hierarchy.levels",
+        "interaction.keyboard.order",
+        "portfolio.pacing"
+      ],
+      "risk": "medium"
     }
   ]
 }
